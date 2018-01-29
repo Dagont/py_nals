@@ -1,0 +1,1163 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{B7E490A9-E247-41BA-AD9D-D3169B59CDEB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactTasasCambio"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="186"
+  DTS:VersionGUID="{7B5E3E5B-D85F-478E-AF80-78F74BB952BE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.50.80.36.TOTTO_STA_WRK.consulta_ssrs]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{11A2C361-4D16-4D30-B27A-7EB024EA2EA0}"
+      DTS:ObjectName="10.50.80.36.TOTTO_STA_WRK.consulta_ssrs">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.50.80.36;User ID=consulta_ssrs;Initial Catalog=TOTTO_STA_WRK;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="+8wed6dbUA=="
+            IV="4nuME/Uxdfg=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>4nuME/UxdfgTpAhbizYaZOlf4sdYFc2Xkyd8h9NKi7Ww9AYaxPTqxTCFDnQhNXkRGIxZ+f7SFaTjaUhiOOgE/K49WtwrvxpQdq7Apv/gEb1CRzo1lY7lqC59NPh1EM7cLuqSA8dxtBiqLi62l/XS5oaFzlIuacKhszgEej02mvA=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{B4743DC6-EE76-40DD-BF4F-2F0A76A47699}"
+      DTS:ObjectName="Prm_AutoFactTasasCambio">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{3B126BB6-9A8F-402F-80CE-DDEFF9040285}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactTasasCambio">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BCDA9A7F-E6B2-493E-9B0E-59B685307A79}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{631F888C-E89F-4648-8501-989C4D286CBB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C2A11894-DA1B-4798-A5B7-4050F2435DDC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F469C66E-E09F-45DC-9795-06C2AC57C838}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactTasasCambio"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{5090443E-E6B6-44BE-99D0-003EE568F457}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactTasasCambio"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactTasasCambio]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactTasasCambio"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5AE70CAC-8CE3-4C49-8645-045425F644C7}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactTasasCambio">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F2BFEBE5-C095-4260-BD56-46C95E025B17}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactTasasCambio"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactVentas"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input].Columns[FROMCURRENCYCODE]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="FROMCURRENCYCODE"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[FROMCURRENCYCODE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input].Columns[TOCURRENCYCODE]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="TOCURRENCYCODE"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[TOCURRENCYCODE]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCTFROMCURRENCYCODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCTFROMCURRENCYCODE]"
+                          name="DCTFROMCURRENCYCODE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[FROMCURRENCYCODE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCTTOCURRENCYCODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCTTOCURRENCYCODE]"
+                          name="DCTTOCURRENCYCODE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[TOCURRENCYCODE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactVentas"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactVentas"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactTasasCambio]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[VALIDFROM]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="VALIDFROM"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[FechaDesde]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[VALIDFROM]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[VALIDTO]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="VALIDTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[FechaHasta]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[VALIDTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[TASA]"
+                          cachedDataType="numeric"
+                          cachedName="TASA"
+                          cachedPrecision="36"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[TasaCambio]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[TASA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[RECID]"
+                          cachedDataType="i8"
+                          cachedName="RECID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[RecId]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[RECID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[DCTFROMCURRENCYCODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DCTFROMCURRENCYCODE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[MonedaOrigen]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCTFROMCURRENCYCODE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[DCTTOCURRENCYCODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DCTTOCURRENCYCODE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[MonedaDestino]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCTTOCURRENCYCODE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[DtCreacion]"
+                          dataType="dbTimeStamp"
+                          name="DtCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[FechaDesde]"
+                          dataType="dbTimeStamp"
+                          name="FechaDesde" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[FechaHasta]"
+                          dataType="dbTimeStamp"
+                          name="FechaHasta" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[MonedaOrigen]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="MonedaOrigen" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[MonedaDestino]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="MonedaDestino" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[TasaCambio]"
+                          dataType="numeric"
+                          name="TasaCambio"
+                          precision="18"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[RecId]"
+                          dataType="i8"
+                          name="RecId" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_ExchangeRateCurrencyPair"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select H.FROMCURRENCYCODE,H.TOCURRENCYCODE,(D.EXCHANGERATE/100) TASA,D.VALIDFROM,D.VALIDTO,H.RECID
+From ExchangeRateCurrencyPair H WITH (NOLOCK) 
+Inner Join ExchangeRate D WITH (NOLOCK) 
+On H.RECID = D.EXCHANGERATECURRENCYPAIR 
+And D.PARTITION = H.PARTITION
+Where D.VALIDFROM Between ? And ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{631F888C-E89F-4648-8501-989C4D286CBB};"Parameter1:Input",{BCDA9A7F-E6B2-493E-9B0E-59B685307A79};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[FROMCURRENCYCODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[FROMCURRENCYCODE]"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[FROMCURRENCYCODE]"
+                          name="FROMCURRENCYCODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[TOCURRENCYCODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[TOCURRENCYCODE]"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[TOCURRENCYCODE]"
+                          name="TOCURRENCYCODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[TASA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[TASA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[TASA]"
+                          name="TASA"
+                          precision="36"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[VALIDFROM]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[VALIDFROM]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[VALIDFROM]"
+                          name="VALIDFROM"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[VALIDTO]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[VALIDTO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[VALIDTO]"
+                          name="VALIDTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[RECID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[RECID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].Columns[RECID]"
+                          name="RECID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[FROMCURRENCYCODE]"
+                          dataType="wstr"
+                          length="3"
+                          name="FROMCURRENCYCODE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[TOCURRENCYCODE]"
+                          dataType="wstr"
+                          length="3"
+                          name="TOCURRENCYCODE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[TASA]"
+                          dataType="numeric"
+                          name="TASA"
+                          precision="36"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[VALIDFROM]"
+                          dataType="dbTimeStamp"
+                          name="VALIDFROM" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[VALIDTO]"
+                          dataType="dbTimeStamp"
+                          name="VALIDTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output].ExternalColumns[RECID]"
+                          dataType="i8"
+                          name="RECID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[FROMCURRENCYCODE]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[FROMCURRENCYCODE]"
+                          name="FROMCURRENCYCODE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[TOCURRENCYCODE]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[TOCURRENCYCODE]"
+                          name="TOCURRENCYCODE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[TASA]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[TASA]"
+                          name="TASA"
+                          precision="36"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[VALIDFROM]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[VALIDFROM]"
+                          name="VALIDFROM" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[VALIDTO]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[VALIDTO]"
+                          name="VALIDTO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[RECID]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[RECID]"
+                          name="RECID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactTasasCambio\EST_Truncate_UscNalsani_ExtrFactTasasCambio"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2905BD69-AAF8-4EC8-88A8-137FF399B176}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactTasasCambio"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [UscNalsani].[ExtrFactTasasCambio];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactTasasCambio.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C00BC762-6760-4448-BD14-3CBC1B9A74BB}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactTasasCambio\EST_Truncate_UscNalsani_ExtrFactTasasCambio"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_TasasCambio"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5CBCF5DC-4437-43DA-A63C-6CE960531E07}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_TasasCambio"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactTasasCambio] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactTasasCambio] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_TasasCambio"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1FC55B0C-5721-4775-B0D2-FFF78DFF0316}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_TasasCambio"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(CONVERT(DATE,'20180331')) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'20180331')),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{65289DF0-D3D1-4EBA-8CEC-EBA081FD566C}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_TasasCambio"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactTasasCambio" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{63AB28AB-114D-4564-92E9-20FEE5583D77}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactTasasCambio] == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactTasasCambio"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_TasasCambio" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{FB09BAF0-7F86-42FF-B57E-913DE8915B7B}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_TasasCambio"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactTasasCambio" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{626E75F5-EB4A-4FE9-A4B2-C1E9E5594BD5}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactTasasCambio] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactTasasCambio"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_TasasCambio" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="262,42"
+          Id="Package\ET_¿Es Automatica?_FactTasasCambio"
+          TopLeft="435.5,5.49999999999989" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio\EST_Truncate_UscNalsani_ExtrFactTasasCambio"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio.PrecedenceConstraints[Constraint]"
+          TopLeft="159,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="318,205"
+          Size="318,248"
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio"
+          TopLeft="407.5,209.5" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_TasasCambio"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="321,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_TasasCambio"
+          TopLeft="406,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="175.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="339.333333333333,60"
+              Start="0,0"
+              End="339.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.819774718398" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.819774718398"
+                    Point2="0,35.819774718398"
+                    Point3="4,35.819774718398" />
+                  <mssgle:LineSegment
+                    End="335.333333333333,35.819774718398" />
+                  <mssgle:CubicBezierSegment
+                    Point1="335.333333333333,35.819774718398"
+                    Point2="339.333333333333,35.819774718398"
+                    Point3="339.333333333333,39.819774718398" />
+                  <mssgle:LineSegment
+                    End="339.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="524.166666666667,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-348.666666666667,60"
+              Start="0,0"
+              End="-348.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2185128983308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2185128983308"
+                    Point2="0,24.2185128983308"
+                    Point3="-4,24.2185128983308" />
+                  <mssgle:LineSegment
+                    End="-344.666666666667,24.2185128983308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-344.666666666667,24.2185128983308"
+                    Point2="-348.666666666667,24.2185128983308"
+                    Point3="-348.666666666667,28.2185128983308" />
+                  <mssgle:LineSegment
+                    End="-348.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-182.333333333333,29.2185128983308,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="566.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.6666666666666,60"
+              Start="0,0"
+              End="51.6666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.819774718398" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.819774718398"
+                    Point2="0,35.819774718398"
+                    Point3="4,35.819774718398" />
+                  <mssgle:LineSegment
+                    End="47.6666666666666,35.819774718398" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.6666666666666,35.819774718398"
+                    Point2="51.6666666666666,35.819774718398"
+                    Point3="51.6666666666666,39.819774718398" />
+                  <mssgle:LineSegment
+                    End="51.6666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="608.833333333333,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.3333333333333,60"
+              Start="0,0"
+              End="-42.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2185128983308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2185128983308"
+                    Point2="0,24.2185128983308"
+                    Point3="-4,24.2185128983308" />
+                  <mssgle:LineSegment
+                    End="-38.3333333333333,24.2185128983308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.3333333333333,24.2185128983308"
+                    Point2="-42.3333333333333,24.2185128983308"
+                    Point3="-42.3333333333333,28.2185128983308" />
+                  <mssgle:LineSegment
+                    End="-42.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.1666666666666,29.2185128983308,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="280,42"
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair"
+          TopLeft="10.5,5.5" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\Derivada_UscNalsani_ExtrFactVentas"
+          TopLeft="7.50000000000003,107.5" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas"
+          TopLeft="7.50000000000006,311.5" />
+        <NodeLayout
+          Size="281,42"
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\DC_UscNalsani_UscNalsani_ExtrFactVentas"
+          TopLeft="13.5,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio.Paths[OLE DB Source Output]"
+          TopLeft="152.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio.Paths[Derived Column Output]"
+          TopLeft="154,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio.Paths[Data Conversion Output]"
+          TopLeft="154,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Origen_ExchangeRateCurrencyPair">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactTasasCambio\DFT_UscNalsani_ExtrFactTasasCambio\OLEDB_Destino_UscNalsani_ExtrFactVentas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

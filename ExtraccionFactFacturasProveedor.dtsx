@@ -1,0 +1,1148 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{D6625A63-D3B5-4220-B4F6-553B5EC67DB4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactFacturasProveedor"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="178"
+  DTS:VersionGUID="{634518B3-4CDA-4F8E-B01E-06BA17590656}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{EC06986F-AED4-4930-A9DE-9B2C0CC42235}"
+      DTS:ObjectName="Prm_AutoFactFacturasProveedor">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{7914D17B-D48E-4298-8122-8AC5FB0692D3}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactFacturasProveedor">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{431C4FCC-1DE3-4377-8BB8-CEB4584C168C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{44A57CC3-49B4-495C-A330-6091B9ED7812}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9BB3D79A-A7DD-4D17-9CFC-F57FA37186D6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD918674-0E7D-4850-90A8-5B6D7D181E79}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactFacturasProveedor"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{B54BC67D-B703-4DA9-B0A7-A77632ED2437}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactFacturasProveedor"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactFacturasProveedor]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BA20C330-1268-4BAE-9E1D-7CC5C408543A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactFaturasProveedor">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A3E4AB1F-6E32-49B1-9A2C-1C213DA8078F}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactFaturasProveedor"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[FOREIGNINVOICEID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="FOREIGNINVOICEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[PURCHID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PURCHID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[PURCHID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[INVOICEACCOUNT]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="INVOICEACCOUNT"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[INVOICEACCOUNT]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctFOREIGNINVOICEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctFOREIGNINVOICEID]"
+                          name="DctFOREIGNINVOICEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctPURCHID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctPURCHID]"
+                          name="DctPURCHID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[PURCHID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctINVOICEACCOUNT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctINVOICEACCOUNT]"
+                          name="DctINVOICEACCOUNT"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[INVOICEACCOUNT]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactFacturasProveedor"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactFacturasProveedor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[FOREIGNINVOICEAMOUNT]"
+                          cachedDataType="numeric"
+                          cachedName="FOREIGNINVOICEAMOUNT"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[FOREIGNINVOICEAMOUNT]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEAMOUNT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctPURCHID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DctPURCHID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[PURCHID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctPURCHID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctINVOICEACCOUNT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DctINVOICEACCOUNT"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[INVOICEACCOUNT]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctINVOICEACCOUNT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[FOREIGNINVOICEDATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FOREIGNINVOICEDATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[FOREIGNINVOICEDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEDATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctFOREIGNINVOICEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DctFOREIGNINVOICEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[FOREIGNINVOICEID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctFOREIGNINVOICEID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[FOREIGNINVOICEDATE]"
+                          dataType="dbDate"
+                          name="FOREIGNINVOICEDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[FOREIGNINVOICEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="FOREIGNINVOICEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[PURCHID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="PURCHID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[INVOICEACCOUNT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="INVOICEACCOUNT" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[FOREIGNINVOICEAMOUNT]"
+                          dataType="numeric"
+                          name="FOREIGNINVOICEAMOUNT"
+                          precision="18"
+                          scale="4" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_COS_PurchForeignInvoice"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select FOREIGNINVOICEID,FOREIGNINVOICEAMOUNT,PT.PURCHID,PT.INVOICEACCOUNT,FOREIGNINVOICEDATE 
+from COS_PurchForeignInvoice CPI WITH (NOLOCK)
+Left Outer Join PURCHTABLE PT WITH (NOLOCK)
+On CPI.PURCHID = PT.PURCHID
+And CPI.PARTITION = PT.PARTITION
+And CPI.DATAAREAID = PT.DATAAREAID
+Where CPI.DATAAREAID = ?  And CPI.FOREIGNINVOICEDATE BETWEEN ? And ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{44A57CC3-49B4-495C-A330-6091B9ED7812};"Parameter2:Input",{431C4FCC-1DE3-4377-8BB8-CEB4584C168C};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[FOREIGNINVOICEID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEID]"
+                          name="FOREIGNINVOICEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEAMOUNT]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[FOREIGNINVOICEAMOUNT]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEAMOUNT]"
+                          name="FOREIGNINVOICEAMOUNT"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[PURCHID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[PURCHID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[PURCHID]"
+                          name="PURCHID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[INVOICEACCOUNT]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[INVOICEACCOUNT]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[INVOICEACCOUNT]"
+                          name="INVOICEACCOUNT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[FOREIGNINVOICEDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].Columns[FOREIGNINVOICEDATE]"
+                          name="FOREIGNINVOICEDATE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[FOREIGNINVOICEID]"
+                          dataType="wstr"
+                          length="20"
+                          name="FOREIGNINVOICEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[FOREIGNINVOICEAMOUNT]"
+                          dataType="numeric"
+                          name="FOREIGNINVOICEAMOUNT"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[PURCHID]"
+                          dataType="wstr"
+                          length="20"
+                          name="PURCHID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[INVOICEACCOUNT]"
+                          dataType="wstr"
+                          length="20"
+                          name="INVOICEACCOUNT" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output].ExternalColumns[FOREIGNINVOICEDATE]"
+                          dataType="dbTimeStamp"
+                          name="FOREIGNINVOICEDATE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[FOREIGNINVOICEID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[FOREIGNINVOICEID]"
+                          name="FOREIGNINVOICEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[FOREIGNINVOICEAMOUNT]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[FOREIGNINVOICEAMOUNT]"
+                          name="FOREIGNINVOICEAMOUNT"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[PURCHID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[PURCHID]"
+                          name="PURCHID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[INVOICEACCOUNT]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[INVOICEACCOUNT]"
+                          name="INVOICEACCOUNT" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[FOREIGNINVOICEDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[FOREIGNINVOICEDATE]"
+                          name="FOREIGNINVOICEDATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor\EST_Truncate_UscNalsani_ExtrFactFaturasProveedor"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{75DED19A-127A-4988-A1AC-2D5C76BC250D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactFaturasProveedor"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [UscNalsani].[ExtrFactFacturasProveedor]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactFaturasProveedor.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8CB66E08-96B0-462A-98E8-BAB9B3A07487}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactFaturasProveedor\EST_Truncate_UscNalsani_ExtrFactFaturasProveedor"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_FactFaturasProveedor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{521A47D1-DB40-4863-BB7A-D74F976A7BC3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_FactFaturasProveedor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactFacturasProveedor] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactFacturasProveedor] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_FactFaturasProveedor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A5C0D6AA-0546-4C28-AD5C-7D7E30A95FC7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_FactFaturasProveedor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{45C7E45C-E801-481D-B891-3AC5D0F286D1}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_FactFaturasProveedor"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactFaturasProveedor" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B4A75C1E-1039-4E9F-8C31-E3BD54589B85}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactFacturasProveedor]  == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactFacturasProveedor"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_FactFaturasProveedor" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{8E40EDF7-19B7-4B5B-8339-3CED91F4B2EF}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_FactFaturasProveedor"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactFaturasProveedor" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{32F514BB-797B-4949-97F1-92CE3DC206AC}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactFacturasProveedor] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactFacturasProveedor"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_FactFaturasProveedor" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="380,42"
+          Id="Package\ET_¿Es Automatica?_FactFacturasProveedor"
+          TopLeft="446.5,5.49999999999989" />
+        <NodeLayout
+          Size="328,42"
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="328,42"
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor\EST_Truncate_UscNalsani_ExtrFactFaturasProveedor"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor.PrecedenceConstraints[Constraint]"
+          TopLeft="169.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="339,205"
+          Size="339,248"
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor"
+          TopLeft="467,209.5" />
+        <NodeLayout
+          Size="380,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_FactFaturasProveedor"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="380,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_FactFaturasProveedor"
+          TopLeft="446.5,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="195.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="385.833333333333,60"
+              Start="0,0"
+              End="385.833333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8308866705813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8308866705813"
+                    Point2="0,35.8308866705813"
+                    Point3="4,35.8308866705813" />
+                  <mssgle:LineSegment
+                    End="381.833333333333,35.8308866705813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="381.833333333333,35.8308866705813"
+                    Point2="385.833333333333,35.8308866705813"
+                    Point3="385.833333333333,39.8308866705813" />
+                  <mssgle:LineSegment
+                    End="385.833333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="574.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-379,60"
+              Start="0,0"
+              End="-379,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1509433962264" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1509433962264"
+                    Point2="0,24.1509433962264"
+                    Point3="-4,24.1509433962264" />
+                  <mssgle:LineSegment
+                    End="-375,24.1509433962264" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-375,24.1509433962264"
+                    Point2="-379,24.1509433962264"
+                    Point3="-379,28.1509433962264" />
+                  <mssgle:LineSegment
+                    End="-379,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-197.5,29.1509433962264,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="636.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.1666666666666,60"
+              Start="0,0"
+              End="55.1666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8308866705813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8308866705813"
+                    Point2="0,35.8308866705813"
+                    Point3="4,35.8308866705813" />
+                  <mssgle:LineSegment
+                    End="51.1666666666666,35.8308866705813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.1666666666666,35.8308866705813"
+                    Point2="55.1666666666666,35.8308866705813"
+                    Point3="55.1666666666666,39.8308866705813" />
+                  <mssgle:LineSegment
+                    End="55.1666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="698.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-62,60"
+              Start="0,0"
+              End="-62,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1509433962264" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1509433962264"
+                    Point2="0,24.1509433962264"
+                    Point3="-4,24.1509433962264" />
+                  <mssgle:LineSegment
+                    End="-58,24.1509433962264" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-58,24.1509433962264"
+                    Point2="-62,24.1509433962264"
+                    Point3="-62,28.1509433962264" />
+                  <mssgle:LineSegment
+                    End="-62,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39,29.1509433962264,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\Derivada_UscNalsani_ExtrFactFacturasProveedor"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor.Paths[OLE DB Source Output]"
+          TopLeft="175.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor.Paths[Derived Column Output]"
+          TopLeft="175.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor.Paths[Data Conversion Output]"
+          TopLeft="175.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactFaturasProveedor\DFT_UscNalsani_ExtrFactFaturasProveedor\OLEDB_Origen_COS_PurchForeignInvoice">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

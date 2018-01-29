@@ -1,0 +1,1888 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{C058227E-1C14-49D7-8D6E-B46A2DF4F4AC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactInventario"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="148"
+  DTS:VersionGUID="{94DA7A43-EEC1-4C0B-B774-AD7C881E1BF7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{90A548AA-7478-4B52-B385-EDFD13566B37}"
+      DTS:ObjectName="Prm_AutoFactInventario">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{AF0C34E2-779D-4B92-AEB6-C82BF7E05EAB}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactInventario">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{95087AA8-18B6-4A21-A5D9-76D330A825C0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{97F5DD1A-E583-413A-9413-4D1346395F7C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{36D048C1-99E5-4021-86D4-CEE07BBE2C4C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{78ACAC76-50D8-4BC3-AFF6-C936B19AB79E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactInventario"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{ED54F2F0-5884-495D-867D-A3D69C23889D}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactInventario"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactInventario]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactInventario"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4A262391-EAF2-4156-9E46-B1CCBCC29265}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactInventario">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9C7D7EFE-A696-4586-98FE-906EC7E147D2}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactInventario"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactInventario"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input].Columns[INVENTBATCHID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="INVENTBATCHID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTBATCHID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input].Columns[INVENTLOCATIONID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="INVENTLOCATIONID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input].Columns[COSTCENTERDIM]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="COSTCENTERDIM"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTCENTERDIM]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input].Columns[INVENTSTATUSID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSTATUSID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSTATUSID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          name="DCITEMID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[ITEMID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          name="DCINVENTCOLORID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          name="DCINVENTSIZEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTBATCHID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTBATCHID]"
+                          name="DCINVENTBATCHID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTBATCHID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONID]"
+                          name="DCINVENTLOCATIONID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCCOSTCENTERDIM]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="120"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCCOSTCENTERDIM]"
+                          name="DCCOSTCENTERDIM"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTCENTERDIM]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTSTATUSID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTSTATUSID]"
+                          name="DCINVENTSTATUSID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSTATUSID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactInventario"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Inputs[Derived Column Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Inputs[Derived Column Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Inputs[Derived Column Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          name="DCTIDPRODUCTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)([TRIM](#{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[ITEMID]} + #{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]} + #{Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)(TRIM(ITEMID + INVENTCOLORID + INVENTSIZEID))</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Output].Columns[DCTIDFECHACORTE]"
+                          dataType="date"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Output].Columns[DCTIDFECHACORTE]"
+                          name="DCTIDFECHACORTE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DATE)[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DATE)GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactInventario"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactInventario]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[COSTOPROMEDIO]"
+                          cachedDataType="numeric"
+                          cachedName="COSTOPROMEDIO"
+                          cachedPrecision="38"
+                          cachedScale="6"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTOPROMEDIO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOPROMEDIO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[CANTIDADFISICODISPONIBLE]"
+                          cachedDataType="numeric"
+                          cachedName="CANTIDADFISICODISPONIBLE"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTFISICODISPONIBLE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADFISICODISPONIBLE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[DCTIDFECHACORTE]"
+                          cachedDataType="date"
+                          cachedName="DCTIDFECHACORTE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[IDFECHACORTE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Output].Columns[DCTIDFECHACORTE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[DCITEMID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCITEMID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[DCINVENTCOLORID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTCOLORID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[DCINVENTSIZEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTSIZEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[DCINVENTBATCHID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTBATCHID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTBATCHID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTBATCHID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[DCINVENTLOCATIONID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTLOCATIONID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[DCTIDPRODUCTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCTIDPRODUCTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[DCCOSTCENTERDIM]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="120"
+                          cachedName="DCCOSTCENTERDIM"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTCENTERDIM]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCCOSTCENTERDIM]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[COSTOFISICO]"
+                          cachedDataType="numeric"
+                          cachedName="COSTOFISICO"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTOFISICO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOFISICO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[CANTIDADDISPONIBLE]"
+                          cachedDataType="numeric"
+                          cachedName="CANTIDADDISPONIBLE"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTDISPONIBLE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADDISPONIBLE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[CANTIDADFINANCIERA]"
+                          cachedDataType="numeric"
+                          cachedName="CANTIDADFINANCIERA"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTFINANCIERA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADFINANCIERA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[CANTIDADFISICORESERVADO]"
+                          cachedDataType="numeric"
+                          cachedName="CANTIDADFISICORESERVADO"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTFISICORESERVADO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADFISICORESERVADO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[PVP]"
+                          cachedDataType="numeric"
+                          cachedName="PVP"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[PVP]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[PVP]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[COSTOFINANCIERO]"
+                          cachedDataType="numeric"
+                          cachedName="COSTOFINANCIERO"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTOFINANCIERO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOFINANCIERO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[CANTIDADINVENTARIOFISICO]"
+                          cachedDataType="numeric"
+                          cachedName="CANTIDADINVENTARIOFISICO"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTINVENTARIOFISICO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADINVENTARIOFISICO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[COSTOESTANDAR]"
+                          cachedDataType="numeric"
+                          cachedName="COSTOESTANDAR"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTOESTANDARD]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOESTANDAR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].Columns[DCINVENTSTATUSID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTSTATUSID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSTATUSID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output].Columns[DCINVENTSTATUSID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[IDFECHACORTE]"
+                          dataType="dbDate"
+                          name="IDFECHACORTE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTBATCHID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTBATCHID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTLOCATIONID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTCENTERDIM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="120"
+                          name="COSTCENTERDIM" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTOPROMEDIO]"
+                          dataType="numeric"
+                          name="COSTOPROMEDIO"
+                          precision="38"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTINVENTARIOFISICO]"
+                          dataType="numeric"
+                          name="CANTINVENTARIOFISICO"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="IDPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTFISICODISPONIBLE]"
+                          dataType="numeric"
+                          name="CANTFISICODISPONIBLE"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTFISICORESERVADO]"
+                          dataType="numeric"
+                          name="CANTFISICORESERVADO"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTFINANCIERA]"
+                          dataType="numeric"
+                          name="CANTFINANCIERA"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[CANTDISPONIBLE]"
+                          dataType="numeric"
+                          name="CANTDISPONIBLE"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTOFISICO]"
+                          dataType="numeric"
+                          name="COSTOFISICO"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTOFINANCIERO]"
+                          dataType="numeric"
+                          name="COSTOFINANCIERO"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[COSTOESTANDARD]"
+                          dataType="numeric"
+                          name="COSTOESTANDARD"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[PVP]"
+                          dataType="numeric"
+                          name="PVP"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSTATUSID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTSTATUSID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_INVENTSUM"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+  ISUM.CREATEDDATETIME, --Revisar si este campo es el que se trae
+  ISUM.ITEMID,
+  ID.INVENTCOLORID,
+  ID.INVENTSIZEID,
+  ID.INVENTLOCATIONID,
+  CCOS.COSTCENTERDIM,
+  ID.INVENTBATCHID,
+  ID.INVENTSTATUSID,
+  SUM(ISUM.POSTEDQTY + ISUM.RECEIVED - ISUM.DEDUCTED + ISUM.REGISTERED - ISUM.PICKED) AS CANTIDADINVENTARIOFISICO,
+  SUM(ISUM.RESERVPHYSICAL) AS CANTIDADFISICORESERVADO,
+  SUM((ISUM.POSTEDQTY + ISUM.RECEIVED - ISUM.DEDUCTED + ISUM.REGISTERED - ISUM.PICKED) - ISUM.RESERVPHYSICAL) AS CANTIDADFISICODISPONIBLE,
+  SUM(ISUM.POSTEDQTY) AS CANTIDADFINANCIERA,
+  SUM(ISUM.AVAILPHYSICAL) AS CANTIDADDISPONIBLE,
+  SUM(ISUM.PHYSICALVALUE) AS COSTOFISICO,
+  SUM(ISUM.POSTEDVALUE) AS COSTOFINANCIERO,
+  AVG(ITMI.PRICE) AS COSTOESTANDAR,
+  AVG(ITMV.PRICE) AS PVP,
+  AVG(COST.COSTOPROMEDIO) AS COSTOPROMEDIO
+FROM INVENTSUM AS ISUM WITH (NOLOCK) 
+LEFT JOIN INVENTDIM AS ID
+  ON ISUM.INVENTDIMID = ID.INVENTDIMID
+   AND ISUM.DATAAREAID = ID.DATAAREAID
+   AND ISUM.PARTITION = ID.PARTITION
+LEFT JOIN COS_INVENTLOCATION AS CCOS WITH (NOLOCK) 
+  ON ID.INVENTLOCATIONID = CCOS.INVENTLOCATIONID
+   AND ID.DATAAREAID = CCOS.DATAAREAID
+   AND ID.PARTITION = CCOS.PARTITION
+INNER JOIN INVENTTABLE AS IT WITH (NOLOCK) 
+  ON IT.ITEMID = ISUM.ITEMID
+   AND IT.DATAAREAID = ISUM.DATAAREAID
+   AND IT.PARTITION = ISUM.PARTITION
+INNER JOIN INVENTTABLEMODULE AS ITMI WITH (NOLOCK) 
+  ON IT.ITEMID = ITMI.ITEMID
+   AND ITMI.MODULETYPE = 0
+   AND IT.DATAAREAID = ITMI.DATAAREAID
+   AND IT.PARTITION = ITMI.PARTITION
+INNER JOIN INVENTTABLEMODULE AS ITMV WITH (NOLOCK) 
+  ON IT.ITEMID = ITMV.ITEMID
+   AND ITMV.MODULETYPE = 2
+   AND IT.DATAAREAID = ITMV.DATAAREAID
+   AND IT.PARTITION = ITMV.PARTITION
+INNER JOIN (SELECT ITEMID,
+              CASE WHEN (SUM(POSTEDQTY) + (SUM(RECEIVED) - SUM(DEDUCTED))) = 0	THEN 0
+	            ELSE (SUM(POSTEDVALUE) + SUM(PHYSICALVALUE)) / (SUM(POSTEDQTY) + (SUM(RECEIVED) - SUM(DEDUCTED)))
+	          END AS COSTOPROMEDIO
+            FROM INVENTSUM ISUM WITH (NOLOCK) 
+            GROUP BY ITEMID) AS COST
+ON COST.ITEMID = ISUM.ITEMID
+WHERE ISUM.DATAAREAID = ? AND ISUM.CREATEDDATETIME BETWEEN ? AND ? -- Revisar el DataAreaID
+GROUP BY 
+	ISUM.CREATEDDATETIME, --!!
+	ISUM.ITEMID,
+	ID.INVENTCOLORID,
+	ID.INVENTSIZEID,
+	ID.INVENTLOCATIONID,
+	CCOS.COSTCENTERDIM,
+	ID.INVENTBATCHID,
+	ID.INVENTSTATUSID</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{97F5DD1A-E583-413A-9413-4D1346395F7C};"Parameter2:Input",{95087AA8-18B6-4A21-A5D9-76D330A825C0};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          name="ITEMID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTBATCHID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTBATCHID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTBATCHID]"
+                          name="INVENTBATCHID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]"
+                          name="INVENTLOCATIONID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTCENTERDIM]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTCENTERDIM]"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTCENTERDIM]"
+                          name="COSTCENTERDIM"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOPROMEDIO]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTOPROMEDIO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOPROMEDIO]"
+                          name="COSTOPROMEDIO"
+                          precision="38"
+                          scale="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSTATUSID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTSTATUSID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[INVENTSTATUSID]"
+                          name="INVENTSTATUSID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADINVENTARIOFISICO]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADINVENTARIOFISICO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADINVENTARIOFISICO]"
+                          name="CANTIDADINVENTARIOFISICO"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADFISICODISPONIBLE]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADFISICODISPONIBLE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADFISICODISPONIBLE]"
+                          name="CANTIDADFISICODISPONIBLE"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADFINANCIERA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADFINANCIERA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADFINANCIERA]"
+                          name="CANTIDADFINANCIERA"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADDISPONIBLE]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADDISPONIBLE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADDISPONIBLE]"
+                          name="CANTIDADDISPONIBLE"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOFISICO]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTOFISICO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOFISICO]"
+                          name="COSTOFISICO"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOFINANCIERO]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTOFINANCIERO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOFINANCIERO]"
+                          name="COSTOFINANCIERO"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOESTANDAR]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTOESTANDAR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[COSTOESTANDAR]"
+                          name="COSTOESTANDAR"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[PVP]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[PVP]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[PVP]"
+                          name="PVP"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADFISICORESERVADO]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADFISICORESERVADO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CANTIDADFISICORESERVADO]"
+                          name="CANTIDADFISICORESERVADO"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTBATCHID]"
+                          dataType="wstr"
+                          length="20"
+                          name="INVENTBATCHID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONID]"
+                          dataType="wstr"
+                          length="25"
+                          name="INVENTLOCATIONID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTCENTERDIM]"
+                          dataType="wstr"
+                          length="100"
+                          name="COSTCENTERDIM" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTOPROMEDIO]"
+                          dataType="numeric"
+                          name="COSTOPROMEDIO"
+                          precision="38"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[INVENTSTATUSID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTSTATUSID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADINVENTARIOFISICO]"
+                          dataType="numeric"
+                          name="CANTIDADINVENTARIOFISICO"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADFISICODISPONIBLE]"
+                          dataType="numeric"
+                          name="CANTIDADFISICODISPONIBLE"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADFINANCIERA]"
+                          dataType="numeric"
+                          name="CANTIDADFINANCIERA"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADDISPONIBLE]"
+                          dataType="numeric"
+                          name="CANTIDADDISPONIBLE"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTOFISICO]"
+                          dataType="numeric"
+                          name="COSTOFISICO"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTOFINANCIERO]"
+                          dataType="numeric"
+                          name="COSTOFINANCIERO"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[COSTOESTANDAR]"
+                          dataType="numeric"
+                          name="COSTOESTANDAR"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[PVP]"
+                          dataType="numeric"
+                          name="PVP"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CANTIDADFISICORESERVADO]"
+                          dataType="numeric"
+                          name="CANTIDADFISICORESERVADO"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          name="CREATEDDATETIME" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          name="ITEMID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTBATCHID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTBATCHID]"
+                          name="INVENTBATCHID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTSTATUSID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTSTATUSID]"
+                          name="INVENTSTATUSID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADINVENTARIOFISICO]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADINVENTARIOFISICO]"
+                          name="CANTIDADINVENTARIOFISICO"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADFISICORESERVADO]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADFISICORESERVADO]"
+                          name="CANTIDADFISICORESERVADO"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADFISICODISPONIBLE]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADFISICODISPONIBLE]"
+                          name="CANTIDADFISICODISPONIBLE"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADFINANCIERA]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADFINANCIERA]"
+                          name="CANTIDADFINANCIERA"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADDISPONIBLE]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[CANTIDADDISPONIBLE]"
+                          name="CANTIDADDISPONIBLE"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTOFISICO]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTOFISICO]"
+                          name="COSTOFISICO"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTOFINANCIERO]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTOFINANCIERO]"
+                          name="COSTOFINANCIERO"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTOESTANDAR]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTOESTANDAR]"
+                          name="COSTOESTANDAR"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[PVP]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[PVP]"
+                          name="PVP"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONID]"
+                          name="INVENTLOCATIONID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTCENTERDIM]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTCENTERDIM]"
+                          name="COSTCENTERDIM" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTOPROMEDIO]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Error Output].Columns[COSTOPROMEDIO]"
+                          name="COSTOPROMEDIO"
+                          precision="38"
+                          scale="6" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactInventario\EST_Truncate_UscNalsani_ExtrFactInventario"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C0A2DC0A-5C30-458F-AB15-5AD904DA87D7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactInventario"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrFactInventario;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactInventario.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B602DCB3-B08D-4D94-B654-D8983C752417}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactInventario\EST_Truncate_UscNalsani_ExtrFactInventario"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_Inventario"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D041C245-B097-4711-A1E9-FAD818312690}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_Inventario"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactInventario]  + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252)  @[$Package::Prm_PeriodosProcesarAutomaticoFactInventario] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_Inventario"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{96162E87-2539-4E09-9F33-05E0A18ABE1E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_Inventario"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{62DDBDDA-A02C-4E58-9C73-A4890EAA46E9}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_Inventario"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactInventario" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB2F7068-BA4E-4AC9-B9EA-2A2F11953448}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactInventario] == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactInventario"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_Inventario" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{C10F054E-1B49-4730-AC29-613316C50CA2}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_Inventario"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactInventario" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{70B7D741-9F02-4E5A-888E-BDEFA7BFA607}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactInventario] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactInventario"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_Inventario" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="248,42"
+          Id="Package\ET_¿Es Automatica?_FactInventario"
+          TopLeft="266.5,54.5" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario"
+          TopLeft="27.5,133.5" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\SC_UscNalsani_ExtrFactInventario\EST_Truncate_UscNalsani_ExtrFactInventario"
+          TopLeft="27.5,31.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactInventario.PrecedenceConstraints[Constraint]"
+          TopLeft="174,73.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23,60"
+              Start="0,0"
+              End="-23,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-19,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19,30"
+                    Point2="-23,30"
+                    Point3="-23,34" />
+                  <mssgle:LineSegment
+                    End="-23,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="351,231"
+          Size="351,274"
+          Id="Package\SC_UscNalsani_ExtrFactInventario"
+          TopLeft="223.5,287.5" />
+        <NodeLayout
+          Size="326,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_Inventario"
+          TopLeft="2.5,166.5" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_Inventario"
+          TopLeft="466.5,166.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="165.5,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176.333333333333,79"
+              Start="0,0"
+              End="176.333333333333,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.184912081679"
+                    Point2="0,47.184912081679"
+                    Point3="4,47.184912081679" />
+                  <mssgle:LineSegment
+                    End="172.333333333333,47.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="172.333333333333,47.184912081679"
+                    Point2="176.333333333333,47.184912081679"
+                    Point3="176.333333333333,51.184912081679" />
+                  <mssgle:LineSegment
+                    End="176.333333333333,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="350.5,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-185,70"
+              Start="0,0"
+              End="-185,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2692307692308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2692307692308"
+                    Point2="0,28.2692307692308"
+                    Point3="-4,28.2692307692308" />
+                  <mssgle:LineSegment
+                    End="-181,28.2692307692308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-181,28.2692307692308"
+                    Point2="-185,28.2692307692308"
+                    Point3="-185,32.2692307692308" />
+                  <mssgle:LineSegment
+                    End="-185,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.5,33.2692307692308,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="620,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-163.833333333333,79"
+              Start="0,0"
+              End="-163.833333333333,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.184912081679"
+                    Point2="0,47.184912081679"
+                    Point3="-4,47.184912081679" />
+                  <mssgle:LineSegment
+                    End="-159.833333333333,47.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-159.833333333333,47.184912081679"
+                    Point2="-163.833333333333,47.184912081679"
+                    Point3="-163.833333333333,51.184912081679" />
+                  <mssgle:LineSegment
+                    End="-163.833333333333,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="430.5,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.5,70"
+              Start="0,0"
+              End="189.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2692307692308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2692307692308"
+                    Point2="0,28.2692307692308"
+                    Point3="4,28.2692307692308" />
+                  <mssgle:LineSegment
+                    End="185.5,28.2692307692308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.5,28.2692307692308"
+                    Point2="189.5,28.2692307692308"
+                    Point3="189.5,32.2692307692308" />
+                  <mssgle:LineSegment
+                    End="189.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="86.75,33.2692307692308,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="301,42"
+          Id="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario"
+          TopLeft="9,298" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM"
+          TopLeft="8.5,5.5" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\DC_UscNalsani_UscNalsani_ExtrFactInventario"
+          TopLeft="8.50000000000003,209.5" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\Derivada_UscNalsani_ExtrFactInventario"
+          TopLeft="8.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario.Paths[OLE DB Source Output]"
+          TopLeft="164,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario.Paths[Derived Column Output]"
+          TopLeft="164,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario.Paths[Data Conversion Output]"
+          TopLeft="161.75,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.5"
+              Start="0,0"
+              End="0,39">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Destino_UscNalsani_ExtrFactInventario">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactInventario\DFT_UscNalsani_ExtrFactInventario\OLEDB_Origen_INVENTSUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

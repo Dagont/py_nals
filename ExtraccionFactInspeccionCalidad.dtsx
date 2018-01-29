@@ -1,0 +1,2277 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{003D9A55-19BE-4631-BED1-E70DDE708855}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactInspeccionCalidad"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="153"
+  DTS:VersionGUID="{0A56CC95-445C-45E0-B56B-EDA26237CBF1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{ABB67886-1D6D-48D9-BE76-BD58A549A127}"
+      DTS:ObjectName="Prm_AutoFactInspeccionCalidad">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{7A1940C4-3190-4748-AEAE-6A2CFC7B0691}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactInspeccionCalidad">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{347D5A45-783E-4573-B499-CB73BEFFA817}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{54FC317A-0F44-4329-89F5-7A78AB061885}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2BEC28A7-E3C3-4F0B-A21F-DDF4FD81A192}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{853B455D-E1CA-4E59-9DB2-1CF5176F38C4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactInspeccionCalidad"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{C0C97C1D-1DD2-4C39-8D62-1E2BABA80973}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactInspeccionCalidad"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactInspeccionCalidad]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F5D94DCB-AFA9-48E6-83C9-5B3BBBAAF5A2}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactInspeccionCalidad">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D5FBD1A7-39EE-4412-AA36-15E7E7DCD092}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactInspeccionCalidad"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[INVENTLOCATIONID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="INVENTLOCATIONID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[QUALITYORDERID]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="QUALITYORDERID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[QUALITYORDERID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[INVENTREFID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="INVENTREFID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTREFID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[ACCOUNTRELATION]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ACCOUNTRELATION"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTRELATION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[WMSLOCATIONID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="WMSLOCATIONID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[WMSLOCATIONID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[INVENTSTATUSID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSTATUSID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSTATUSID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[TESTGROUPID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="TESTGROUPID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTGROUPID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[TESTID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="TESTID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[VARIABLEID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="VARIABLEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[VARIABLEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[VARIABLEOUTCOMEIDSTANDARD]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="VARIABLEOUTCOMEIDSTANDARD"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[VARIABLEOUTCOMEIDSTANDARD]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input].Columns[TESTRESULTVALUEOUTCOME]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="TESTRESULTVALUEOUTCOME"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTRESULTVALUEOUTCOME]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          name="DCITEMID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          name="DCINVENTCOLORID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          name="DCINVENTSIZEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONID]"
+                          name="DCINVENTLOCATIONID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCQUALITYORDERID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCQUALITYORDERID]"
+                          name="DCQUALITYORDERID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[QUALITYORDERID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTREFID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTREFID]"
+                          name="DCINVENTREFID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTREFID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCACCOUNTRELATION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCACCOUNTRELATION]"
+                          name="DCACCOUNTRELATION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTRELATION]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCWMSLOCATIONID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCWMSLOCATIONID]"
+                          name="DCWMSLOCATIONID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[WMSLOCATIONID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTSTATUSID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTSTATUSID]"
+                          name="DCINVENTSTATUSID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSTATUSID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCTESTGROUPID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCTESTGROUPID]"
+                          name="DCTESTGROUPID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTGROUPID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCTESTID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCTESTID]"
+                          name="DCTESTID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCVARIABLEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCVARIABLEID]"
+                          name="DCVARIABLEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[VARIABLEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCVARIABLEOUTCOMEIDSTANDARD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCVARIABLEOUTCOMEIDSTANDARD]"
+                          name="DCVARIABLEOUTCOMEIDSTANDARD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[VARIABLEOUTCOMEIDSTANDARD]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCTESTRESULTVALUEOUTCOME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCTESTRESULTVALUEOUTCOME]"
+                          name="DCTESTRESULTVALUEOUTCOME"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTRESULTVALUEOUTCOME]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactInspeccionCalidad"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Derived Column Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Derived Column Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Derived Column Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          name="DCTIDPRODUCTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)([TRIM](#{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]} + #{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]} + #{Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)(TRIM(ITEMID + INVENTCOLORID + INVENTSIZEID))</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactInspeccionCalidad]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[QTY]"
+                          cachedDataType="numeric"
+                          cachedName="QTY"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[QTY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[QTY]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCITEMID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCITEMID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCINVENTCOLORID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTCOLORID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCINVENTSIZEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTSIZEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCINVENTLOCATIONID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTLOCATIONID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCTIDPRODUCTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCTIDPRODUCTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[DCTIDPRODUCTO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[ESTADO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="ESTADO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ESTADO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[TIPOREFERENCIAPROCESO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="TIPOREFERENCIAPROCESO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TIPOREFERENCIAPROCESO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TIPOREFERENCIAPROCESO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[TESTSEQUENCE]"
+                          cachedDataType="i4"
+                          cachedName="TESTSEQUENCE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTSEQUENCE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTSEQUENCE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[ACTIONONFAILURE]"
+                          cachedDataType="i4"
+                          cachedName="ACTIONONFAILURE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ACTIONONFAILURE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACTIONONFAILURE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[PURCHQTY]"
+                          cachedDataType="numeric"
+                          cachedName="PURCHQTY"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[PURCHQTY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[PURCHQTY]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[ACCEPTABLEQUALITYLEVEL]"
+                          cachedDataType="numeric"
+                          cachedName="ACCEPTABLEQUALITYLEVEL"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ACCEPTABLEQUALITYLEVEL]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACCEPTABLEQUALITYLEVEL]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[TESTRESULTQUANTITY]"
+                          cachedDataType="numeric"
+                          cachedName="TESTRESULTQUANTITY"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTRESULTQUANTITY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTRESULTQUANTITY]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCQUALITYORDERID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCQUALITYORDERID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[QUALITYORDERID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCQUALITYORDERID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCINVENTREFID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTREFID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTREFID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTREFID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCACCOUNTRELATION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCACCOUNTRELATION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ACCOUNTRELATION]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCACCOUNTRELATION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCWMSLOCATIONID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCWMSLOCATIONID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[WMSLOCATIONID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCWMSLOCATIONID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCINVENTSTATUSID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTSTATUSID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSTATUSID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCINVENTSTATUSID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCTESTGROUPID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCTESTGROUPID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTGROUPID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCTESTGROUPID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCTESTID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCTESTID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCTESTID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCVARIABLEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCVARIABLEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[VARIABLEID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCVARIABLEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCVARIABLEOUTCOMEIDSTANDARD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCVARIABLEOUTCOMEIDSTANDARD"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[VARIABLEOUTCOMEIDSTANDARD]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCVARIABLEOUTCOMEIDSTANDARD]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].Columns[DCTESTRESULTVALUEOUTCOME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCTESTRESULTVALUEOUTCOME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTRESULTVALUEOUTCOME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output].Columns[DCTESTRESULTVALUEOUTCOME]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[QTY]"
+                          dataType="numeric"
+                          name="QTY"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTLOCATIONID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[DCTIDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DCTIDPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[QUALITYORDERID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="QUALITYORDERID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTREFID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTREFID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ACCOUNTRELATION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ACCOUNTRELATION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[WMSLOCATIONID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="WMSLOCATIONID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSTATUSID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTSTATUSID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTGROUPID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="TESTGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="TESTID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[VARIABLEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="VARIABLEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[VARIABLEOUTCOMEIDSTANDARD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="VARIABLEOUTCOMEIDSTANDARD" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTRESULTVALUEOUTCOME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="TESTRESULTVALUEOUTCOME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ESTADO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TIPOREFERENCIAPROCESO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="TIPOREFERENCIAPROCESO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTSEQUENCE]"
+                          dataType="i4"
+                          name="TESTSEQUENCE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ACTIONONFAILURE]"
+                          dataType="i4"
+                          name="ACTIONONFAILURE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[PURCHQTY]"
+                          dataType="numeric"
+                          name="PURCHQTY"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[ACCEPTABLEQUALITYLEVEL]"
+                          dataType="numeric"
+                          name="ACCEPTABLEQUALITYLEVEL"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input].ExternalColumns[TESTRESULTQUANTITY]"
+                          dataType="numeric"
+                          name="TESTRESULTQUANTITY"
+                          precision="32"
+                          scale="16" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_INVENTQUALITYORDERTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+	IQ.CREATEDDATETIME,
+    IQ.QUALITYORDERID,
+	IQ.INVENTREFID,
+	PL.PURCHQTY,
+	IQ.ACCOUNTRELATION,
+	IQ.ITEMID,
+	ID.INVENTCOLORID,
+	ID.INVENTSIZEID,
+	ID.INVENTLOCATIONID,
+	ID.WMSLOCATIONID,
+	ID.INVENTSTATUSID,
+	IQ.TESTGROUPID,
+	IQ.QTY,
+	CASE 
+		WHEN IQ.ORDERSTATUS = 0
+			THEN 'ABIERTOS'
+		WHEN IQ.ORDERSTATUS = 1
+			THEN 'ERROR'
+		WHEN IQ.ORDERSTATUS = 2
+			THEN 'CORRECTO'
+		END AS ESTADO,
+	CASE 
+		WHEN IQ.REFERENCETYPE = 0
+			THEN 'INVENTARIO'
+		WHEN IQ.REFERENCETYPE = 1
+			THEN 'VENTAS'
+		WHEN IQ.REFERENCETYPE = 2
+			THEN 'COMPRA'
+		WHEN IQ.REFERENCETYPE = 3
+			THEN 'PRODUCCION'
+		WHEN IQ.REFERENCETYPE = 4
+			THEN 'QUARENTENA'
+		WHEN IQ.REFERENCETYPE = 5
+			THEN 'OPERACION DE RUTA'
+		WHEN IQ.REFERENCETYPE = 100
+			THEN 'PRODUCCION DE COPRODUCTOS'
+		END AS TIPOREFERENCIAPROCESO,
+	IQL.TESTSEQUENCE,
+	IQL.TESTID,
+	IQL.VARIABLEID,
+	IQL.VARIABLEOUTCOMEIDSTANDARD,
+	IQL.ACCEPTABLEQUALITYLEVEL,
+	IQL.ACTIONONFAILURE,
+	IQLR.TESTRESULTQUANTITY,
+	IQLR.TESTRESULTVALUEOUTCOME
+FROM INVENTQUALITYORDERTABLE AS IQ WITH (NOLOCK) 
+INNER JOIN INVENTDIM AS ID WITH (NOLOCK) 
+	ON IQ.INVENTDIMID = ID.INVENTDIMID
+	AND IQ.DATAAREAID=ID.DATAAREAID
+	AND IQ.PARTITION=ID.PARTITION
+INNER JOIN INVENTQUALITYORDERLINE AS IQL WITH (NOLOCK) 
+	ON IQL.QUALITYORDERID = IQ.QUALITYORDERID
+	AND IQL.DATAAREAID=IQ.DATAAREAID
+	AND IQL.PARTITION=IQ.PARTITION
+INNER JOIN INVENTQUALITYORDERLINERESULTS AS IQLR WITH (NOLOCK) 
+	ON IQLR.TESTSEQUENCE = IQL.TESTSEQUENCE
+		AND IQLR.QUALITYORDERID = IQL.QUALITYORDERID
+		AND IQLR.DATAAREAID=IQL.DATAAREAID
+		AND IQLR.PARTITION=IQL.PARTITION
+INNER JOIN PURCHLINE AS PL WITH (NOLOCK) 
+	ON IQ.REFERENCETYPE = 2
+		AND IQ.INVENTREFID = PL.PURCHID
+		AND IQ.INVENTREFTRANSID = PL.INVENTTRANSID
+		AND IQ.PARTITION=PL.PARTITION
+		AND IQ.DATAAREAID=PL.DATAAREAID
+WHERE IQ.DATAAREAID=? AND IQ.CREATEDDATETIME BETWEEN ? AND ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{54FC317A-0F44-4329-89F5-7A78AB061885};"Parameter2:Input",{347D5A45-783E-4573-B499-CB73BEFFA817};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          name="ITEMID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[QTY]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[QTY]"
+                          name="QTY"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]"
+                          name="INVENTLOCATIONID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[QUALITYORDERID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QUALITYORDERID]"
+                          length="15"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[QUALITYORDERID]"
+                          name="QUALITYORDERID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTREFID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTREFID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTREFID]"
+                          name="INVENTREFID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[PURCHQTY]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[PURCHQTY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[PURCHQTY]"
+                          name="PURCHQTY"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTRELATION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACCOUNTRELATION]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTRELATION]"
+                          name="ACCOUNTRELATION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[WMSLOCATIONID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[WMSLOCATIONID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[WMSLOCATIONID]"
+                          name="WMSLOCATIONID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSTATUSID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSTATUSID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSTATUSID]"
+                          name="INVENTSTATUSID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTGROUPID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTGROUPID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTGROUPID]"
+                          name="TESTGROUPID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ESTADO]"
+                          length="8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ESTADO]"
+                          name="ESTADO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TIPOREFERENCIAPROCESO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TIPOREFERENCIAPROCESO]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TIPOREFERENCIAPROCESO]"
+                          name="TIPOREFERENCIAPROCESO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTSEQUENCE]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTSEQUENCE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTSEQUENCE]"
+                          name="TESTSEQUENCE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTID]"
+                          name="TESTID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[VARIABLEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[VARIABLEID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[VARIABLEID]"
+                          name="VARIABLEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[VARIABLEOUTCOMEIDSTANDARD]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[VARIABLEOUTCOMEIDSTANDARD]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[VARIABLEOUTCOMEIDSTANDARD]"
+                          name="VARIABLEOUTCOMEIDSTANDARD"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACCEPTABLEQUALITYLEVEL]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACCEPTABLEQUALITYLEVEL]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACCEPTABLEQUALITYLEVEL]"
+                          name="ACCEPTABLEQUALITYLEVEL"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACTIONONFAILURE]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACTIONONFAILURE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[ACTIONONFAILURE]"
+                          name="ACTIONONFAILURE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTRESULTQUANTITY]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTRESULTQUANTITY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTRESULTQUANTITY]"
+                          name="TESTRESULTQUANTITY"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTRESULTVALUEOUTCOME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTRESULTVALUEOUTCOME]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[TESTRESULTVALUEOUTCOME]"
+                          name="TESTRESULTVALUEOUTCOME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTY]"
+                          dataType="numeric"
+                          name="QTY"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONID]"
+                          dataType="wstr"
+                          length="25"
+                          name="INVENTLOCATIONID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QUALITYORDERID]"
+                          dataType="wstr"
+                          length="15"
+                          name="QUALITYORDERID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTREFID]"
+                          dataType="wstr"
+                          length="20"
+                          name="INVENTREFID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[PURCHQTY]"
+                          dataType="numeric"
+                          name="PURCHQTY"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACCOUNTRELATION]"
+                          dataType="wstr"
+                          length="20"
+                          name="ACCOUNTRELATION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[WMSLOCATIONID]"
+                          dataType="wstr"
+                          length="10"
+                          name="WMSLOCATIONID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSTATUSID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTSTATUSID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          name="TESTGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="ESTADO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TIPOREFERENCIAPROCESO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="TIPOREFERENCIAPROCESO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTSEQUENCE]"
+                          dataType="i4"
+                          name="TESTSEQUENCE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTID]"
+                          dataType="wstr"
+                          length="20"
+                          name="TESTID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[VARIABLEID]"
+                          dataType="wstr"
+                          length="20"
+                          name="VARIABLEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[VARIABLEOUTCOMEIDSTANDARD]"
+                          dataType="wstr"
+                          length="20"
+                          name="VARIABLEOUTCOMEIDSTANDARD" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACCEPTABLEQUALITYLEVEL]"
+                          dataType="numeric"
+                          name="ACCEPTABLEQUALITYLEVEL"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACTIONONFAILURE]"
+                          dataType="i4"
+                          name="ACTIONONFAILURE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTRESULTQUANTITY]"
+                          dataType="numeric"
+                          name="TESTRESULTQUANTITY"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTRESULTVALUEOUTCOME]"
+                          dataType="wstr"
+                          length="20"
+                          name="TESTRESULTVALUEOUTCOME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          name="CREATEDDATETIME" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[QUALITYORDERID]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[QUALITYORDERID]"
+                          name="QUALITYORDERID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTREFID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTREFID]"
+                          name="INVENTREFID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[PURCHQTY]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[PURCHQTY]"
+                          name="PURCHQTY"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ACCOUNTRELATION]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ACCOUNTRELATION]"
+                          name="ACCOUNTRELATION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONID]"
+                          name="INVENTLOCATIONID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          name="ITEMID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[WMSLOCATIONID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[WMSLOCATIONID]"
+                          name="WMSLOCATIONID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSTATUSID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSTATUSID]"
+                          name="INVENTSTATUSID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTGROUPID]"
+                          name="TESTGROUPID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[QTY]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[QTY]"
+                          name="QTY"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ESTADO]"
+                          name="ESTADO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TIPOREFERENCIAPROCESO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TIPOREFERENCIAPROCESO]"
+                          name="TIPOREFERENCIAPROCESO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTSEQUENCE]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTSEQUENCE]"
+                          name="TESTSEQUENCE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTID]"
+                          name="TESTID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[VARIABLEID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[VARIABLEID]"
+                          name="VARIABLEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[VARIABLEOUTCOMEIDSTANDARD]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[VARIABLEOUTCOMEIDSTANDARD]"
+                          name="VARIABLEOUTCOMEIDSTANDARD" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ACCEPTABLEQUALITYLEVEL]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ACCEPTABLEQUALITYLEVEL]"
+                          name="ACCEPTABLEQUALITYLEVEL"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ACTIONONFAILURE]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ACTIONONFAILURE]"
+                          name="ACTIONONFAILURE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTRESULTQUANTITY]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTRESULTQUANTITY]"
+                          name="TESTRESULTQUANTITY"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTRESULTVALUEOUTCOME]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[TESTRESULTVALUEOUTCOME]"
+                          name="TESTRESULTVALUEOUTCOME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad.Paths[Derived Column Output1]"
+                  endId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\EST_Truncate_UscNalsani_ExtrFactInspeccionCalidad"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E2D1A19B-D5CB-4674-B630-1B46992179ED}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactInspeccionCalidad"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrFactInspeccionCalidad;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactInspeccionCalidad.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B9E34235-BCD8-446C-8744-B416D79CB7E0}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\EST_Truncate_UscNalsani_ExtrFactInspeccionCalidad"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_InspeccionCalidad"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E6EC79AE-380D-4FEB-9629-0F21C1D8194A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_InspeccionCalidad"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactInspeccionCalidad] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactInspeccionCalidad] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_InspeccionCalidad"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{99ADA016-81A3-47FE-B4D7-568D01844BD9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_InspeccionCalidad"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B8944340-BA90-4229-8A2B-BF367EAE4417}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_InspeccionCalidad"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactInspeccionCalidad" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C9EAC7C6-CECC-412A-9BDB-60DA157D4B1B}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactInspeccionCalidad] == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactInspeccionCalidad"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_InspeccionCalidad" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3B4A1A88-8655-40EA-B7B7-3F8E67E1949A}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_InspeccionCalidad"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactInspeccionCalidad" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{35B485C3-8DAF-4E96-A426-AB366C2BA994}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactInspeccionCalidad] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactInspeccionCalidad"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_InspeccionCalidad" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="284,42"
+          Id="Package\ET_¿Es Automatica?_FactInspeccionCalidad"
+          TopLeft="266.5,54.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad"
+          TopLeft="16.5,129.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\EST_Truncate_UscNalsani_ExtrFactInspeccionCalidad"
+          TopLeft="16.5,27.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad.PrecedenceConstraints[Constraint]"
+          TopLeft="181.5,69.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="362,231"
+          Size="362,274"
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad"
+          TopLeft="223.5,287.5" />
+        <NodeLayout
+          Size="363,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_InspeccionCalidad"
+          TopLeft="2.5,166.5" />
+        <NodeLayout
+          Size="344,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_InspeccionCalidad"
+          TopLeft="466.5,166.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="184,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="161.5,79"
+              Start="0,0"
+              End="161.5,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.1914191419142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.1914191419142"
+                    Point2="0,47.1914191419142"
+                    Point3="4,47.1914191419142" />
+                  <mssgle:LineSegment
+                    End="157.5,47.1914191419142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="157.5,47.1914191419142"
+                    Point2="161.5,47.1914191419142"
+                    Point3="161.5,51.1914191419142" />
+                  <mssgle:LineSegment
+                    End="161.5,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="362.5,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-178.5,70"
+              Start="0,0"
+              End="-178.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2352941176471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2352941176471"
+                    Point2="0,28.2352941176471"
+                    Point3="-4,28.2352941176471" />
+                  <mssgle:LineSegment
+                    End="-174.5,28.2352941176471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-174.5,28.2352941176471"
+                    Point2="-178.5,28.2352941176471"
+                    Point3="-178.5,32.2352941176471" />
+                  <mssgle:LineSegment
+                    End="-178.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-97.25,33.2352941176471,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="638.5,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-175,79"
+              Start="0,0"
+              End="-175,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.1914191419142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.1914191419142"
+                    Point2="0,47.1914191419142"
+                    Point3="-4,47.1914191419142" />
+                  <mssgle:LineSegment
+                    End="-171,47.1914191419142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-171,47.1914191419142"
+                    Point2="-175,47.1914191419142"
+                    Point3="-175,51.1914191419142" />
+                  <mssgle:LineSegment
+                    End="-175,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="454.5,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="184,70"
+              Start="0,0"
+              End="184,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2352941176471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2352941176471"
+                    Point2="0,28.2352941176471"
+                    Point3="4,28.2352941176471" />
+                  <mssgle:LineSegment
+                    End="180,28.2352941176471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="180,28.2352941176471"
+                    Point2="184,28.2352941176471"
+                    Point3="184,32.2352941176471" />
+                  <mssgle:LineSegment
+                    End="184,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="84,33.2352941176471,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="345,42"
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="345,42"
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="345,42"
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="345,42"
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\Derivada_UscNalsani_ExtrFactInspeccionCalidad_Totales"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="345,42"
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\DC_UscNalsani_UscNalsani_ExtrFactInspeccionCalidad"
+          TopLeft="5.50000000000003,311.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad.Paths[Data Conversion Output]"
+          TopLeft="178,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad.Paths[OLE DB Source Output]"
+          TopLeft="178,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad.Paths[Derived Column Output1]"
+          TopLeft="178,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad.Paths[Derived Column Output]"
+          TopLeft="178,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Destino_UscNalsani_ExtrFactInspeccionCalidad">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactInspeccionCalidad\DFT_UscNalsani_ExtrFactInspeccionCalidad\OLEDB_Origen_INVENTQUALITYORDERTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,691 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/18/2017 9:53:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\Adminbi"
+  DTS:DTSID="{48548F3D-24D8-496B-BD97-C1809C2D3980}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimTottoLab"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{40BB2D51-3B9B-4084-9AA5-65CB3BFAF8B5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel_Origen_TottoLab_XLS]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{00D0E003-907B-45D4-BA95-7BFDE064E884}"
+      DTS:ObjectName="Excel_Origen_TottoLab_XLS">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Project::RutaArchivosMaestros] + "TottoLab.xls"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=F:\Nalsani EDW\2. Archivos\Maestros\TottoLab.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscArchivos_ExtrDimTottoLab"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{1B670CE1-51F8-49A1-894A-A170E884D7EF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscArchivos_ExtrDimTottoLab">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CDB11F43-4446-4586-A967-1AB7B537FD6C}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscArchivos_ExtrDimTottoLab"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscArchivos_ExtrDimTottoLab"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Inputs[Data Conversion Input].Columns[IDPRODUCTOGENERICO]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="IDPRODUCTOGENERICO"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].Columns[IDPRODUCTOGENERICO]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Inputs[Data Conversion Input].Columns[DSPRODUCTOGENERICO]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DSPRODUCTOGENERICO"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].Columns[DSPRODUCTOGENERICO]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Output].Columns[DCIDPRODUCTOGENERICO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Output].Columns[DCIDPRODUCTOGENERICO]"
+                          name="DCIDPRODUCTOGENERICO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].Columns[IDPRODUCTOGENERICO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Output].Columns[DCDSPRODUCTOGENERICO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Output].Columns[DCDSPRODUCTOGENERICO]"
+                          name="DCDSPRODUCTOGENERICO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].Columns[DSPRODUCTOGENERICO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscArchivos_ExtrDimTottoLab"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel_Origen_TottoLab_XLS"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Hoja1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel_Origen_TottoLab_XLS]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel_Origen_TottoLab_XLS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].Columns[IDPRODUCTOGENERICO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].ExternalColumns[IDPRODUCTOGENERICO]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].Columns[IDPRODUCTOGENERICO]"
+                          name="IDPRODUCTOGENERICO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].Columns[DSPRODUCTOGENERICO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].ExternalColumns[DSPRODUCTOGENERICO]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].Columns[DSPRODUCTOGENERICO]"
+                          name="DSPRODUCTOGENERICO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].ExternalColumns[IDPRODUCTOGENERICO]"
+                          dataType="wstr"
+                          length="255"
+                          name="IDPRODUCTOGENERICO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output].ExternalColumns[DSPRODUCTOGENERICO]"
+                          dataType="wstr"
+                          length="255"
+                          name="DSPRODUCTOGENERICO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Error Output].Columns[IDPRODUCTOGENERICO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Error Output].Columns[IDPRODUCTOGENERICO]"
+                          name="IDPRODUCTOGENERICO" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Error Output].Columns[DSPRODUCTOGENERICO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Error Output].Columns[DSPRODUCTOGENERICO]"
+                          name="DSPRODUCTOGENERICO" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscArchivos_ExtrDimTottoLab"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscArchivos].[ExtrDimTottoLab]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input].Columns[DCIDPRODUCTOGENERICO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCIDPRODUCTOGENERICO"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTOGENERICO]"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Output].Columns[DCIDPRODUCTOGENERICO]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input].Columns[DCDSPRODUCTOGENERICO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCDSPRODUCTOGENERICO"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input].ExternalColumns[DSPRODUCTOGENERICO]"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Output].Columns[DCDSPRODUCTOGENERICO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTOGENERICO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="IDPRODUCTOGENERICO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input].ExternalColumns[DSPRODUCTOGENERICO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DSPRODUCTOGENERICO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab.Paths[Derived Column Output]"
+                  endId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab.Paths[Excel Source Output]"
+                  endId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab.Inputs[Derived Column Input]"
+                  name="Excel Source Output"
+                  startId="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrDimTottoLab\EST_Truncate_UscArchivos_ExtrDimTottoLab"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{17C59644-E066-426B-A925-2D5A5D01B5C0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscArchivos_ExtrDimTottoLab"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscArchivos.ExtrDimTottoLab;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscArchivos_ExtrDimTottoLab.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{20AD8633-509A-40BB-B9B7-65DC5901F381}"
+          DTS:From="Package\SC_UscArchivos_ExtrDimTottoLab\EST_Truncate_UscArchivos_ExtrDimTottoLab"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="291,42"
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="291,42"
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab\EST_Truncate_UscArchivos_ExtrDimTottoLab"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab.PrecedenceConstraints[Constraint]"
+          TopLeft="151,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="302,204"
+          Size="302,248"
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab"
+          TopLeft="5.50000000000003,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="299,42"
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Derivada_UscArchivos_ExtrDimTottoLab"
+          TopLeft="5.50000000000003,108.5" />
+        <NodeLayout
+          Size="299,42"
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab"
+          TopLeft="5.50000000000006,312.5" />
+        <NodeLayout
+          Size="299,42"
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\DC_UscArchivos_ExtrDimTottoLab"
+          TopLeft="5.50000000000003,210.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab.Paths[Derived Column Output]"
+          TopLeft="155,150.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab.Paths[Data Conversion Output]"
+          TopLeft="155,252.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="298,42"
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab.Paths[Excel Source Output]"
+          TopLeft="154.75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\OLEDB_Destino_UscArchivos_ExtrDimTottoLab">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrDimTottoLab\DFT_UscArchivos_ExtrDimTottoLab\Excel_Origen_TottoLab_XLS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

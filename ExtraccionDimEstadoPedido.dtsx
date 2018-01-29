@@ -1,0 +1,1229 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/10/2017 2:15:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{76E7C6FE-F867-452A-AB16-DE3700070007}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimEstadoPedido"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{4DB9B0F2-C73F-46BE-9D8A-B36F1B07AD64}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel_OrigenEstadoPedidoENUM]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{3AA58A96-0EAD-4DFB-ADA8-A77F130BAEE1}"
+      DTS:ObjectName="Excel_OrigenEstadoPedidoENUM">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Project::RutaArchivosEnum] + "EnumSalesStatus_DimEstadoPedido.xls"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=F:\Nalsani EDW\2. Archivos\Enum\EnumSalesStatus_DimEstadoPedido.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B1D744B0-0C4D-4746-8B1B-3B48986F0CAA}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscArchivos_ExtrEstadoPedidoENUM">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F36D6900-7FEF-4108-806C-41801CB1CD8B}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscArchivos_ExtrEstadoPedidoENUM"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscArchivos_ExtrEstadoPedidoENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Data Conversion Input].Columns[IdEstadoPedido]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="IdEstadoPedido"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].Columns[IdEstadoPedido]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Data Conversion Input].Columns[DsEstadoPedido]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DsEstadoPedido"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].Columns[DsEstadoPedido]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Output].Columns[DCIdEstadoPedido]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Output].Columns[DCIdEstadoPedido]"
+                          name="DCIdEstadoPedido"
+                          precision="18"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].Columns[IdEstadoPedido]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Output].Columns[DCDsEstadoPedido]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Output].Columns[DCDsEstadoPedido]"
+                          name="DCDsEstadoPedido"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].Columns[DsEstadoPedido]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscArchivos_ExtrEstadoPedidoENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel_Origen_MaestroENUM_EstadoPedido"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Hoja1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel_OrigenEstadoPedidoENUM]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel_OrigenEstadoPedidoENUM]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].Columns[IdEstadoPedido]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].ExternalColumns[IdEstadoPedido]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].Columns[IdEstadoPedido]"
+                          name="IdEstadoPedido"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].Columns[DsEstadoPedido]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].ExternalColumns[DsEstadoPedido]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].Columns[DsEstadoPedido]"
+                          name="DsEstadoPedido"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].ExternalColumns[IdEstadoPedido]"
+                          dataType="wstr"
+                          length="255"
+                          name="IdEstadoPedido" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output].ExternalColumns[DsEstadoPedido]"
+                          dataType="wstr"
+                          length="255"
+                          name="DsEstadoPedido" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Error Output].Columns[IdEstadoPedido]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Error Output].Columns[IdEstadoPedido]"
+                          name="IdEstadoPedido" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Error Output].Columns[DsEstadoPedido]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Error Output].Columns[DsEstadoPedido]"
+                          name="DsEstadoPedido" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscArchivos].[ExtrEstadoPedidoENUM]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input].Columns[DCIdEstadoPedido]"
+                          cachedDataType="numeric"
+                          cachedName="DCIdEstadoPedido"
+                          cachedPrecision="18"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOPEDIDO]"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Output].Columns[DCIdEstadoPedido]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input].Columns[DCDsEstadoPedido]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCDsEstadoPedido"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input].ExternalColumns[DSESTADOPEDIDO]"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Output].Columns[DCDsEstadoPedido]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOPEDIDO]"
+                          dataType="i4"
+                          name="IDESTADOPEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input].ExternalColumns[DSESTADOPEDIDO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DSESTADOPEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM.Paths[Derived Column Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM.Paths[Excel Source Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM.Inputs[Derived Column Input]"
+                  name="Excel Source Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\EST_Truncate_UscArchivos_ExtrEstadoPedidoENUM"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5B17A943-43B9-4C88-B136-46673E352603}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscArchivos_ExtrEstadoPedidoENUM"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscArchivos.ExtrEstadoPedidoENUM;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoPedidoENUM.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F609EE54-E8DB-4757-9D16-538CA35BA3D2}"
+          DTS:From="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\EST_Truncate_UscArchivos_ExtrEstadoPedidoENUM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{85F213D5-3D1D-4FE2-BBAE-04A4A695371F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{15FBC7BF-49D5-4CCF-A84F-715ABD4D2EB1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[Data Conversion Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrSalesTable_ExtrDimEstadoPedido]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[OLE DB Destination Input].Columns[SALESSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="SALESSTATUS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[OLE DB Destination Input].ExternalColumns[SALESSTATUS]"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Output].Columns[SALESSTATUS]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[OLE DB Destination Input].ExternalColumns[SALESSTATUS]"
+                          dataType="i4"
+                          name="SALESSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_SALESTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+  SALESSTATUS 
+FROM SALESTABLE WITH (NOLOCK) WHERE SALESTABLE.DATAAREAID = ? ;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Output].Columns[SALESSTATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Output].ExternalColumns[SALESSTATUS]"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Output].Columns[SALESSTATUS]"
+                          name="SALESSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Output].ExternalColumns[SALESSTATUS]"
+                          dataType="i4"
+                          name="SALESSTATUS" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Error Output].Columns[SALESSTATUS]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Error Output].Columns[SALESSTATUS]"
+                          name="SALESSTATUS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\EST_Truncate_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9586B86A-BF83-49FC-A6F3-9780D35A5D6E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrSalesTable_ExtrDimEstadoPedido;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8F1E05E9-A914-46EB-9E01-D7F3A11721EB}"
+          DTS:From="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\EST_Truncate_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="322,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM"
+          TopLeft="5.50000000000006,128.5" />
+        <NodeLayout
+          Size="322,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\EST_Truncate_UscArchivos_ExtrEstadoPedidoENUM"
+          TopLeft="5.5,26.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM.PrecedenceConstraints[Constraint]"
+          TopLeft="166.5,68.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="332,226"
+          Size="332,269"
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM"
+          TopLeft="461.5,20.4999999999999" />
+        <NodeLayout
+          Size="382,42"
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          TopLeft="18.5,127.5" />
+        <NodeLayout
+          Size="382,42"
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\EST_Truncate_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          TopLeft="18.5,25.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.PrecedenceConstraints[Constraint]"
+          TopLeft="209.5,67.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="416,225"
+          Size="416,268"
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          TopLeft="9,23.4999999999999" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="330,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Derivada_UscArchivos_ExtrEstadoPedidoENUM"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\DC_UscArchivos_ExtrEstadoPedidoENUM"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM.Paths[Excel Source Output]"
+          TopLeft="170.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM.Paths[Derived Column Output]"
+          TopLeft="170.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM.Paths[Data Conversion Output]"
+          TopLeft="170.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\OLEDB_Destino_UscArchivos_ExtrEstadoPedidoENUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoPedidoENUM\DFT_UscArchivos_ExtrEstadoPedidoENUM\Excel_Origen_MaestroENUM_EstadoPedido">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="390,42"
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="390,42"
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="390,42"
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\Derivada_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="390,42"
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido"
+          TopLeft="10.5000000000001,314.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Paths[OLE DB Source Output]"
+          TopLeft="200.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Paths[Derived Column Output]"
+          TopLeft="200.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido.Paths[Data Conversion Output]"
+          TopLeft="203,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Origen_SALESTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\DFT_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido\OLEDB_Destino_UscNalsani_ExtrSalesTable_ExtrDimEstadoPedido">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

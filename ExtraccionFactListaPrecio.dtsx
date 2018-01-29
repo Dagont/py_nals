@@ -1,0 +1,1544 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{6A4732E6-7A18-437A-B771-392670967518}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactListaPrecio"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="153"
+  DTS:VersionGUID="{70264E1F-BD47-4D16-930D-05CC41438C0C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{DD6735C8-CCB3-4377-B85E-72EB20D1E151}"
+      DTS:ObjectName="Prm_AutoFactListaPrecio">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{44DA08DC-C072-4047-BFCE-14E6CEC18FA3}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactListaPrecio">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{133E9DC4-EAC2-49B5-A0BB-77C5A41A09F2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{99753D47-2181-440E-9754-87D3F4A680B9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1882634F-788B-45EF-A09C-2916F6C410B5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B3C258C5-B92E-4F88-8A99-59DCC3E75E00}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactListaPrecio"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{CE97A6F2-D93E-4F0B-BB56-EAC1C2671F43}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactListaPrecio"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactListaPrecio]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactListaPrecio"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{911859C7-37C6-43CB-9E6F-6EB4673CCD5D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactListaPrecio">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{0D7DACD4-E3D5-44E2-8D8B-96E62B5D8BE5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactListaPrecio"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactListaPrecio"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Inputs[Data Conversion Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Inputs[Data Conversion Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Inputs[Data Conversion Input].Columns[ITEMRELATION]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMRELATION"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ITEMRELATION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Inputs[Data Conversion Input].Columns[CURRENCY]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CURRENCY"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[CURRENCY]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Inputs[Data Conversion Input].Columns[ACCOUNTRELATION]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ACCOUNTRELATION"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTRELATION]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          name="DCINVENTCOLORID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          name="DCINVENTSIZEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCITEMRELATION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCITEMRELATION]"
+                          name="DCITEMRELATION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ITEMRELATION]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCTCURRENCY]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCTCURRENCY]"
+                          name="DCTCURRENCY"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[CURRENCY]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCTACCOUNTRELATION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCTACCOUNTRELATION]"
+                          name="DCTACCOUNTRELATION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTRELATION]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactListaPrecio"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Inputs[Derived Column Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Inputs[Derived Column Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Inputs[Derived Column Input].Columns[ITEMRELATION]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMRELATION"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ITEMRELATION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Inputs[Derived Column Input].Columns[IDFECHACORTE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="IDFECHACORTE"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[IDFECHACORTE]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          name="DCTIDPRODUCTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)([TRIM](#{Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ITEMRELATION]} + #{Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]} + #{Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)(TRIM(ITEMRELATION + INVENTCOLORID + INVENTSIZEID))</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Output].Columns[DCTIDFECHACORTE]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Output].Columns[DCTIDFECHACORTE]"
+                          name="DCTIDFECHACORTE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBDATE)#{Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[IDFECHACORTE]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBDATE)IDFECHACORTE</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactListaPrecio_Totales"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactListaPrecio"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactListaPrecio]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[DCTIDPRODUCTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCTIDPRODUCTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[DCTIDFECHACORTE]"
+                          cachedDataType="dbDate"
+                          cachedName="DCTIDFECHACORTE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[IDFECHACORTE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Output].Columns[DCTIDFECHACORTE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[AMOUNT]"
+                          cachedDataType="numeric"
+                          cachedName="AMOUNT"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNT]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[AMOUNT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[DCINVENTCOLORID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTCOLORID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[DCINVENTSIZEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTSIZEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[DCITEMRELATION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCITEMRELATION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[ITEMRELATION]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCITEMRELATION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[DCTCURRENCY]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DCTCURRENCY"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[CURRENCY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCTCURRENCY]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[DCTACCOUNTRELATION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCTACCOUNTRELATION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[ACCOUNTRELATION]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output].Columns[DCTACCOUNTRELATION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[FROMDATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FROMDATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[DATEFROM]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[FROMDATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[TODATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="TODATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[DATETO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[TODATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].Columns[CREATEDDATETIME]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="CREATEDDATETIME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[IDFECHA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="IDPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[IDFECHACORTE]"
+                          dataType="dbDate"
+                          name="IDFECHACORTE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[ITEMRELATION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ITEMRELATION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNT]"
+                          dataType="numeric"
+                          name="AMOUNT"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[IDFECHA]"
+                          dataType="dbDate"
+                          name="IDFECHA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[CURRENCY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="CURRENCY" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[IDSUCURSAL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="IDSUCURSAL" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[ACCOUNTRELATION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ACCOUNTRELATION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[DATEFROM]"
+                          dataType="dbDate"
+                          name="DATEFROM" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input].ExternalColumns[DATETO]"
+                          dataType="dbDate"
+                          name="DATETO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_PRICEDISCTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+  GETDATE()IDFECHACORTE,
+  PDT.CREATEDDATETIME,
+  PDT.CURRENCY,
+  PDT.ACCOUNTRELATION,
+  PDT.ITEMRELATION,
+  ID.INVENTCOLORID,
+  ID.INVENTSIZEID,
+  PDT.AMOUNT,
+  PDT.FROMDATE,
+  PDT.TODATE 
+FROM PRICEDISCTABLE AS PDT WITH(NOLOCK)
+LEFT JOIN INVENTDIM AS ID WITH(NOLOCK)
+	ON ID.INVENTDIMID = PDT.INVENTDIMID
+	AND ID.DATAAREAID = PDT.DATAAREAID
+	AND ID.PARTITION = PDT.PARTITION
+WHERE PDT.RELATION = 4 --4 para ventas y 0 para compras
+AND GETDATE() BETWEEN  PDT.FROMDATE AND  PDT.TODATE 
+AND PDT.DATAAREAID = ?
+AND PDT.CREATEDDATETIME BETWEEN  ? AND ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{99753D47-2181-440E-9754-87D3F4A680B9};"Parameter2:Input",{133E9DC4-EAC2-49B5-A0BB-77C5A41A09F2};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[IDFECHACORTE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[IDFECHACORTE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[IDFECHACORTE]"
+                          name="IDFECHACORTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ITEMRELATION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMRELATION]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ITEMRELATION]"
+                          name="ITEMRELATION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[AMOUNT]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[AMOUNT]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[AMOUNT]"
+                          name="AMOUNT"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[CURRENCY]"
+                          name="CURRENCY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTRELATION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACCOUNTRELATION]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTRELATION]"
+                          name="ACCOUNTRELATION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[FROMDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[FROMDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[FROMDATE]"
+                          name="FROMDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[TODATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[TODATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[TODATE]"
+                          name="TODATE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[IDFECHACORTE]"
+                          dataType="dbTimeStamp"
+                          name="IDFECHACORTE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMRELATION]"
+                          dataType="wstr"
+                          length="20"
+                          name="ITEMRELATION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[AMOUNT]"
+                          dataType="numeric"
+                          name="AMOUNT"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          name="CREATEDDATETIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY]"
+                          dataType="wstr"
+                          length="3"
+                          name="CURRENCY" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACCOUNTRELATION]"
+                          dataType="wstr"
+                          length="20"
+                          name="ACCOUNTRELATION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[FROMDATE]"
+                          dataType="dbTimeStamp"
+                          name="FROMDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[TODATE]"
+                          dataType="dbTimeStamp"
+                          name="TODATE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[CURRENCY]"
+                          name="CURRENCY" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ACCOUNTRELATION]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ACCOUNTRELATION]"
+                          name="ACCOUNTRELATION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[IDFECHACORTE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[IDFECHACORTE]"
+                          name="IDFECHACORTE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[FROMDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[FROMDATE]"
+                          name="FROMDATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[TODATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[TODATE]"
+                          name="TODATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMRELATION]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMRELATION]"
+                          name="ITEMRELATION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[AMOUNT]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[AMOUNT]"
+                          name="AMOUNT"
+                          precision="32"
+                          scale="16" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio.Paths[Derived Column Output1]"
+                  endId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactListaPrecio\EST_Truncate_UscNalsani_ExtrFactListaPrecio"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8ADAFD58-D46F-4659-BF88-4AA698E3F821}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactListaPrecio"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrFactListaPrecio;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactListaPrecio.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F308EE61-5999-42CE-B509-C6CBDA6D3E40}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactListaPrecio\EST_Truncate_UscNalsani_ExtrFactListaPrecio"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_FactListaPrecio"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C2E62C9E-998F-4329-9C01-656CDDCA6C8D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_FactListaPrecio"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactListaPrecio] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactListaPrecio] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_FactListaPrecio"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{878AB4B6-6DBF-4E46-A841-4FF5DDF8BCF8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_FactListaPrecio"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8D6109F9-A7B7-472D-911B-1B1A35CDEC57}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_FactListaPrecio"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactListaPrecio" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6037EDCE-A736-4115-B8BF-05701E327BE9}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactListaPrecio] == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactListaPrecio"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_FactListaPrecio" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A66B833E-D7B1-40C7-B1E0-D04B5EC8F0C0}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_FactListaPrecio"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactListaPrecio" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{63938572-6C12-4F6D-B55D-3EAEBFD54620}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactListaPrecio] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactListaPrecio"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_FactListaPrecio" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="250,42"
+          Id="Package\ET_¿Es Automatica?_FactListaPrecio"
+          TopLeft="266.5,54.5" />
+        <NodeLayout
+          Size="292,42"
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio"
+          TopLeft="27.5,133.5" />
+        <NodeLayout
+          Size="295,42"
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\EST_Truncate_UscNalsani_ExtrFactListaPrecio"
+          TopLeft="27.5,31.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio.PrecedenceConstraints[Constraint]"
+          TopLeft="174.25,73.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="351,231"
+          Size="351,274"
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio"
+          TopLeft="223.5,287.5" />
+        <NodeLayout
+          Size="348,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_FactListaPrecio"
+          TopLeft="0.5,167.5" />
+        <NodeLayout
+          Size="329,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_FactListaPrecio"
+          TopLeft="466.5,166.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="174.5,209.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167.333333333333,78"
+              Start="0,0"
+              End="167.333333333333,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5876347135564" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.5876347135564"
+                    Point2="0,46.5876347135564"
+                    Point3="4,46.5876347135564" />
+                  <mssgle:LineSegment
+                    End="163.333333333333,46.5876347135564" />
+                  <mssgle:CubicBezierSegment
+                    Point1="163.333333333333,46.5876347135564"
+                    Point2="167.333333333333,46.5876347135564"
+                    Point3="167.333333333333,50.5876347135564" />
+                  <mssgle:LineSegment
+                    End="167.333333333333,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="351.166666666667,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-176.666666666667,71"
+              Start="0,0"
+              End="-176.666666666667,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.670906200318" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.670906200318"
+                    Point2="0,28.670906200318"
+                    Point3="-4,28.670906200318" />
+                  <mssgle:LineSegment
+                    End="-172.666666666667,28.670906200318" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-172.666666666667,28.670906200318"
+                    Point2="-176.666666666667,28.670906200318"
+                    Point3="-176.666666666667,32.670906200318" />
+                  <mssgle:LineSegment
+                    End="-176.666666666667,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-96.3333333333335,33.670906200318,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="631,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-174.833333333333,79"
+              Start="0,0"
+              End="-174.833333333333,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.184912081679"
+                    Point2="0,47.184912081679"
+                    Point3="-4,47.184912081679" />
+                  <mssgle:LineSegment
+                    End="-170.833333333333,47.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-170.833333333333,47.184912081679"
+                    Point2="-174.833333333333,47.184912081679"
+                    Point3="-174.833333333333,51.184912081679" />
+                  <mssgle:LineSegment
+                    End="-174.833333333333,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="431.833333333333,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="199.166666666667,70"
+              Start="0,0"
+              End="199.166666666667,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2670906200318" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2670906200318"
+                    Point2="0,28.2670906200318"
+                    Point3="4,28.2670906200318" />
+                  <mssgle:LineSegment
+                    End="195.166666666667,28.2670906200318" />
+                  <mssgle:CubicBezierSegment
+                    Point1="195.166666666667,28.2670906200318"
+                    Point2="199.166666666667,28.2670906200318"
+                    Point3="199.166666666667,32.2670906200318" />
+                  <mssgle:LineSegment
+                    End="199.166666666667,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="91.5833333333335,33.2670906200318,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="303,42"
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio"
+          TopLeft="9.50000000000006,413.5" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\Derivada_UscNalsani_ExtrFactListaPrecio_Totales"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\DC_UscNalsani_UscNalsani_ExtrFactListaPrecio"
+          TopLeft="5.50000000000003,311.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio.Paths[OLE DB Source Output]"
+          TopLeft="161,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio.Paths[Derived Column Output1]"
+          TopLeft="161,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio.Paths[Derived Column Output]"
+          TopLeft="161,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio.Paths[Data Conversion Output]"
+          TopLeft="161,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Origen_PRICEDISCTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactListaPrecio\DFT_UscNalsani_ExtrFactListaPrecio\OLEDB_Destino_UscNalsani_ExtrFactListaPrecio">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

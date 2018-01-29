@@ -1,0 +1,842 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/10/2017 2:15:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{2D154F96-FF99-4507-B341-237E6E6A4CE9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimPrueba"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{1C4C86F7-4274-412E-BBC6-E7F028173E3B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9CA5113F-1F86-4941-A8BF-57F6E2670250}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{764589EC-6D05-4204-9D3B-A6A21C90B6F0}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Data Conversion Input].Columns[TESTID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="TESTID"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Data Conversion Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESCRIPTION"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Data Conversion Input].Columns[TESTINSTRUMENTID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="TESTINSTRUMENTID"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTINSTRUMENTID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Data Conversion Input].Columns[TESTUNITID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="TESTUNITID"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTUNITID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCTESTID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCTESTID]"
+                          name="DCTESTID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCDESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCDESCRIPTION]"
+                          name="DCDESCRIPTION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCTESTINSTRUMENTID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCTESTINSTRUMENTID]"
+                          name="DCTESTINSTRUMENTID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTINSTRUMENTID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCTESTUNITID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCTESTUNITID]"
+                          name="DCTESTUNITID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTUNITID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrInventTestTable_ExtrDimPrueba]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].Columns[TESTTYPE]"
+                          cachedDataType="i4"
+                          cachedName="TESTTYPE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[TESTTYPE]"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTTYPE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].Columns[DCTESTID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCTESTID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[TESTID]"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCTESTID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].Columns[DCDESCRIPTION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCDESCRIPTION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCDESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].Columns[DCTESTINSTRUMENTID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCTESTINSTRUMENTID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[TESTINSTRUMENTID]"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCTESTINSTRUMENTID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].Columns[DCTESTUNITID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCTESTUNITID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[TESTUNITID]"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output].Columns[DCTESTUNITID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[TESTID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="TESTID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[TESTTYPE]"
+                          dataType="numeric"
+                          name="TESTTYPE"
+                          precision="18"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[TESTINSTRUMENTID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="TESTINSTRUMENTID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input].ExternalColumns[TESTUNITID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="TESTUNITID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_INVENTTESTTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+  TESTID,
+  DESCRIPTION,
+  TESTTYPE,
+  TESTINSTRUMENTID,
+  TESTUNITID
+FROM INVENTTESTTABLE WITH (NOLOCK) WHERE DATAAREAID=?;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTID]"
+                          name="TESTID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTTYPE]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTTYPE]"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTTYPE]"
+                          name="TESTTYPE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTINSTRUMENTID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTINSTRUMENTID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTINSTRUMENTID]"
+                          name="TESTINSTRUMENTID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTUNITID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTUNITID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].Columns[TESTUNITID]"
+                          name="TESTUNITID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTID]"
+                          dataType="wstr"
+                          length="20"
+                          name="TESTID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTTYPE]"
+                          dataType="i4"
+                          name="TESTTYPE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTINSTRUMENTID]"
+                          dataType="wstr"
+                          length="20"
+                          name="TESTINSTRUMENTID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output].ExternalColumns[TESTUNITID]"
+                          dataType="wstr"
+                          length="10"
+                          name="TESTUNITID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[TESTID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[TESTID]"
+                          name="TESTID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[TESTTYPE]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[TESTTYPE]"
+                          name="TESTTYPE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[TESTINSTRUMENTID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[TESTINSTRUMENTID]"
+                          name="TESTINSTRUMENTID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[TESTUNITID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Error Output].Columns[TESTUNITID]"
+                          name="TESTUNITID" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\EST_Truncate_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C13E99AB-5501-4E40-808F-701C6D77C3AB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrInventTestTable_ExtrDimPrueba;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CE3DF671-7514-4005-8B0D-EE8DF7398589}"
+          DTS:From="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\EST_Truncate_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="378,42"
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="378,42"
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\EST_Truncate_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.PrecedenceConstraints[Constraint]"
+          TopLeft="194.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="388,205"
+          Size="388,248"
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          TopLeft="5.50000000000003,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="386,42"
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="386,42"
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="386,42"
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\Derivada_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="386,42"
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Paths[OLE DB Source Output]"
+          TopLeft="198.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Paths[Derived Column Output]"
+          TopLeft="198.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba.Paths[Data Conversion Output]"
+          TopLeft="198.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Origen_INVENTTESTTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\DFT_UscNalsani_ExtrInventTestTable_ExtrDimPrueba\OLEDB_Destino_UscNalsani_ExtrInventTestTable_ExtrDimPrueba">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

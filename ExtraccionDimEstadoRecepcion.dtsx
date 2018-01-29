@@ -1,0 +1,687 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2017 3:59:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi1"
+  DTS:DTSID="{B3EDF271-A561-4FA9-AA4F-F1CD178A1C62}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimEstadoRecepcion"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{D83B4906-89DD-4085-AB9A-298A0AE2306A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel_OirgenEstadoRecepcionENUM]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{84F01AF0-3DEF-483C-9242-347FCFBA9F7A}"
+      DTS:ObjectName="Excel_OirgenEstadoRecepcionENUM">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Project::RutaArchivosEnum]+"EnumStatusReceiptEstadoRecepción.xls"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=F:\Nalsani EDW\2. Archivos\Enum\EnumStatusReceiptEstadoRecepción.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9129E2D8-7347-4F6B-9B2F-9C13A2AFF3F5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscArchivos_ExtrEstadoRecepcion_ENUM">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D644EC9E-5BFA-4CE9-A8CF-1C9F03EA7FE7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscArchivos_ExtrEstadoRecepcionENUM"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscArchivos_ExtrEstadoRecepcionENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Data Conversion Input].Columns[IdStatusReceipt]"
+                          cachedDataType="r8"
+                          cachedName="IdStatusReceipt"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].Columns[IdStatusReceipt]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Data Conversion Input].Columns[DsStatusReceipt]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DsStatusReceipt"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].Columns[DsStatusReceipt]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Output].Columns[DCIdStatusReceipt]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Output].Columns[DCIdStatusReceipt]"
+                          name="DCIdStatusReceipt"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].Columns[IdStatusReceipt]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Output].Columns[DCDsStatusReceipt]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Output].Columns[DCDsStatusReceipt]"
+                          name="DCDsStatusReceipt"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].Columns[DsStatusReceipt]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscArchivos_ExtrEstadoRecepcionENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel_Origen_MaestroENUM_EstadoRecepcion"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">EstadoRecepcion$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel_OirgenEstadoRecepcionENUM]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel_OirgenEstadoRecepcionENUM]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].Columns[IdStatusReceipt]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].ExternalColumns[IdStatusReceipt]"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].Columns[IdStatusReceipt]"
+                          name="IdStatusReceipt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].Columns[DsStatusReceipt]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].ExternalColumns[DsStatusReceipt]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].Columns[DsStatusReceipt]"
+                          name="DsStatusReceipt"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].ExternalColumns[IdStatusReceipt]"
+                          dataType="r8"
+                          name="IdStatusReceipt" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output].ExternalColumns[DsStatusReceipt]"
+                          dataType="wstr"
+                          length="255"
+                          name="DsStatusReceipt" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Error Output].Columns[IdStatusReceipt]"
+                          dataType="r8"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Error Output].Columns[IdStatusReceipt]"
+                          name="IdStatusReceipt" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Error Output].Columns[DsStatusReceipt]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Error Output].Columns[DsStatusReceipt]"
+                          name="DsStatusReceipt" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscArchivos].[ExtrEstadoRecepcionENUM]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:invalid"
+                      connectionManagerRefId="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:invalid"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input].Columns[DCIdStatusReceipt]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DCIdStatusReceipt"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input].ExternalColumns[IdStatusReceipt]"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Output].Columns[DCIdStatusReceipt]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input].Columns[DCDsStatusReceipt]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCDsStatusReceipt"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input].ExternalColumns[DsStatusReceipt]"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Output].Columns[DCDsStatusReceipt]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input].ExternalColumns[IdStatusReceipt]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="IdStatusReceipt" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input].ExternalColumns[DsStatusReceipt]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="DsStatusReceipt" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input].ExternalColumns[DtCreacion]"
+                          dataType="dbTimeStamp"
+                          name="DtCreacion" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM.Paths[Derived Column Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM.Paths[Excel Source Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM.Inputs[Derived Column Input]"
+                  name="Excel Source Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\EST_Truncate_UscArchivos_ExtrEstadoRecepcionENUM"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5C46FCB5-DD9B-4115-9089-2EE9C5A079AE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscArchivos_ExtrEstadoRecepcionENUM"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="Truncate table UscArchivos.ExtrEstadoRecepcionENUM;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{2635DFF9-3C4D-491E-A5D3-F1ED46B775FA}"
+          DTS:From="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\EST_Truncate_UscArchivos_ExtrEstadoRecepcionENUM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="292,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM"
+          TopLeft="29,107.5" />
+        <NodeLayout
+          Size="339,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\EST_Truncate_UscArchivos_ExtrEstadoRecepcionENUM"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM.PrecedenceConstraints[Constraint]"
+          TopLeft="175,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="350,205"
+          Size="350,248"
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM"
+          TopLeft="5.50000000000003,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="347,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="347,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Derivada_UscArchivos_ExtrEstadoRecepcionENUM"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="347,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="347,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\DC_UscArchivos_ExtrEstadoRecepcionENUM"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM.Paths[Derived Column Output]"
+          TopLeft="179,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM.Paths[Data Conversion Output]"
+          TopLeft="179,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM.Paths[Excel Source Output]"
+          TopLeft="179,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoRecepcionENUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoRecepcion_ENUM\DFT_UscArchivos_ExtrEstadoRecepcionENUM\Excel_Origen_MaestroENUM_EstadoRecepcion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

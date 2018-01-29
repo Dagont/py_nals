@@ -1,0 +1,1248 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/10/2017 2:15:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{DC5C95F7-CE69-4462-8D93-40D9C584B1EC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimEstadoProduccion"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="83"
+  DTS:VersionGUID="{C8374FC9-9E4E-4478-8002-B7BCEB637FB4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel_Origen_EstadoProduccionENUM]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{8BA4B7AD-05E4-4E98-B8D2-EA92303FB4F5}"
+      DTS:ObjectName="Excel_Origen_EstadoProduccionENUM">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Project::RutaArchivosEnum] + "Enumcodstatus_DimEstadoProduccion.xls"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=F:\Nalsani EDW\2. Archivos\Enum\Enumcodstatus_DimEstadoProduccion.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{4A3883B5-9994-49F8-8E66-971E09AF0D24}"
+      DTS:ObjectName="SC_UscArchivos_ExtrEstadoProduccionENUM_DelayValidation">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C6AB8054-5E4E-4670-86D8-2FCDB07DEED5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscArchivos_ExtrEstadoProduccionENUM">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="DelayValidation">@[$Package::SC_UscArchivos_ExtrEstadoProduccionENUM_DelayValidation]</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{B63711DD-2FB8-4305-BB5F-568EE8B39CFC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscArchivos_ExtrEstadoProduccionENUM"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscArchivos_ExtrEstadoProduccionENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Data Conversion Input].Columns[DsEstadoProduccion]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DsEstadoProduccion"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].Columns[DsEstadoProduccion]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Data Conversion Input].Columns[IdEstadoProduccion]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="IdEstadoProduccion"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].Columns[IdEstadoProduccion]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Output].Columns[DCDsEstadoProduccion]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Output].Columns[DCDsEstadoProduccion]"
+                          name="DCDsEstadoProduccion"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].Columns[DsEstadoProduccion]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Output].Columns[DCIdEstadoProduccion]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Output].Columns[DCIdEstadoProduccion]"
+                          name="DCIdEstadoProduccion"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].Columns[IdEstadoProduccion]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscArchivos_ExtrEstadoProduccionENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel_Origen_MaestroENUM_EstadoProduccion"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Hoja1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel_Origen_EstadoProduccionENUM]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel_Origen_EstadoProduccionENUM]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].Columns[IdEstadoProduccion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].ExternalColumns[IdEstadoProduccion]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].Columns[IdEstadoProduccion]"
+                          name="IdEstadoProduccion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].Columns[DsEstadoProduccion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].ExternalColumns[DsEstadoProduccion]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].Columns[DsEstadoProduccion]"
+                          name="DsEstadoProduccion"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].ExternalColumns[IdEstadoProduccion]"
+                          dataType="wstr"
+                          length="255"
+                          name="IdEstadoProduccion" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output].ExternalColumns[DsEstadoProduccion]"
+                          dataType="wstr"
+                          length="255"
+                          name="DsEstadoProduccion" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Error Output].Columns[IdEstadoProduccion]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Error Output].Columns[IdEstadoProduccion]"
+                          name="IdEstadoProduccion" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Error Output].Columns[DsEstadoProduccion]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Error Output].Columns[DsEstadoProduccion]"
+                          name="DsEstadoProduccion" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscArchivos].[ExtrEstadoProduccionENUM]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input].Columns[DCDsEstadoProduccion]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCDsEstadoProduccion"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input].ExternalColumns[DSESTADOPRODUCCION]"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Output].Columns[DCDsEstadoProduccion]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input].Columns[DCIdEstadoProduccion]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCIdEstadoProduccion"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOPRODUCCION]"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Output].Columns[DCIdEstadoProduccion]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOPRODUCCION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="IDESTADOPRODUCCION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input].ExternalColumns[DSESTADOPRODUCCION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DSESTADOPRODUCCION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM.Paths[Derived Column Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM.Paths[Excel Source Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM.Inputs[Derived Column Input]"
+                  name="Excel Source Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\EST_Truncate_UscArchivos_ExtrEstadoProduccionENUM"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{66A4BF4D-8E52-43CA-A3CC-6B4493AA8A9C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscArchivos_ExtrEstadoProduccionENUM"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="Truncate Table UscArchivos.ExtrEstadoProduccionENUM;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoProduccionENUM.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DBB24039-20C4-490F-A61C-6D728C5B2B84}"
+          DTS:From="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\EST_Truncate_UscArchivos_ExtrEstadoProduccionENUM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{CE22DB75-66E8-4592-BBEE-2C61AD44218D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F34750D6-6D6B-4C32-A990-D0A43FAB7245}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[Data Conversion Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrBfpProdMasterTable_ExtrDimEstadoProduccion]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[OLE DB Destination Input].Columns[LOWESTSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="LOWESTSTATUS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[OLE DB Destination Input].ExternalColumns[LOWESTSTATUS]"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Output].Columns[LOWESTSTATUS]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[OLE DB Destination Input].ExternalColumns[LOWESTSTATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="LOWESTSTATUS" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_BFPPRODMASTERTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT LOWESTSTATUS 
+                                
+FROM BFPPRODMASTERTABLE WITH (NOLOCK) WHERE BFPPRODMASTERTABLE.DATAAREAID = ?;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Output].Columns[LOWESTSTATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Output].ExternalColumns[LOWESTSTATUS]"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Output].Columns[LOWESTSTATUS]"
+                          name="LOWESTSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Output].ExternalColumns[LOWESTSTATUS]"
+                          dataType="i4"
+                          name="LOWESTSTATUS" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Error Output].Columns[LOWESTSTATUS]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Error Output].Columns[LOWESTSTATUS]"
+                          name="LOWESTSTATUS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\EST_Truncate_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{56ECF334-D986-4950-B544-85FCA8D248AB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrBfpProdMasterTable_ExtrDimEstadoProduccion;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4A32B8C4-275D-45C1-931C-24B332E6E1D7}"
+          DTS:From="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\EST_Truncate_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="342,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="342,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\EST_Truncate_UscArchivos_ExtrEstadoProduccionENUM"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM.PrecedenceConstraints[Constraint]"
+          TopLeft="176.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="353,205"
+          Size="353,248"
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM"
+          TopLeft="5.50000000000006,5.49999999999989" />
+        <NodeLayout
+          Size="427,42"
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="427,42"
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\EST_Truncate_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.PrecedenceConstraints[Constraint]"
+          TopLeft="219,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="438,205"
+          Size="438,248"
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          TopLeft="419,5.49999999999989" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="350,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="350,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Derivada_UscArchivos_ExtrEstadoProduccionENUM"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="350,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="350,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\DC_UscArchivos_ExtrEstadoProduccionENUM"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM.Paths[Excel Source Output]"
+          TopLeft="180.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM.Paths[Derived Column Output]"
+          TopLeft="180.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM.Paths[Data Conversion Output]"
+          TopLeft="180.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\OLEDB_Destino_UscArchivos_ExtrEstadoProduccionENUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoProduccionENUM\DFT_UscArchivos_ExtrEstadoProduccionENUM\Excel_Origen_MaestroENUM_EstadoProduccion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="435,42"
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="435,42"
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="435,42"
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\Derivada_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="435,42"
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Paths[OLE DB Source Output]"
+          TopLeft="223,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Paths[Derived Column Output]"
+          TopLeft="223,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion.Paths[Data Conversion Output]"
+          TopLeft="223,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Origen_BFPPRODMASTERTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\DFT_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion\OLEDB_Destino_UscNalsani_BfpprodMasterTable_ExtrDimEstadoProduccion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

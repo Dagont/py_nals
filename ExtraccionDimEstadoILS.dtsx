@@ -1,0 +1,465 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2017 3:59:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi1"
+  DTS:DTSID="{0A22E9D6-D79F-4F75-B62F-4402C9703BF7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimEstadoILS"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{2B31E7E3-3A96-4A92-BC24-B628003A34A6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4CCC9EEA-00DC-4941-B31E-73CBFC4D5E7D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrReqPlan_ExtrPlan">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{401FA5BE-1C1D-49E4-8E0F-61AB2C9ADC62}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrEstado_Nalsani_ExtrEstadoILS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input].Columns[codigo]"
+                          cachedDataType="numeric"
+                          cachedName="codigo"
+                          cachedPrecision="3"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input].ExternalColumns[CODIGO]"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].Columns[codigo]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input].Columns[descrip2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="descrip2"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPCION]"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].Columns[descrip2]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input].ExternalColumns[CODIGO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="CODIGO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPCION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="DESCRIPCION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_ESTADO_NALSANI"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select codigo, descrip2 from estado_nalsani WITH (NOLOCK)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Connections[OleDbConnection]"
+                      connectionManagerID="{018A4FE3-D3C9-44D5-890E-468C24D8D007}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_D22K8EILSDBS01_WRK]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].Columns[codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].ExternalColumns[codigo]"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].Columns[codigo]"
+                          name="codigo"
+                          precision="3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].Columns[descrip2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].ExternalColumns[descrip2]"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].Columns[descrip2]"
+                          name="descrip2"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].ExternalColumns[codigo]"
+                          dataType="numeric"
+                          name="codigo"
+                          precision="3" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output].ExternalColumns[descrip2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="descrip2" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Error Output].Columns[codigo]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Error Output].Columns[codigo]"
+                          name="codigo"
+                          precision="3" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Error Output].Columns[descrip2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Error Output].Columns[descrip2]"
+                          name="descrip2" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\EST_Truncate_UscNalsani_ExtrEstadoILS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F4B06BD6-18A2-4F38-B748-082625E184B1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrEstadoILS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="Truncate table [UscNalsani].[ExtrEstado_Nalsani_ExtrEstadoILS];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{3ED755F2-A674-4621-90CD-E8703FA91BD7}"
+          DTS:From="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\EST_Truncate_UscNalsani_ExtrEstadoILS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="338,42"
+          Id="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS"
+          TopLeft="6.50000000000003,106.5" />
+        <NodeLayout
+          Size="338,42"
+          Id="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\EST_Truncate_UscNalsani_ExtrEstadoILS"
+          TopLeft="3.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan.PrecedenceConstraints[Constraint]"
+          TopLeft="174,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="349,205"
+          Size="349,248"
+          Id="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan"
+          TopLeft="5.50000000000003,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="242,42"
+          Id="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI"
+          TopLeft="38.5,5.5" />
+        <NodeLayout
+          Size="322,42"
+          Id="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan"
+          TopLeft="0.500000000000057,157.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS.Paths[OLE DB Source Output]"
+          TopLeft="160.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,110"
+              Start="0,0"
+              End="0,102.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,102.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Destino_UscNalsani_Extr_ReqPlan_ExtrPlan">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrReqPlan_ExtrPlan\DFT_UscNalsani_ExtrESTADO_NALSANI_ExtrEstadoILS\OLEDB_Origen_ESTADO_NALSANI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

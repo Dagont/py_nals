@@ -1,0 +1,1367 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2017 2:37:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12DBDIPD01"
+  DTS:CreatorName="NALSANICORP\Adminbi"
+  DTS:DTSID="{DCEAA601-D39B-49D4-AC2B-A0C31751467F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimDiario"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{1F76C9EA-07AA-42B4-8F3A-A2B365475541}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel_OrigenTipoDiarioENUM]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0FB5FB36-F1A8-4435-A4F7-55B2932437BD}"
+      DTS:ObjectName="Excel_OrigenTipoDiarioENUM">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Project::RutaArchivosEnum] + "EnumLedgerJournalType_DimDiario.xls"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=F:\Nalsani EDW\2. Archivos\Enum\EnumLedgerJournalType_DimDiario.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{815ffc3e-18d7-4498-8656-ff8a3644cfb1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscArchivos_ExtrTipoDiarioENUM">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{0f32df94-b161-471d-ab9c-eb0eb6b9e947}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscArchivos_ExtrTipoDiarioENUM"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscArchivos_ExtrTipoDiarioENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Inputs[Data Conversion Input].Columns[IdTipoDiario]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="IdTipoDiario"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].Columns[IdTipoDiario]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Inputs[Data Conversion Input].Columns[DsTipoDiario]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DsTipoDiario"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].Columns[DsTipoDiario]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Output].Columns[DCIdTipoDiario]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Output].Columns[DCIdTipoDiario]"
+                          name="DCIdTipoDiario"
+                          precision="18"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].Columns[IdTipoDiario]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Output].Columns[DCDsTipoDiario]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="120"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Output].Columns[DCDsTipoDiario]"
+                          name="DCDsTipoDiario"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].Columns[DsTipoDiario]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscArchivos_ExtrTipoDiarioENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel_Origen_MaestroEnum_TipoDiario"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Hoja1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel_OrigenTipoDiarioENUM]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel_OrigenTipoDiarioENUM]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].Columns[IdTipoDiario]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].ExternalColumns[IdTipoDiario]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].Columns[IdTipoDiario]"
+                          name="IdTipoDiario"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].Columns[DsTipoDiario]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].ExternalColumns[DsTipoDiario]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].Columns[DsTipoDiario]"
+                          name="DsTipoDiario"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].ExternalColumns[IdTipoDiario]"
+                          dataType="wstr"
+                          length="255"
+                          name="IdTipoDiario" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output].ExternalColumns[DsTipoDiario]"
+                          dataType="wstr"
+                          length="255"
+                          name="DsTipoDiario" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Error Output].Columns[IdTipoDiario]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Error Output].Columns[IdTipoDiario]"
+                          name="IdTipoDiario" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Error Output].Columns[DsTipoDiario]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Error Output].Columns[DsTipoDiario]"
+                          name="DsTipoDiario" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscArchivos].[ExtrTipoDiarioENUM]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input].Columns[DCIdTipoDiario]"
+                          cachedDataType="numeric"
+                          cachedName="DCIdTipoDiario"
+                          cachedPrecision="18"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input].ExternalColumns[IDTIPODIARIO]"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Output].Columns[DCIdTipoDiario]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input].Columns[DCDsTipoDiario]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="120"
+                          cachedName="DCDsTipoDiario"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input].ExternalColumns[DSTIPODIARIO]"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Output].Columns[DCDsTipoDiario]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input].ExternalColumns[IDTIPODIARIO]"
+                          dataType="i4"
+                          name="IDTIPODIARIO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input].ExternalColumns[DSTIPODIARIO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="120"
+                          name="DSTIPODIARIO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM.Paths[Derived Column Output]"
+                  endId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM.Paths[Excel Source Output]"
+                  endId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM.Inputs[Derived Column Input]"
+                  name="Excel Source Output"
+                  startId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM\EST_Truncate_UscArchivos_ExtrTipoDiarioENUM"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2a4aed7f-cd3f-4699-8f35-d4c036524c3d}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscArchivos_ExtrTipoDiarioENUM"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscArchivos.ExtrTipoDiarioENUM;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscArchivos_ExtrTipoDiarioENUM.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{e7efa140-7d7c-4db8-8efe-7710eeeadb2a}"
+          DTS:From="Package\SC_UscArchivos_ExtrTipoDiarioENUM\EST_Truncate_UscArchivos_ExtrTipoDiarioENUM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9a3130fc-2c8c-4e35-9603-7d548de6c5a0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{e8f2790a-711a-47a9-b231-9e388f1a4ffe}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Data Conversion Input].Columns[JOURNALNAME]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="JOURNALNAME"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[JOURNALNAME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Data Conversion Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="NAME"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[NAME]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Output].Columns[DCJOURNALNAME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Output].Columns[DCJOURNALNAME]"
+                          name="DCJOURNALNAME"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[JOURNALNAME]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Output].Columns[DCNAME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="150"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Output].Columns[DCNAME]"
+                          name="DCNAME"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[NAME]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrLedgerJournalName_ExtrDimDiario]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].Columns[JOURNALTYPE]"
+                          cachedDataType="i4"
+                          cachedName="JOURNALTYPE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].ExternalColumns[JOURNALTYPE]"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[JOURNALTYPE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].Columns[DCJOURNALNAME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCJOURNALNAME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].ExternalColumns[JOURNALNAME]"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Output].Columns[DCJOURNALNAME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].Columns[DCNAME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="DCNAME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Output].Columns[DCNAME]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].ExternalColumns[JOURNALNAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="JOURNALNAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].ExternalColumns[JOURNALTYPE]"
+                          dataType="i4"
+                          name="JOURNALTYPE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_LEDGERJOURNALNAME"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+JOURNALNAME,
+NAME,
+JOURNALTYPE
+FROM LEDGERJOURNALNAME WITH (NOLOCK) WHERE LEDGERJOURNALNAME.DATAAREAID = ?;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[JOURNALNAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].ExternalColumns[JOURNALNAME]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[JOURNALNAME]"
+                          name="JOURNALNAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[JOURNALTYPE]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].ExternalColumns[JOURNALTYPE]"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].Columns[JOURNALTYPE]"
+                          name="JOURNALTYPE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].ExternalColumns[JOURNALNAME]"
+                          dataType="wstr"
+                          length="25"
+                          name="JOURNALNAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="60"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output].ExternalColumns[JOURNALTYPE]"
+                          dataType="i4"
+                          name="JOURNALTYPE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[JOURNALNAME]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[JOURNALNAME]"
+                          name="JOURNALNAME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[JOURNALTYPE]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Error Output].Columns[JOURNALTYPE]"
+                          name="JOURNALTYPE" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\EST_Truncate_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8941653f-8c24-41e4-82a2-d91264cb7115}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrLedgerJournalName_ExtrDimDiario;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4e5c9964-2252-4802-b5ae-3972fef49c8e}"
+          DTS:From="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\EST_Truncate_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="307,42"
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM"
+          TopLeft="34.5000000000001,128.5" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM\EST_Truncate_UscArchivos_ExtrTipoDiarioENUM"
+          TopLeft="34.5,26.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM.PrecedenceConstraints[Constraint]"
+          TopLeft="188,68.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="355,228"
+          Size="355,271"
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM"
+          TopLeft="448,11" />
+        <NodeLayout
+          Size="389,42"
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          TopLeft="21.5,115.5" />
+        <NodeLayout
+          Size="389,42"
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\EST_Truncate_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          TopLeft="26.5,13.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.PrecedenceConstraints[Constraint]"
+          TopLeft="218.5,55.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="420,223"
+          Size="420,266"
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          TopLeft="5.50000000000003,8.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="315,42"
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM"
+          TopLeft="6.50000000000006,311.5" />
+        <NodeLayout
+          Size="315,42"
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Derivada_UscArchivos_ExtrTipoDiarioENUM"
+          TopLeft="6.50000000000003,107.5" />
+        <NodeLayout
+          Size="315,42"
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario"
+          TopLeft="7,17" />
+        <NodeLayout
+          Size="315,42"
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\DC_UscArchivos_ExtrTipoDiarioENUM"
+          TopLeft="6.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM.Paths[Excel Source Output]"
+          TopLeft="164.25,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.5"
+              Start="0,0"
+              End="0,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM.Paths[Derived Column Output]"
+          TopLeft="164,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM.Paths[Data Conversion Output]"
+          TopLeft="164,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\OLEDB_Destino_UscArchivos_ExtrTipoDiarioENUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrTipoDiarioENUM\DFT_UscArchivos_ExtrTipoDiarioENUM\Excel_Origen_MaestroEnum_TipoDiario">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="397,42"
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="397,42"
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\Derivada_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="397,42"
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="397,42"
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario"
+          TopLeft="6.50000000000003,210.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Paths[OLE DB Source Output]"
+          TopLeft="204,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Paths[Derived Column Output]"
+          TopLeft="204.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario.Paths[Data Conversion Output]"
+          TopLeft="204.5,252.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Origen_LEDGERJOURNALNAME">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\DFT_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario\OLEDB_Destino_UscNalsani_ExtrLedgerJournalName_ExtrDimDiario">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,690 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/10/2017 2:15:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{747312A0-CF7B-45A6-B7F8-88C16BBA71D9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimSatelite"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{693B5BAD-DF52-4DE2-8A2B-A9B34146A425}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{69BF0E14-5A87-4560-96C0-57A93224BC4D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrVendtable_ExtrDimSatelite">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{59EFE66C-FB9C-49C8-844E-A11FC31D3DDA}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_VENDTABLE_ExtrDimSatelite"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Data Conversion Input].Columns[ACCOUNTNUM]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ACCOUNTNUM"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTNUM]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Data Conversion Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="NAME"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].Columns[NAME]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Output].Columns[DCACCOUNTNUM]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Output].Columns[DCACCOUNTNUM]"
+                          name="DCACCOUNTNUM"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTNUM]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Output].Columns[DCNAME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Output].Columns[DCNAME]"
+                          name="DCNAME"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].Columns[NAME]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrVendTable_ExtrDimSatelite]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input].Columns[DCNAME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCNAME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Output].Columns[DCNAME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input].Columns[DCACCOUNTNUM]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCACCOUNTNUM"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input].ExternalColumns[ACCOUNTNUM]"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Output].Columns[DCACCOUNTNUM]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input].ExternalColumns[ACCOUNTNUM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ACCOUNTNUM" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_VENDTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+  T1.ACCOUNTNUM,
+  T2.NAME
+FROM VENDTABLE AS T1 WITH (NOLOCK) 
+INNER JOIN DIRPARTYTABLE AS T2 WITH (NOLOCK) 
+  ON T1.PARTY=T2.RECID 
+  AND T1.PARTITION=T2.PARTITION
+INNER JOIN DATAAREA AS T3 WITH (NOLOCK) 
+  ON T1.DATAAREAID=T3.ID
+  AND T1.PARTITION=T3.PARTITION
+WHERE T1.ACCOUNTNUM &lt;&gt; '' AND T1.DATAAREAID=?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTNUM]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACCOUNTNUM]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].Columns[ACCOUNTNUM]"
+                          name="ACCOUNTNUM"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].ExternalColumns[ACCOUNTNUM]"
+                          dataType="wstr"
+                          length="20"
+                          name="ACCOUNTNUM" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="NAME" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Error Output].Columns[ACCOUNTNUM]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Error Output].Columns[ACCOUNTNUM]"
+                          name="ACCOUNTNUM" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\EST_Truncate_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DA06BAC2-C176-46BC-90D5-0DD990FAD603}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="Truncate table UscNalsani.ExtrVendTable_ExtrDimSatelite;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{7B84BB3F-2F31-4E8D-99D2-76E79BA546B6}"
+          DTS:From="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\EST_Truncate_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="351,42"
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="342,42"
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\EST_Truncate_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          TopLeft="10,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite.PrecedenceConstraints[Constraint]"
+          TopLeft="181,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="362,205"
+          Size="362,248"
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite"
+          TopLeft="5.50000000000003,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="350,42"
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="350,42"
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\Derivada_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="350,42"
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="350,42"
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\DC_UscNalsani_VENDTABLE_ExtrDimSatelite"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite.Paths[OLE DB Source Output]"
+          TopLeft="180.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite.Paths[Derived Column Output]"
+          TopLeft="180.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite.Paths[Data Conversion Output]"
+          TopLeft="180.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Origen_VENDTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrVendtable_ExtrDimSatelite\DFT_UscNalsani_UscNalsani_VENDTABLE_ExtrDimSatelite\OLEDB_Destino_UscNalsani_VENDTABLE_ExtrDimSatelite">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

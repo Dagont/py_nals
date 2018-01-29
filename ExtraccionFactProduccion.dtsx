@@ -1,0 +1,2440 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{2D98052C-8EE0-4538-B822-F80CC806BBCC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactProduccion"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="164"
+  DTS:VersionGUID="{98CA9391-F1AE-4A0A-A506-B2DDE2C8F4C4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{59E78BE4-8135-4502-8597-173C199717C5}"
+      DTS:ObjectName="Prm_AutoFactProduccion">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{C9953DD6-B667-4368-9A8D-27D255181A11}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactProduccion">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3ECB3B0E-C916-4126-8D82-6CCDDEF14B46}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{81FACBCA-7A20-463C-A903-220508E9E521}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DBCAEC20-9997-4D8F-9B89-2ED6F59E7DF4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{91C80300-5089-4E60-8340-48A0007D60C4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactProduccion"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{5E92600D-258F-4325-B2FE-E74C3B61AA5D}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactProduccion"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactProduccion]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactProduccion"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8DAFFAD8-2A68-487B-A78C-946CEC9F3231}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactProduccion">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{BFEB1D24-3750-4A8C-8F5F-745FFB7C8E11}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactProduccion"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactProduccion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[INVENTCOLORIDLMAT]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORIDLMAT"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORIDLMAT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[INVENTSIZEIDLMAT]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEIDLMAT"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEIDLMAT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[ITEMIDLMAT]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMIDLMAT"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMIDLMAT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[PRODPOOLID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="PRODPOOLID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODPOOLID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[VENDID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="VENDID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[VENDID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[OPRID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="OPRID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[OPRID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="NAME"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[NAME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input].Columns[PRODID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PRODID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          name="DCITEMID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          name="DCINVENTCOLORID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          name="DCINVENTSIZEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTCOLORIDLMAT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTCOLORIDLMAT]"
+                          name="DCINVENTCOLORIDLMAT"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORIDLMAT]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTSIZEIDLMAT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTSIZEIDLMAT]"
+                          name="DCINVENTSIZEIDLMAT"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEIDLMAT]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCITEMIDLMAT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCITEMIDLMAT]"
+                          name="DCITEMIDLMAT"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMIDLMAT]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCPRODPOOLID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCPRODPOOLID]"
+                          name="DCPRODPOOLID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODPOOLID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCVENDID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCVENDID]"
+                          name="DCVENDID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[VENDID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCOPRID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCOPRID]"
+                          name="DCOPRID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[OPRID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCNAME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCNAME]"
+                          name="DCNAME"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[NAME]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCPRODID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCPRODID]"
+                          name="DCPRODID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactProduccion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input].Columns[PRODSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="PRODSTATUS"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input].Columns[ITEMIDLMAT]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMIDLMAT"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMIDLMAT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input].Columns[INVENTCOLORIDLMAT]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORIDLMAT"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORIDLMAT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input].Columns[INVENTSIZEIDLMAT]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEIDLMAT"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEIDLMAT]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output].Columns[DCTESTADOPRODUCCION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output].Columns[DCTESTADOPRODUCCION]"
+                          name="DCTESTADOPRODUCCION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,30,1252)(#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]} == 0 ? "CREADO" : #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]} == 1 ? "ESTIMADA" : #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]} == 2 ? "PROGRAMADO" : #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]} == 3 ? "LIBERADO" : #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]} == 4 ? "INICIADO" : #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]} == 5 ? "NOTIFICADO COMO TERMINADO" : #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]} == 7 ? "TERMINADO" : "[PRODSTATUS]")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,30,1252)(PRODSTATUS == 0 ? "CREADO" : PRODSTATUS == 1 ? "ESTIMADA" : PRODSTATUS == 2 ? "PROGRAMADO" : PRODSTATUS == 3 ? "LIBERADO" : PRODSTATUS == 4 ? "INICIADO" : PRODSTATUS == 5 ? "NOTIFICADO COMO TERMINADO" : PRODSTATUS == 7 ? "TERMINADO" : "[PRODSTATUS]")</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output].Columns[DCTIDPRODUCTOLARGO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output].Columns[DCTIDPRODUCTOLARGO]"
+                          name="DCTIDPRODUCTOLARGO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)([TRIM](#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]} + #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]} + #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)(TRIM(ITEMID + INVENTCOLORID + INVENTSIZEID))</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output].Columns[DCTIDPRODUCTOLMAT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output].Columns[DCTIDPRODUCTOLMAT]"
+                          name="DCTIDPRODUCTOLMAT"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)([TRIM](#{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMIDLMAT]} + #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORIDLMAT]} + #{Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEIDLMAT]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)(TRIM(ITEMIDLMAT + INVENTCOLORIDLMAT + INVENTSIZEIDLMAT))</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactProduccion_Totales"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactProduccion"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactProduccion]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[CREATEDDATETIME]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="CREATEDDATETIME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[CREATEDDATETIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[SCHEDEND]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="SCHEDEND"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[SCHEDEND]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[SCHEDEND]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[SCHEDDATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="SCHEDDATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[SCHEDDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[SCHEDDATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DELIVERYDATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DELIVERYDATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[DELIVERYDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[DELIVERYDATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[PRODPRIO]"
+                          cachedDataType="i4"
+                          cachedName="PRODPRIO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[PRODPRIO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODPRIO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[PRODSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="PRODSTATUS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[PRODSTATUS]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[QTYSCHED]"
+                          cachedDataType="numeric"
+                          cachedName="QTYSCHED"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[QTYSCHED]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[QTYSCHED]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[REMAININVENTPHYSICAL]"
+                          cachedDataType="numeric"
+                          cachedName="REMAININVENTPHYSICAL"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[REMAININVENTPHYSICAL]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[REMAININVENTPHYSICAL]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[AMOUNTPHYSICAL]"
+                          cachedDataType="numeric"
+                          cachedName="AMOUNTPHYSICAL"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNTPHYSICAL]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[AMOUNTPHYSICAL]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[QTYCALC]"
+                          cachedDataType="numeric"
+                          cachedName="QTYCALC"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[QTYCALC]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[QTYCALC]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[FROMDATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FROMDATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[FROMDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[FROMDATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[FROMTIME]"
+                          cachedDataType="i4"
+                          cachedName="FROMTIME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[FROMTIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[FROMTIME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[TODATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="TODATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[TODATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[TODATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[TOTIME]"
+                          cachedDataType="i4"
+                          cachedName="TOTIME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[TOTIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[TOTIME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[CALCTIMEHOURS]"
+                          cachedDataType="numeric"
+                          cachedName="CALCTIMEHOURS"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[CALCTIMEHOURS]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[CALCTIMEHOURS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCITEMID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCITEMID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCINVENTCOLORID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTCOLORID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCINVENTSIZEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTSIZEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCITEMIDLMAT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCITEMIDLMAT"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMIDLMAT]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCITEMIDLMAT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCINVENTCOLORIDLMAT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTCOLORIDLMAT"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORIDLMAT]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTCOLORIDLMAT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCINVENTSIZEIDLMAT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTSIZEIDLMAT"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEIDLMAT]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCINVENTSIZEIDLMAT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCPRODPOOLID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCPRODPOOLID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[PRODPOOLID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCPRODPOOLID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCVENDID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCVENDID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[VENDID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCVENDID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCOPRID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCOPRID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[OPRID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCOPRID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCNAME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DCNAME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCNAME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCPRODID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCPRODID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[PRODID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output].Columns[DCPRODID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCTESTADOPRODUCCION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCTESTADOPRODUCCION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO_PRODUCCION]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output].Columns[DCTESTADOPRODUCCION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCTIDPRODUCTOLARGO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCTIDPRODUCTOLARGO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTOLARGO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output].Columns[DCTIDPRODUCTOLARGO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DCTIDPRODUCTOLMAT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCTIDPRODUCTOLMAT"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTOLMAT]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output].Columns[DCTIDPRODUCTOLMAT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[DSJOBSTATUS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="12"
+                          cachedName="DSJOBSTATUS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[JOBSTATUS]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[DSJOBSTATUS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].Columns[BOMQTY]"
+                          cachedDataType="numeric"
+                          cachedName="BOMQTY"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[BOMQTY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[BOMQTY]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[CREATEDDATETIME]"
+                          dataType="dbDate"
+                          name="CREATEDDATETIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[SCHEDEND]"
+                          dataType="dbDate"
+                          name="SCHEDEND" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[SCHEDDATE]"
+                          dataType="dbDate"
+                          name="SCHEDDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[DELIVERYDATE]"
+                          dataType="dbDate"
+                          name="DELIVERYDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMIDLMAT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ITEMIDLMAT" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORIDLMAT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTCOLORIDLMAT" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEIDLMAT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTSIZEIDLMAT" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[PRODPOOLID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="PRODPOOLID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[VENDID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="VENDID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[PRODPRIO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="PRODPRIO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[OPRID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="OPRID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[PRODSTATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="PRODSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[QTYSCHED]"
+                          dataType="numeric"
+                          name="QTYSCHED"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[REMAININVENTPHYSICAL]"
+                          dataType="numeric"
+                          name="REMAININVENTPHYSICAL"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNTPHYSICAL]"
+                          dataType="numeric"
+                          name="AMOUNTPHYSICAL"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[QTYCALC]"
+                          dataType="numeric"
+                          name="QTYCALC"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[FROMDATE]"
+                          dataType="dbDate"
+                          name="FROMDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[FROMTIME]"
+                          dataType="i4"
+                          name="FROMTIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[TODATE]"
+                          dataType="dbTimeStamp"
+                          name="TODATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[TOTIME]"
+                          dataType="i4"
+                          name="TOTIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[CALCTIMEHOURS]"
+                          dataType="numeric"
+                          name="CALCTIMEHOURS"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[PRODID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="PRODID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO_PRODUCCION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ESTADO_PRODUCCION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTOLARGO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="IDPRODUCTOLARGO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTOLMAT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="IDPRODUCTOLMAT" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[JOBSTATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="JOBSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input].ExternalColumns[BOMQTY]"
+                          dataType="numeric"
+                          name="BOMQTY"
+                          precision="32"
+                          scale="16" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_PRODTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT PT.CREATEDDATETIME, 
+             PT.SCHEDEND, 
+             PT.SCHEDDATE,
+             PCHT.DELIVERYDATE, 
+             PT.ITEMID, 
+             ID.INVENTCOLORID,  
+             ID.INVENTSIZEID, 
+             PB.ITEMID ITEMIDLMAT,
+             IDBOM.INVENTCOLORID INVENTCOLORIDLMAT,
+             IDBOM.INVENTSIZEID INVENTSIZEIDLMAT,
+             PT.PRODPOOLID ,
+             PB.VENDID ,
+             PT.PRODPRIO,
+             PROU.OPRID,
+             ROT.NAME,
+             PT.PRODSTATUS, 
+             PT.QTYSCHED,
+             PT.REMAININVENTPHYSICAL,
+             PTJ.AMOUNTPHYSICAL,
+             PT.QTYCALC,
+             PROU.FROMDATE,
+             PROU.FROMTIME,
+             PROU.TODATE ,
+             PROU.TOTIME ,
+             PRJ.CALCTIMEHOURS,
+             PT.PRODID ,
+             case when PRJ.JOBSTATUS='0' THEN 'ENTRANTE'
+			      when PRJ.JOBSTATUS='1' THEN 'EN ESPERA'
+				  when PRJ.JOBSTATUS='2' THEN 'INTERRUMPIDO'
+				  when PRJ.JOBSTATUS='3' THEN 'INICIADO'
+				  when PRJ.JOBSTATUS='4' THEN 'TERMINADO'
+		
+             END DSJOBSTATUS,
+			 PB.BOMQTY
+FROM   PRODTABLE PT WITH (NOLOCK)
+             JOIN PRODBOM PB WITH (NOLOCK)
+             ON PT.PRODID = PB.PRODID
+			 AND PT.DATAAREAID= PB.DATAAREAID
+			 AND PT.PARTITION = PB.PARTITION
+             LEFT OUTER JOIN PURCHTABLE PCHT  WITH (NOLOCK)
+             ON PCHT.PURCHID = PB.INVENTREFID
+             AND PB.INVENTREFTYPE = 2
+			 AND PB.PARTITION = PCHT.PARTITION
+			 AND PB.DATAAREAID = PCHT.DATAAREAID
+             JOIN INVENTDIM ID WITH (NOLOCK)
+             ON PT.INVENTDIMID = ID.INVENTDIMID
+			 AND PT.DATAAREAID=ID.DATAAREAID
+			 AND PT.PARTITION=ID.PARTITION
+             JOIN INVENTDIM IDBOM WITH (NOLOCK)
+             ON PB.INVENTDIMID = IDBOM.INVENTDIMID
+			 AND PB.DATAAREAID = IDBOM.DATAAREAID
+			 AND PB.PARTITION= IDBOM.PARTITION
+             LEFT OUTER JOIN PRODROUTE PROU WITH (NOLOCK)
+             ON PT.PRODID = PROU.PRODID
+			 AND PT.DATAAREAID = PROU.DATAAREAID
+			 AND PT.PARTITION=PROU.PARTITION
+             LEFT OUTER JOIN ROUTEOPRTABLE ROT WITH (NOLOCK)
+             ON ROT.OPRID = PROU.OPRID
+			 AND ROT.DATAAREAID=PROU.DATAAREAID
+			 AND ROT.PARTITION=PROU.PARTITION
+            LEFT OUTER JOIN PRODTABLEJOUR PTJ WITH (NOLOCK)
+             ON PTJ.PRODID = PT.PRODID
+			 AND PTJ.DATAAREAID=PT.DATAAREAID
+			 AND PTJ.PARTITION=PT.PARTITION
+             LEFT OUTER JOIN PRODROUTEJOB  PRJ WITH (NOLOCK)
+             ON PROU.OPRPRIORITY = PRJ.OPRPRIORITY
+			 AND PROU.DATAAREAID=PRJ.DATAAREAID
+			 AND PROU.PARTITION=PRJ.PARTITION
+             AND PROU.OPRNUM = PRJ.OPRNUM
+             AND PROU.PRODID = PRJ.PRODID
+ 
+WHERE PT.DATAAREAID = ? AND PT.CREATEDDATETIME BETWEEN ? AND ?;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{81FACBCA-7A20-463C-A903-220508E9E521};"Parameter2:Input",{3ECB3B0E-C916-4126-8D82-6CCDDEF14B46};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          name="ITEMID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[SCHEDEND]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[SCHEDEND]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[SCHEDEND]"
+                          name="SCHEDEND"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[SCHEDDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[SCHEDDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[SCHEDDATE]"
+                          name="SCHEDDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[DELIVERYDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[DELIVERYDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[DELIVERYDATE]"
+                          name="DELIVERYDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMIDLMAT]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMIDLMAT]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[ITEMIDLMAT]"
+                          name="ITEMIDLMAT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORIDLMAT]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORIDLMAT]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORIDLMAT]"
+                          name="INVENTCOLORIDLMAT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEIDLMAT]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEIDLMAT]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEIDLMAT]"
+                          name="INVENTSIZEIDLMAT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODPOOLID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRODPOOLID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODPOOLID]"
+                          name="PRODPOOLID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[VENDID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[VENDID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[VENDID]"
+                          name="VENDID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODPRIO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRODPRIO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODPRIO]"
+                          name="PRODPRIO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[OPRID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[OPRID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[OPRID]"
+                          name="OPRID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRODSTATUS]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODSTATUS]"
+                          name="PRODSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[QTYSCHED]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYSCHED]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[QTYSCHED]"
+                          name="QTYSCHED"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[REMAININVENTPHYSICAL]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[REMAININVENTPHYSICAL]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[REMAININVENTPHYSICAL]"
+                          name="REMAININVENTPHYSICAL"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[AMOUNTPHYSICAL]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[AMOUNTPHYSICAL]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[AMOUNTPHYSICAL]"
+                          name="AMOUNTPHYSICAL"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[QTYCALC]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYCALC]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[QTYCALC]"
+                          name="QTYCALC"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[FROMDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[FROMDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[FROMDATE]"
+                          name="FROMDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[FROMTIME]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[FROMTIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[FROMTIME]"
+                          name="FROMTIME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[TODATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[TODATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[TODATE]"
+                          name="TODATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[TOTIME]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[TOTIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[TOTIME]"
+                          name="TOTIME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[CALCTIMEHOURS]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[CALCTIMEHOURS]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[CALCTIMEHOURS]"
+                          name="CALCTIMEHOURS"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRODID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[PRODID]"
+                          name="PRODID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[DSJOBSTATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[DSJOBSTATUS]"
+                          length="12"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[DSJOBSTATUS]"
+                          name="DSJOBSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[BOMQTY]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[BOMQTY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].Columns[BOMQTY]"
+                          name="BOMQTY"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          name="CREATEDDATETIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[SCHEDEND]"
+                          dataType="dbTimeStamp"
+                          name="SCHEDEND" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[SCHEDDATE]"
+                          dataType="dbTimeStamp"
+                          name="SCHEDDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[DELIVERYDATE]"
+                          dataType="dbTimeStamp"
+                          name="DELIVERYDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMIDLMAT]"
+                          dataType="wstr"
+                          length="20"
+                          name="ITEMIDLMAT" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORIDLMAT]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTCOLORIDLMAT" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEIDLMAT]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTSIZEIDLMAT" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRODPOOLID]"
+                          dataType="wstr"
+                          length="25"
+                          name="PRODPOOLID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[VENDID]"
+                          dataType="wstr"
+                          length="20"
+                          name="VENDID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRODPRIO]"
+                          dataType="i4"
+                          name="PRODPRIO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[OPRID]"
+                          dataType="wstr"
+                          length="25"
+                          name="OPRID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="60"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRODSTATUS]"
+                          dataType="i4"
+                          name="PRODSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYSCHED]"
+                          dataType="numeric"
+                          name="QTYSCHED"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[REMAININVENTPHYSICAL]"
+                          dataType="numeric"
+                          name="REMAININVENTPHYSICAL"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[AMOUNTPHYSICAL]"
+                          dataType="numeric"
+                          name="AMOUNTPHYSICAL"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYCALC]"
+                          dataType="numeric"
+                          name="QTYCALC"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[FROMDATE]"
+                          dataType="dbTimeStamp"
+                          name="FROMDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[FROMTIME]"
+                          dataType="i4"
+                          name="FROMTIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[TODATE]"
+                          dataType="dbTimeStamp"
+                          name="TODATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[TOTIME]"
+                          dataType="i4"
+                          name="TOTIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[CALCTIMEHOURS]"
+                          dataType="numeric"
+                          name="CALCTIMEHOURS"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRODID]"
+                          dataType="wstr"
+                          length="20"
+                          name="PRODID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[DSJOBSTATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="DSJOBSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output].ExternalColumns[BOMQTY]"
+                          dataType="numeric"
+                          name="BOMQTY"
+                          precision="32"
+                          scale="16" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          name="ITEMID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[SCHEDEND]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[SCHEDEND]"
+                          name="SCHEDEND" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[SCHEDDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[SCHEDDATE]"
+                          name="SCHEDDATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[DELIVERYDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[DELIVERYDATE]"
+                          name="DELIVERYDATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMIDLMAT]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMIDLMAT]"
+                          name="ITEMIDLMAT" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORIDLMAT]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORIDLMAT]"
+                          name="INVENTCOLORIDLMAT" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEIDLMAT]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEIDLMAT]"
+                          name="INVENTSIZEIDLMAT" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[PRODPOOLID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[PRODPOOLID]"
+                          name="PRODPOOLID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[VENDID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[VENDID]"
+                          name="VENDID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[PRODPRIO]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[PRODPRIO]"
+                          name="PRODPRIO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[OPRID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[OPRID]"
+                          name="OPRID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[PRODSTATUS]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[PRODSTATUS]"
+                          name="PRODSTATUS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[QTYSCHED]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[QTYSCHED]"
+                          name="QTYSCHED"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[REMAININVENTPHYSICAL]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[REMAININVENTPHYSICAL]"
+                          name="REMAININVENTPHYSICAL"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[AMOUNTPHYSICAL]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[AMOUNTPHYSICAL]"
+                          name="AMOUNTPHYSICAL"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[QTYCALC]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[QTYCALC]"
+                          name="QTYCALC"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[FROMDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[FROMDATE]"
+                          name="FROMDATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[FROMTIME]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[FROMTIME]"
+                          name="FROMTIME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[TODATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[TODATE]"
+                          name="TODATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[TOTIME]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[TOTIME]"
+                          name="TOTIME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[DSJOBSTATUS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[DSJOBSTATUS]"
+                          name="DSJOBSTATUS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[BOMQTY]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[BOMQTY]"
+                          name="BOMQTY"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[CALCTIMEHOURS]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[CALCTIMEHOURS]"
+                          name="CALCTIMEHOURS"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[PRODID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Error Output].Columns[PRODID]"
+                          name="PRODID" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion.Paths[Derived Column Output1]"
+                  endId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactProduccion\EST_Truncate_UscNalsani_ExtrFactProduccion"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{090432F0-E276-44EB-9D15-3ED5C6C9E07F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactProduccion"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrFactProduccion;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactProduccion.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F308504D-3562-49C3-B3D3-CEE9238AFAEA}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactProduccion\EST_Truncate_UscNalsani_ExtrFactProduccion"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_Produccion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2408E75A-19B9-4624-9961-12B6F2641879}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_Produccion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactProduccion]  + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactProduccion] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_Produccion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9F7F9E18-BF61-4E9A-A167-A082A494BBC9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_Produccion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{62616BE7-CE37-4DF8-B497-029BF3D1608F}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_Produccion"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactProduccion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6C19BBEC-398D-43B2-A858-E79577C31DF9}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactProduccion]  == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactProduccion"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_Produccion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{97BF26B2-A029-49A3-9665-824DACAB9D95}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_Produccion"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactProduccion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{98AE6DCE-81D2-4630-A3B6-B58E9721CC34}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactProduccion] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactProduccion"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_Produccion" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="251,42"
+          Id="Package\ET_¿Es Automatica?_FactProduccion"
+          TopLeft="266.5,54.5" />
+        <NodeLayout
+          Size="291,42"
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion"
+          TopLeft="30.5,133.5" />
+        <NodeLayout
+          Size="297,42"
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\EST_Truncate_UscNalsani_ExtrFactProduccion"
+          TopLeft="27.5,31.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactProduccion.PrecedenceConstraints[Constraint]"
+          TopLeft="176,73.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="351,231"
+          Size="351,274"
+          Id="Package\SC_UscNalsani_ExtrFactProduccion"
+          TopLeft="223.5,287.5" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_Produccion"
+          TopLeft="2.5,166.5" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_Produccion"
+          TopLeft="466.5,166.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="167.5,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="174.333333333333,79"
+              Start="0,0"
+              End="174.333333333333,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.184912081679"
+                    Point2="0,47.184912081679"
+                    Point3="4,47.184912081679" />
+                  <mssgle:LineSegment
+                    End="170.333333333333,47.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="170.333333333333,47.184912081679"
+                    Point2="174.333333333333,47.184912081679"
+                    Point3="174.333333333333,51.184912081679" />
+                  <mssgle:LineSegment
+                    End="174.333333333333,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="351.5,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-184,70"
+              Start="0,0"
+              End="-184,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2660332541568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2660332541568"
+                    Point2="0,28.2660332541568"
+                    Point3="-4,28.2660332541568" />
+                  <mssgle:LineSegment
+                    End="-180,28.2660332541568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-180,28.2660332541568"
+                    Point2="-184,28.2660332541568"
+                    Point3="-184,32.2660332541568" />
+                  <mssgle:LineSegment
+                    End="-184,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100,33.2660332541568,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="622,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-165.833333333333,79"
+              Start="0,0"
+              End="-165.833333333333,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.184912081679"
+                    Point2="0,47.184912081679"
+                    Point3="-4,47.184912081679" />
+                  <mssgle:LineSegment
+                    End="-161.833333333333,47.184912081679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-161.833333333333,47.184912081679"
+                    Point2="-165.833333333333,47.184912081679"
+                    Point3="-165.833333333333,51.184912081679" />
+                  <mssgle:LineSegment
+                    End="-165.833333333333,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="432.5,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.5,70"
+              Start="0,0"
+              End="189.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2660332541568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2660332541568"
+                    Point2="0,28.2660332541568"
+                    Point3="4,28.2660332541568" />
+                  <mssgle:LineSegment
+                    End="185.5,28.2660332541568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.5,28.2660332541568"
+                    Point2="189.5,28.2660332541568"
+                    Point3="189.5,32.2660332541568" />
+                  <mssgle:LineSegment
+                    End="189.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="86.75,33.2660332541568,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="312,42"
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="312,42"
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="312,42"
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion_Totales"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="312,42"
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\DC_UscNalsani_UscNalsani_ExtrFactProduccion"
+          TopLeft="5.50000000000003,311.5" />
+        <NodeLayout
+          Size="312,42"
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\Derivada_UscNalsani_ExtrFactProduccion"
+          TopLeft="5.5,107.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion.Paths[OLE DB Source Output]"
+          TopLeft="161.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion.Paths[Derived Column Output1]"
+          TopLeft="161.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion.Paths[Derived Column Output]"
+          TopLeft="161.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion.Paths[Data Conversion Output]"
+          TopLeft="161.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Origen_PRODTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactProduccion\DFT_UscNalsani_ExtrFactProduccion\OLEDB_Destino_UscNalsani_ExtrFactProduccion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1106 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/13/2017 10:19:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi1"
+  DTS:DTSID="{FD2FD8BB-B90D-462A-80B0-CC2CD8168C87}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionLkpFinancieraCxC"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{CE1C44A9-0963-4A13-BCE5-337F8E3074DA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{61ADAD04-C541-413A-990C-3A71B7F35297}"
+      DTS:ObjectName="Prm_AutoExtrLkpFinancieraCxC">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{4765BE23-DA94-4C9E-930A-C7A2EB465C04}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoExtrLkpFinancieraCxC">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{68B0EDB0-3E52-4434-BA8E-465D21798E2B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E512A33B-E71B-443F-9B3F-30B56E4C7710}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{89632379-C3B7-473C-85ED-A10F704C048A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0F1942E5-CC54-4331-9DF4-C9F091C19272}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_UscNalsani_ExtrLkpFinancieraCxC"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{5A331CAA-45FD-4A1A-8C17-02C9E14933DC}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_UscNalsani_ExtrLkpFinancieraCxC"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoExtrLkpFinancieraCxC]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E16E1772-98F6-46FE-AB41-2F2048BFD0F3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrLkpFinancieraCxC">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F29B1BFD-ED8C-4560-A78B-29324514AB27}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrLkpFinancieraCxC"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_CUSTTRANS"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Inputs[Data Conversion Input].Columns[FACTURA]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="FACTURA"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FACTURA]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Output].Columns[DCFACTURA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="80"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Output].Columns[DCFACTURA]"
+                          name="DCFACTURA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FACTURA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_CUSTTRANS"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrLkpFinancieraCxC]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].Columns[AMOUNTCURCREDIT]"
+                          cachedDataType="numeric"
+                          cachedName="AMOUNTCURCREDIT"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[AmountCurCredit]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[AMOUNTCURCREDIT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].Columns[CUSTTRANSID]"
+                          cachedDataType="i8"
+                          cachedName="CUSTTRANSID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[CusTransId]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[CUSTTRANSID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].Columns[DCFACTURA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="80"
+                          cachedName="DCFACTURA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[Factura]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Output].Columns[DCFACTURA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].Columns[FECHA_PAGO]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_PAGO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[DtPago]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FECHA_PAGO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].Columns[TRANSDATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="TRANSDATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[DtTransaccion]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[TRANSDATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION_REGISTRO]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_CREACION_REGISTRO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[DtCreacionAx]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FECHA_CREACION_REGISTRO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[Factura]"
+                          codePage="1252"
+                          dataType="str"
+                          length="80"
+                          name="Factura" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[CusTransId]"
+                          dataType="i8"
+                          name="CusTransId" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[DtPago]"
+                          dataType="dbTimeStamp"
+                          name="DtPago" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[DtTransaccion]"
+                          dataType="dbTimeStamp"
+                          name="DtTransaccion" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[DtCreacionAx]"
+                          dataType="dbTimeStamp"
+                          name="DtCreacionAx" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[AmountCurCredit]"
+                          dataType="numeric"
+                          name="AmountCurCredit"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input].ExternalColumns[DtCreacion]"
+                          dataType="dbTimeStamp"
+                          name="DtCreacion" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_CUSTTRANS"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+	LJTR.DOCUMENTDATE AS FECHA_PAGO, 
+	LJTR.TRANSDATE,
+	LJTR.MODIFIEDDATETIME AS FECHA_CREACION_REGISTRO,
+	LJTR.MARKEDINVOICE AS FACTURA, 
+	LJTR.CUSTTRANSID,
+	LJTR.AMOUNTCURCREDIT
+FROM LEDGERJOURNALTRANS LJTR;
+--LEFT OUTER JOIN CUSTTRANS CTR ON LJTR.CUSTTRANSID = CTR.RECID AND LJTR.PARTITION = CTR.PARTITION;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FACTURA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[FACTURA]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FACTURA]"
+                          name="FACTURA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FECHA_PAGO]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[FECHA_PAGO]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FECHA_PAGO]"
+                          name="FECHA_PAGO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[TRANSDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[TRANSDATE]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[TRANSDATE]"
+                          name="TRANSDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FECHA_CREACION_REGISTRO]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION_REGISTRO]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[FECHA_CREACION_REGISTRO]"
+                          name="FECHA_CREACION_REGISTRO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[CUSTTRANSID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[CUSTTRANSID]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[CUSTTRANSID]"
+                          name="CUSTTRANSID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[AMOUNTCURCREDIT]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[AMOUNTCURCREDIT]"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].Columns[AMOUNTCURCREDIT]"
+                          name="AMOUNTCURCREDIT"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[FACTURA]"
+                          dataType="wstr"
+                          length="20"
+                          name="FACTURA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[FECHA_PAGO]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_PAGO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[TRANSDATE]"
+                          dataType="dbTimeStamp"
+                          name="TRANSDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION_REGISTRO]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION_REGISTRO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[CUSTTRANSID]"
+                          dataType="i8"
+                          name="CUSTTRANSID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output].ExternalColumns[AMOUNTCURCREDIT]"
+                          dataType="numeric"
+                          name="AMOUNTCURCREDIT"
+                          precision="32"
+                          scale="16" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[FECHA_PAGO]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[FECHA_PAGO]"
+                          name="FECHA_PAGO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[TRANSDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[TRANSDATE]"
+                          name="TRANSDATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION_REGISTRO]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION_REGISTRO]"
+                          name="FECHA_CREACION_REGISTRO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[FACTURA]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[FACTURA]"
+                          name="FACTURA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[CUSTTRANSID]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[CUSTTRANSID]"
+                          name="CUSTTRANSID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[AMOUNTCURCREDIT]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[AMOUNTCURCREDIT]"
+                          name="AMOUNTCURCREDIT"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\EST_Truncate_UscNalsani_ExtrLkpFinancieraCxC"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8796CF41-2177-4E00-9F1E-11E549567484}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrLkpFinancieraCxC"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="Truncate table UscNalsani.ExtrLkpFinancieraCxC;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrLkpFinancieraCxC.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B2A5D32F-D092-4B09-90DB-A56981BD9DEA}"
+          DTS:From="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\EST_Truncate_UscNalsani_ExtrLkpFinancieraCxC"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_ExtrLkpFinancieraCxC"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{60CE34D5-E113-4835-B8C1-B19C8ED8B89F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_ExtrLkpFinancieraCxC"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoExtrLkpFinancieraCxC] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())) DtInicio
+,EOMONTH(DATEADD(MM,-1,GETDATE())) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoExtrLkpFinancieraCxC] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,GETDATE())),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())) DtInicio&#xA;,EOMONTH(DATEADD(MM,-1,GETDATE())) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,GETDATE())),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_ExtrLkpFinancieraCxC"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8F559DFC-3A23-49D2-BC3A-7B51D0F07DF7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_ExtrLkpFinancieraCxC"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20161201'))+1,CONVERT(DATE,'20161201'))) DtInicio&#xA;,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20170430'))) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20161201'))+1,CONVERT(DATE,'20161201'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20170430'))),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EF1160A6-1BC3-4BFC-B790-28AB05E44738}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoExtrLkpFinancieraCxC] ==1"
+      DTS:From="Package\ET_¿Es Automatica?_UscNalsani_ExtrLkpFinancieraCxC"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_ExtrLkpFinancieraCxC" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6CAA6293-69A6-4C91-B5CB-414F40C71FBE}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoExtrLkpFinancieraCxC] ==0"
+      DTS:From="Package\ET_¿Es Automatica?_UscNalsani_ExtrLkpFinancieraCxC"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_ExtrLkpFinancieraCxC" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{B9C044CB-7A09-401B-B402-03971BD9E7D4}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_ExtrLkpFinancieraCxC"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrLkpFinancieraCxC" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{2847C9F6-5744-4EDB-AA53-1E2675521C8E}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_ExtrLkpFinancieraCxC"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SC_UscNalsani_ExtrLkpFinancieraCxC" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="337,42"
+          Id="Package\ET_¿Es Automatica?_UscNalsani_ExtrLkpFinancieraCxC"
+          TopLeft="432,5.49999999999989" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC"
+          TopLeft="29.5,108.5" />
+        <NodeLayout
+          Size="308,42"
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\EST_Truncate_UscNalsani_ExtrLkpFinancieraCxC"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC.PrecedenceConstraints[Constraint]"
+          TopLeft="159.75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="322,205"
+          Size="322,248"
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC"
+          TopLeft="441.5,209.5" />
+        <NodeLayout
+          Size="380,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_ExtrLkpFinancieraCxC"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="360,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_ExtrLkpFinancieraCxC"
+          TopLeft="430,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="545.666666666667,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-350.166666666667,60.0000000000001"
+              Start="0,0"
+              End="-350.166666666667,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1701122268163" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1701122268163"
+                    Point2="0,24.1701122268163"
+                    Point3="-4,24.1701122268163" />
+                  <mssgle:LineSegment
+                    End="-346.166666666667,24.1701122268163" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-346.166666666667,24.1701122268163"
+                    Point2="-350.166666666667,24.1701122268163"
+                    Point3="-350.166666666667,28.1701122268163" />
+                  <mssgle:LineSegment
+                    End="-350.166666666667,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-183.083333333333,29.1701122268163,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="655.333333333333,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.3333333333333,60.0000000000001"
+              Start="0,0"
+              End="-45.3333333333333,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1701122268164" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1701122268164"
+                    Point2="0,24.1701122268164"
+                    Point3="-4,24.1701122268164" />
+                  <mssgle:LineSegment
+                    End="-41.3333333333333,24.1701122268164" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.3333333333333,24.1701122268164"
+                    Point2="-45.3333333333333,24.1701122268164"
+                    Point3="-45.3333333333333,28.1701122268164" />
+                  <mssgle:LineSegment
+                    End="-45.3333333333333,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.6666666666666,29.1701122268164,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="195.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="354.666666666667,60"
+              Start="0,0"
+              End="354.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8220024721879" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8220024721879"
+                    Point2="0,35.8220024721879"
+                    Point3="4,35.8220024721879" />
+                  <mssgle:LineSegment
+                    End="350.666666666667,35.8220024721879" />
+                  <mssgle:CubicBezierSegment
+                    Point1="350.666666666667,35.8220024721879"
+                    Point2="354.666666666667,35.8220024721879"
+                    Point3="354.666666666667,39.8220024721879" />
+                  <mssgle:LineSegment
+                    End="354.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="610,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.8333333333333,60"
+              Start="0,0"
+              End="44.8333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8220024721879" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8220024721879"
+                    Point2="0,35.8220024721879"
+                    Point3="4,35.8220024721879" />
+                  <mssgle:LineSegment
+                    End="40.8333333333333,35.8220024721879" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.8333333333333,35.8220024721879"
+                    Point2="44.8333333333333,35.8220024721879"
+                    Point3="44.8333333333333,39.8220024721879" />
+                  <mssgle:LineSegment
+                    End="44.8333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\Derivada_CUSTTRANS"
+          TopLeft="73,107.5" />
+        <NodeLayout
+          Size="316,42"
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\DC_CUSTTRANS"
+          TopLeft="87,209.5" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS"
+          TopLeft="59,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC.Paths[Data Conversion Output]"
+          TopLeft="164.25,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC.Paths[OLE DB Source Output]"
+          TopLeft="165,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC.Paths[Derived Column Output]"
+          TopLeft="165,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Destino_UscNalsani_ExtrLkpFinancieraCxC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrLkpFinancieraCxC\DFT_UscNalsani_ExtrLkpFinancieraCxC\OLEDB_Origen_CUSTTRANS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2316 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{E0EFF59A-6BE5-41BD-9FB4-DE37CA758E1D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactPedidoTransferencia"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="169"
+  DTS:VersionGUID="{74D91C07-6CA6-4997-9660-826C3C390F33}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{60A91140-3756-440E-A2BA-541D85F94940}"
+      DTS:ObjectName="Prm_AutoFactPedidoTransferencia">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{52061DCD-9AFA-494E-9395-0851D6154FBD}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactPedidoTransferencia">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{700DA527-C8EB-4002-9D12-9F3E45A08AB9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AF6D0CF3-5E69-481C-909D-A25424BCF71E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4F1A6B5C-3D73-4877-AC99-3DB1C147A510}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{15CB9D6D-901A-40D2-A472-5DCFEC88B3AE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactPedidoTransferencia"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{64023682-1DA5-4211-8460-C22AF79C4617}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactPedidoTransferencia"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactPedidoTransferencia]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_FactPedidoTransferencia"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{73F0B140-0997-4BCB-83DE-8EA422B6F594}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_FactPedidoTransferencia">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E0D023AD-EB04-4F66-92DB-B26BA08DF2A1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactPedidoTransferencia"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[DISPLAYVALUE]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="DISPLAYVALUE"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[DISPLAYVALUE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[INVENTBATCHID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="INVENTBATCHID"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTBATCHID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[INVENTLOCATIONIDFROM]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="INVENTLOCATIONIDFROM"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONIDFROM]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[INVENTLOCATIONIDTO]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="INVENTLOCATIONIDTO"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONIDTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[INVENTLOCATIONID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="INVENTLOCATIONID"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[BFPCARRIERNAME]"
+                          cachedDataType="wstr"
+                          cachedLength="140"
+                          cachedName="BFPCARRIERNAME"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[BFPCARRIERNAME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[TRANSFERID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="TRANSFERID"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSFERID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input].Columns[PRONUMALPHA]"
+                          cachedDataType="wstr"
+                          cachedLength="17"
+                          cachedName="PRONUMALPHA"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[PRONUMALPHA]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCDISPLAYVALUE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCDISPLAYVALUE]"
+                          name="DCDISPLAYVALUE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[DISPLAYVALUE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          name="DCITEMID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          name="DCINVENTCOLORID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          name="DCINVENTSIZEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTBATCHID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTBATCHID]"
+                          name="DCINVENTBATCHID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTBATCHID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONIDFROM]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONIDFROM]"
+                          name="DCINVENTLOCATIONIDFROM"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONIDFROM]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONIDTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONIDTO]"
+                          name="DCINVENTLOCATIONIDTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONIDTO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONID]"
+                          name="DCINVENTLOCATIONID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCBFPCARRIERNAME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="80"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCBFPCARRIERNAME]"
+                          name="DCBFPCARRIERNAME"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[BFPCARRIERNAME]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCTRANSFERID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCTRANSFERID]"
+                          name="DCTRANSFERID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSFERID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCPRONUMALPHA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCPRONUMALPHA]"
+                          name="DCPRONUMALPHA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[PRONUMALPHA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactPedidoTransferencia"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Derived Column Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Derived Column Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Derived Column Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          name="DCTIDPRODUCTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)([TRIM](#{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]} + #{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]} + #{Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)(TRIM(ITEMID + INVENTCOLORID + INVENTSIZEID))</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactPedidoTransferencia]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[CREATEDDATETIME]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="CREATEDDATETIME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[CREATEDDATETIME]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[QTY]"
+                          cachedDataType="numeric"
+                          cachedName="QTY"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTY]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTY]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCTIDPRODUCTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCTIDPRODUCTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTO]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[SHIPDATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="SHIPDATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[SHIPDATE]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[SHIPDATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[RECEIVEDATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RECEIVEDATE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[RECEIVEDATE]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[RECEIVEDATE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[TRANSFERSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="TRANSFERSTATUS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[TRANSFERSTATUS]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSFERSTATUS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[LINENUM]"
+                          cachedDataType="numeric"
+                          cachedName="LINENUM"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[LINENUM]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[LINENUM]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[QTYSHIPPED]"
+                          cachedDataType="numeric"
+                          cachedName="QTYSHIPPED"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTYSHIPPED]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYSHIPPED]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[QTYRECEIVED]"
+                          cachedDataType="numeric"
+                          cachedName="QTYRECEIVED"
+                          cachedPrecision="38"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTYRECEIVED]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYRECEIVED]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[QTYREMAINSHIP]"
+                          cachedDataType="numeric"
+                          cachedName="QTYREMAINSHIP"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTYREMAINSHIP]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYREMAINSHIP]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[TRANSDATEJE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="TRANSDATEJE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[TransDateJE]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSDATEJE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[TRANSDATEJR]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="TRANSDATEJR"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[TransDateJR]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSDATEJR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCDISPLAYVALUE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCDISPLAYVALUE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[DISPLAYVALUE]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCDISPLAYVALUE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCITEMID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCITEMID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCINVENTCOLORID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTCOLORID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCINVENTSIZEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTSIZEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCINVENTBATCHID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTBATCHID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTBATCHID]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTBATCHID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCINVENTLOCATIONIDFROM]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTLOCATIONIDFROM"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONIDFROM]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONIDFROM]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCINVENTLOCATIONIDTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTLOCATIONIDTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONIDTO]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONIDTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCINVENTLOCATIONID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTLOCATIONID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONID]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCINVENTLOCATIONID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCBFPCARRIERNAME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="80"
+                          cachedName="DCBFPCARRIERNAME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[BFPCARRIERNAME]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCBFPCARRIERNAME]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCTRANSFERID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCTRANSFERID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[TRANSFERID]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCTRANSFERID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[BFPNRCONTAINERS]"
+                          cachedDataType="i4"
+                          cachedName="BFPNRCONTAINERS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[CANTIDADCAJAS]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[BFPNRCONTAINERS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[ILSSHIPSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="ILSSHIPSTATUS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOLOGISTICO]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[ILSSHIPSTATUS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[DCPRONUMALPHA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DCPRONUMALPHA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[NUMEROGUIA]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output].Columns[DCPRONUMALPHA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[QTYTRANSFER]"
+                          cachedDataType="numeric"
+                          cachedName="QTYTRANSFER"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTYTRANSFER]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYTRANSFER]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].Columns[CONSUMO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="11"
+                          cachedName="CONSUMO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[CONSUMO]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[CONSUMO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="IDPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[CREATEDDATETIME]"
+                          dataType="dbDate"
+                          name="CREATEDDATETIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[DISPLAYVALUE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DISPLAYVALUE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTBATCHID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTBATCHID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTY]"
+                          dataType="numeric"
+                          name="QTY"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[SHIPDATE]"
+                          dataType="dbDate"
+                          name="SHIPDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[RECEIVEDATE]"
+                          dataType="dbDate"
+                          name="RECEIVEDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONIDFROM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTLOCATIONIDFROM" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONIDTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTLOCATIONIDTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOLOGISTICO]"
+                          dataType="i4"
+                          name="IDESTADOLOGISTICO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[TRANSFERSTATUS]"
+                          dataType="i4"
+                          name="TRANSFERSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[INVENTLOCATIONID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTLOCATIONID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[BFPCARRIERNAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="80"
+                          name="BFPCARRIERNAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[TRANSFERID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="TRANSFERID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[LINENUM]"
+                          dataType="numeric"
+                          name="LINENUM"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[NUMEROGUIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="NUMEROGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTYSHIPPED]"
+                          dataType="numeric"
+                          name="QTYSHIPPED"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTYRECEIVED]"
+                          dataType="numeric"
+                          name="QTYRECEIVED"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTYREMAINSHIP]"
+                          dataType="numeric"
+                          name="QTYREMAINSHIP"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[CANTIDADCAJAS]"
+                          dataType="i4"
+                          name="CANTIDADCAJAS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[TransDateJE]"
+                          dataType="dbDate"
+                          name="TransDateJE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[TransDateJR]"
+                          dataType="dbDate"
+                          name="TransDateJR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[QTYTRANSFER]"
+                          dataType="numeric"
+                          name="QTYTRANSFER"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input].ExternalColumns[CONSUMO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CONSUMO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_INVENTTRANSFERTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+               ITT.CREATEDDATETIME ,
+                ITJE.TRANSDATE TRANSDATEJE,  --ES UN SUBQUERY QUE SACA LA MAXIMA FECHA DE ENVIO, YA QUE SI SE LLEGA A CRUZAR CON LA TABLA DIRECTAMENTE DUPLICA LA INFORMACION
+                ITJR.TRANSDATE TRANSDATEJR, ----ES UN SUBQUERY QUE SACA LA MAXIMA FECHA DE RECEPCION, YA QUE SI SE LLEGA A CRUZAR CON LA TABLA DIRECTAMENTE DUPLICA LA INFORMACION
+                ITL.SHIPDATE ,
+                ITL.RECEIVEDATE ,
+                INVENTLOCATIONIDFROM ,
+                INVENTLOCATIONIDTO ,
+                TRANSFERSTATUS,
+                ID.INVENTLOCATIONID ,
+                CC.DISPLAYVALUE ,
+                ITL.ITEMID,
+                ID.INVENTCOLORID,
+                ID.INVENTSIZEID,
+                ITJE.BFPCARRIERNAME,  --ITT.CARRIERCODE IDTRANSPORTADORA PUEDE CAMBIAR A FUTURO. ES UN SUBQUERY QUE SACA EL MAXIMO CODIGO DE LA TRANSPORTADORA, YA QUE SI SE LLEGA A CRUZAR CON LA TABLA DIRECTAMENTE DUPLICA 
+                ITT.TRANSFERID,
+                ITL.LINENUM,
+                ID.INVENTBATCHID, 
+                ITJL.QTYSHIPPED, 
+                ITJL.QTYRECEIVED, 
+                ITID.QTY, 
+                ITL.QTYTRANSFER, ---TRANSFERIR_CANTIDAD
+                ITL.QTYREMAINSHIP,----
+                TMS.CARRIERCODE,
+                ITJE.BFPNRCONTAINERS,---NRO_CAJAS, 
+                ITJE.PRONUMALPHA,--- NUM_GUIA,
+                ITT.ILSSHIPSTATUS,
+				CASE WHEN CITT.COS_CONSUME='0' then 'NO'
+					 WHEN CITT.COS_CONSUME='1' THEN 'SI' ELSE 'NO DEFINIDO' END AS CONSUMO
+                
+FROM INVENTTRANSFERTABLE AS ITT WITH (NOLOCK)
+INNER JOIN INVENTTRANSFERLINE AS ITL  WITH (NOLOCK)
+  ON (ITL.TRANSFERID = ITT.TRANSFERID 
+                AND ITL.DATAAREAID = ITT.DATAAREAID
+                AND ITL.PARTITION = ITT.PARTITION) 
+LEFT OUTER JOIN (SELECT TRANSFERID,DATAAREAID,PARTITION,MAX(BFPCARRIERNAME) BFPCARRIERNAME,MAX(TRANSDATE) TRANSDATE, BFPNRCONTAINERS, PRONUMALPHA 
+                                                               FROM INVENTTRANSFERJOUR  WITH (NOLOCK)
+                                                               WHERE UPDATETYPE = 0
+                                                               GROUP BY TRANSFERID,DATAAREAID,PARTITION, BFPNRCONTAINERS, PRONUMALPHA) AS ITJE 
+  ON ITJE.TRANSFERID = ITT.TRANSFERID
+  AND ITJE.DATAAREAID = ITT.DATAAREAID
+  AND ITJE.PARTITION = ITT.PARTITION
+LEFT OUTER JOIN (SELECT TRANSFERID,DATAAREAID,PARTITION,MAX(TRANSDATE) TRANSDATE 
+                                                               FROM INVENTTRANSFERJOUR  WITH (NOLOCK)
+                                                               WHERE UPDATETYPE = 1
+                                                               GROUP BY TRANSFERID,DATAAREAID,PARTITION) AS ITJR 
+  ON ITJR.TRANSFERID = ITT.TRANSFERID
+  AND ITJR.DATAAREAID = ITT.DATAAREAID
+  AND ITJR.PARTITION = ITT.PARTITION
+LEFT OUTER JOIN (SELECT DAVSI.DIMENSIONATTRIBUTEVALUESET, DAVSI.DISPLAYVALUE, DAVSI.PARTITION
+                                                               FROM DIMENSIONATTRIBUTE DA WITH (NOLOCK)
+                                                               INNER JOIN DIMENSIONATTRIBUTEVALUE DAV WITH (NOLOCK) ON DA.RECID = DAV.DIMENSIONATTRIBUTE AND DA.PARTITION = DAV.PARTITION 
+                                                               INNER JOIN DIMENSIONATTRIBUTEVALUESETITEM DAVSI WITH (NOLOCK) ON DAVSI.DIMENSIONATTRIBUTEVALUE = DAV.RECID AND DAVSI.PARTITION = DAV.PARTITION
+                                                               WHERE DA.NAME = 'COSTCENTER' ) AS CC 
+  ON ITT.CDX_DEFAULTDIMENSION = CC.DIMENSIONATTRIBUTEVALUESET 
+  AND CC.PARTITION = ITT.PARTITION
+LEFT OUTER JOIN INVENTDIM AS ID  WITH (NOLOCK)
+  ON (ID.INVENTDIMID = ITL.INVENTDIMID 
+  AND ID.DATAAREAID = ITL.DATAAREAID
+  AND ID.PARTITION = ITL.PARTITION)
+LEFT OUTER JOIN (SELECT TRANSFERID,DATAAREAID,PARTITION,ITEMID,LINENUM,SUM(QTYSHIPPED) QTYSHIPPED,SUM(QTYRECEIVED) QTYRECEIVED
+                                                               FROM INVENTTRANSFERJOURLINE  WITH (NOLOCK)
+                                                               GROUP BY TRANSFERID,DATAAREAID,PARTITION,ITEMID,LINENUM) AS ITJL 
+  ON ITJL.TRANSFERID = ITL.TRANSFERID
+  AND ITJL.DATAAREAID = ITL.DATAAREAID
+  AND ITJL.LINENUM = ITL.LINENUM
+  AND ITJL.PARTITION = ITL.PARTITION
+LEFT OUTER JOIN (SELECT INVENTTRANSORIGIN.INVENTTRANSID, INVENTTRANS.DATAAREAID, INVENTTRANS.PARTITION, SUM(QTY) QTY 
+                                                               FROM INVENTTRANS WITH (NOLOCK)
+                                                               INNER JOIN INVENTTRANSORIGIN  WITH (NOLOCK)
+                                                                   ON INVENTTRANS.INVENTTRANSORIGIN = INVENTTRANSORIGIN.RECID
+                                                                              AND INVENTTRANS.DATAAREAID = INVENTTRANSORIGIN.DATAAREAID
+                                                                              AND INVENTTRANS.PARTITION = INVENTTRANSORIGIN.PARTITION
+                                                                              WHERE STATUSISSUE IN (4)
+                                                                              AND INVENTTRANSORIGIN.REFERENCECATEGORY = 21
+                                                               GROUP BY INVENTTRANSORIGIN.INVENTTRANSID, INVENTTRANS.DATAAREAID, INVENTTRANS.PARTITION) AS ITID 
+  ON (ITID.INVENTTRANSID = ITL.INVENTTRANSID 
+  AND ITID.DATAAREAID = ITL.DATAAREAID
+  AND ITID.PARTITION = ITL.PARTITION)
+LEFT OUTER JOIN TMSINVENTTRANSFERTABLE AS TMS  WITH (NOLOCK)
+  ON TMS.TRANSFERID = ITT.TRANSFERID
+LEFT OUTER JOIN COS_INVENTTRANSFERTABLE CITT WITH (NOLOCK)
+ON ITT.RECID = CITT.INVENTTRANSFERTABLE
+AND ITT.PARTITION = CITT.PARTITION
+AND ITT.DATAAREAID =CITT.DATAAREAID
+WHERE ITT.DATAAREAID=? AND ITT.CREATEDDATETIME BETWEEN ? AND ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{AF6D0CF3-5E69-481C-909D-A25424BCF71E};"Parameter2:Input",{700DA527-C8EB-4002-9D12-9F3E45A08AB9};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[DISPLAYVALUE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[DISPLAYVALUE]"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[DISPLAYVALUE]"
+                          name="DISPLAYVALUE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          name="ITEMID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTBATCHID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTBATCHID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTBATCHID]"
+                          name="INVENTBATCHID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTY]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTY]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTY]"
+                          name="QTY"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[SHIPDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[SHIPDATE]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[SHIPDATE]"
+                          name="SHIPDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[RECEIVEDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[RECEIVEDATE]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[RECEIVEDATE]"
+                          name="RECEIVEDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONIDFROM]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONIDFROM]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONIDFROM]"
+                          name="INVENTLOCATIONIDFROM"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONIDTO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONIDTO]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONIDTO]"
+                          name="INVENTLOCATIONIDTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSFERSTATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TRANSFERSTATUS]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSFERSTATUS]"
+                          name="TRANSFERSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[INVENTLOCATIONID]"
+                          name="INVENTLOCATIONID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[BFPCARRIERNAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[BFPCARRIERNAME]"
+                          length="140"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[BFPCARRIERNAME]"
+                          name="BFPCARRIERNAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSFERID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TRANSFERID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSFERID]"
+                          name="TRANSFERID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[LINENUM]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[LINENUM]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[LINENUM]"
+                          name="LINENUM"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYSHIPPED]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYSHIPPED]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYSHIPPED]"
+                          name="QTYSHIPPED"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYRECEIVED]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYRECEIVED]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYRECEIVED]"
+                          name="QTYRECEIVED"
+                          precision="38"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYREMAINSHIP]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYREMAINSHIP]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYREMAINSHIP]"
+                          name="QTYREMAINSHIP"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSDATEJE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TRANSDATEJE]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSDATEJE]"
+                          name="TRANSDATEJE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSDATEJR]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TRANSDATEJR]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[TRANSDATEJR]"
+                          name="TRANSDATEJR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[CARRIERCODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[CARRIERCODE]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[CARRIERCODE]"
+                          name="CARRIERCODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[BFPNRCONTAINERS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[BFPNRCONTAINERS]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[BFPNRCONTAINERS]"
+                          name="BFPNRCONTAINERS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[PRONUMALPHA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRONUMALPHA]"
+                          length="17"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[PRONUMALPHA]"
+                          name="PRONUMALPHA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[ILSSHIPSTATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ILSSHIPSTATUS]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[ILSSHIPSTATUS]"
+                          name="ILSSHIPSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYTRANSFER]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYTRANSFER]"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[QTYTRANSFER]"
+                          name="QTYTRANSFER"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[CONSUMO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[CONSUMO]"
+                          length="11"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].Columns[CONSUMO]"
+                          name="CONSUMO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          name="CREATEDDATETIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[DISPLAYVALUE]"
+                          dataType="wstr"
+                          length="30"
+                          name="DISPLAYVALUE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTBATCHID]"
+                          dataType="wstr"
+                          length="20"
+                          name="INVENTBATCHID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTY]"
+                          dataType="numeric"
+                          name="QTY"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[SHIPDATE]"
+                          dataType="dbTimeStamp"
+                          name="SHIPDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[RECEIVEDATE]"
+                          dataType="dbTimeStamp"
+                          name="RECEIVEDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONIDFROM]"
+                          dataType="wstr"
+                          length="25"
+                          name="INVENTLOCATIONIDFROM" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONIDTO]"
+                          dataType="wstr"
+                          length="25"
+                          name="INVENTLOCATIONIDTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TRANSFERSTATUS]"
+                          dataType="i4"
+                          name="TRANSFERSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[INVENTLOCATIONID]"
+                          dataType="wstr"
+                          length="25"
+                          name="INVENTLOCATIONID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[BFPCARRIERNAME]"
+                          dataType="wstr"
+                          length="140"
+                          name="BFPCARRIERNAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TRANSFERID]"
+                          dataType="wstr"
+                          length="20"
+                          name="TRANSFERID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[LINENUM]"
+                          dataType="numeric"
+                          name="LINENUM"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYSHIPPED]"
+                          dataType="numeric"
+                          name="QTYSHIPPED"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYRECEIVED]"
+                          dataType="numeric"
+                          name="QTYRECEIVED"
+                          precision="38"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYREMAINSHIP]"
+                          dataType="numeric"
+                          name="QTYREMAINSHIP"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TRANSDATEJE]"
+                          dataType="dbTimeStamp"
+                          name="TRANSDATEJE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[TRANSDATEJR]"
+                          dataType="dbTimeStamp"
+                          name="TRANSDATEJR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[CARRIERCODE]"
+                          dataType="wstr"
+                          length="20"
+                          name="CARRIERCODE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[BFPNRCONTAINERS]"
+                          dataType="i4"
+                          name="BFPNRCONTAINERS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[PRONUMALPHA]"
+                          dataType="wstr"
+                          length="17"
+                          name="PRONUMALPHA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[ILSSHIPSTATUS]"
+                          dataType="i4"
+                          name="ILSSHIPSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[QTYTRANSFER]"
+                          dataType="numeric"
+                          name="QTYTRANSFER"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output].ExternalColumns[CONSUMO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="11"
+                          name="CONSUMO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[CREATEDDATETIME]"
+                          name="CREATEDDATETIME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[DISPLAYVALUE]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[DISPLAYVALUE]"
+                          name="DISPLAYVALUE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          name="ITEMID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTBATCHID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTBATCHID]"
+                          name="INVENTBATCHID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTY]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTY]"
+                          name="QTY"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[SHIPDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[SHIPDATE]"
+                          name="SHIPDATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[RECEIVEDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[RECEIVEDATE]"
+                          name="RECEIVEDATE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONIDFROM]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONIDFROM]"
+                          name="INVENTLOCATIONIDFROM" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONIDTO]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONIDTO]"
+                          name="INVENTLOCATIONIDTO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[TRANSFERSTATUS]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[TRANSFERSTATUS]"
+                          name="TRANSFERSTATUS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[INVENTLOCATIONID]"
+                          name="INVENTLOCATIONID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[BFPCARRIERNAME]"
+                          dataType="wstr"
+                          length="140"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[BFPCARRIERNAME]"
+                          name="BFPCARRIERNAME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[TRANSFERID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[TRANSFERID]"
+                          name="TRANSFERID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[LINENUM]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[LINENUM]"
+                          name="LINENUM"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTYSHIPPED]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTYSHIPPED]"
+                          name="QTYSHIPPED"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTYRECEIVED]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTYRECEIVED]"
+                          name="QTYRECEIVED"
+                          precision="38"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTYTRANSFER]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTYTRANSFER]"
+                          name="QTYTRANSFER"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTYREMAINSHIP]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[QTYREMAINSHIP]"
+                          name="QTYREMAINSHIP"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[TRANSDATEJE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[TRANSDATEJE]"
+                          name="TRANSDATEJE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[TRANSDATEJR]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[TRANSDATEJR]"
+                          name="TRANSDATEJR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[CARRIERCODE]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[CARRIERCODE]"
+                          name="CARRIERCODE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[BFPNRCONTAINERS]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[BFPNRCONTAINERS]"
+                          name="BFPNRCONTAINERS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[PRONUMALPHA]"
+                          dataType="wstr"
+                          length="17"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[PRONUMALPHA]"
+                          name="PRONUMALPHA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[ILSSHIPSTATUS]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[ILSSHIPSTATUS]"
+                          name="ILSSHIPSTATUS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[CONSUMO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="11"
+                          lineageId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Error Output].Columns[CONSUMO]"
+                          name="CONSUMO" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia.Paths[Derived Column Output1]"
+                  endId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_FactPedidoTransferencia\EST_Truncate_UscNalsani_ExtrFactPedidoTransferencia"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{557E71BC-331E-4809-9A1B-B1E430906BBF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactPedidoTransferencia"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrFactPedidoTransferencia;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_FactPedidoTransferencia.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{16C78B7D-0E2D-4D70-A3D7-C8B184180756}"
+          DTS:From="Package\SC_UscNalsani_FactPedidoTransferencia\EST_Truncate_UscNalsani_ExtrFactPedidoTransferencia"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_FactPedidoTransferencia"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CA3164AF-EEEC-4B90-AF7B-2DE7A5398B5D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_FactPedidoTransferencia"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactPedidoTransferencia]  + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactPedidoTransferencia]  + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_FactPedidoTransferencia"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AF5464F3-68FB-4F83-936A-0DBDA08ABB2B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_FactPedidoTransferencia"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20180331'))),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DDA17BA1-74AB-4F81-A4A4-DA4FAC00B57F}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_FactPedidoTransferencia"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_FactPedidoTransferencia" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6188D243-3CF3-4CE9-8022-013398B8372D}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactPedidoTransferencia]  == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactPedidoTransferencia"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_FactPedidoTransferencia" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{DAA9157B-37B4-4CF1-89D1-3791CF3C2F81}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_FactPedidoTransferencia"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_FactPedidoTransferencia" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{739608B5-35CB-4B43-AB8F-6E5F7F5F8593}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactPedidoTransferencia] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactPedidoTransferencia"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_FactPedidoTransferencia" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="295,42"
+          Id="Package\ET_¿Es Automatica?_FactPedidoTransferencia"
+          TopLeft="286.5,3.49999999999989" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\EST_Truncate_UscNalsani_ExtrFactPedidoTransferencia"
+          TopLeft="4.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia.PrecedenceConstraints[Constraint]"
+          TopLeft="175,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="351,204"
+          Size="351,247"
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia"
+          TopLeft="252.5,214.5" />
+        <NodeLayout
+          Size="393,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_FactPedidoTransferencia"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="374,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_FactPedidoTransferencia"
+          TopLeft="459,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="202,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="168.833333333333,65"
+              Start="0,0"
+              End="168.833333333333,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.8230289279637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.8230289279637"
+                    Point2="0,38.8230289279637"
+                    Point3="4,38.8230289279637" />
+                  <mssgle:LineSegment
+                    End="164.833333333333,38.8230289279637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="164.833333333333,38.8230289279637"
+                    Point2="168.833333333333,38.8230289279637"
+                    Point3="168.833333333333,42.8230289279637" />
+                  <mssgle:LineSegment
+                    End="168.833333333333,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="386.166666666667,45.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-184.166666666667,62"
+              Start="0,0"
+              End="-184.166666666667,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0006743088334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0006743088334"
+                    Point2="0,25.0006743088334"
+                    Point3="-4,25.0006743088334" />
+                  <mssgle:LineSegment
+                    End="-180.166666666667,25.0006743088334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-180.166666666667,25.0006743088334"
+                    Point2="-184.166666666667,25.0006743088334"
+                    Point3="-184.166666666667,29.0006743088334" />
+                  <mssgle:LineSegment
+                    End="-184.166666666667,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.083333333333,30.0006743088334,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="646,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-160.833333333333,65"
+              Start="0,0"
+              End="-160.833333333333,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.8230289279637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.8230289279637"
+                    Point2="0,38.8230289279637"
+                    Point3="-4,38.8230289279637" />
+                  <mssgle:LineSegment
+                    End="-156.833333333333,38.8230289279637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-156.833333333333,38.8230289279637"
+                    Point2="-160.833333333333,38.8230289279637"
+                    Point3="-160.833333333333,42.8230289279637" />
+                  <mssgle:LineSegment
+                    End="-160.833333333333,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="481.833333333333,45.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164.166666666667,62"
+              Start="0,0"
+              End="164.166666666667,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0006743088334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0006743088334"
+                    Point2="0,25.0006743088334"
+                    Point3="4,25.0006743088334" />
+                  <mssgle:LineSegment
+                    End="160.166666666667,25.0006743088334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="160.166666666667,25.0006743088334"
+                    Point2="164.166666666667,25.0006743088334"
+                    Point3="164.166666666667,29.0006743088334" />
+                  <mssgle:LineSegment
+                    End="164.166666666667,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="74.0833333333335,30.0006743088334,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="359,42"
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia_Totales"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="359,42"
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\DC_UscNalsani_UscNalsani_ExtrFactPedidoTransferencia"
+          TopLeft="5.50000000000003,311.5" />
+        <NodeLayout
+          Size="272,42"
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE"
+          TopLeft="45.5,0.5" />
+        <NodeLayout
+          Size="348,42"
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="359,42"
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\Derivada_UscNalsani_ExtrFactPedidoTransferencia"
+          TopLeft="6.5,107.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia.Paths[OLE DB Source Output]"
+          TopLeft="183.75,42.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia.Paths[Derived Column Output1]"
+          TopLeft="185,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia.Paths[Derived Column Output]"
+          TopLeft="185.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia.Paths[Data Conversion Output]"
+          TopLeft="182.25,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Origen_INVENTTRANSFERTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_FactPedidoTransferencia\DFT_UscNalsani_ExtrFactPedidoTransferencia\OLEDB_Destino_UscNalsani_ExtrFactPedidoTransferencia">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

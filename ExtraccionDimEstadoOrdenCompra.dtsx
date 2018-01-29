@@ -1,0 +1,1229 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/10/2017 2:15:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{ED937980-0CC9-44CE-BE8F-9CB573431BB2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimEstadoOrdenCompra"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{583AD88E-C394-4877-82B4-74B55D0E9C19}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel_OrigenEstadoOrdenCompraENUM]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{29143F8D-C1C4-463D-B375-FC2B7F448998}"
+      DTS:ObjectName="Excel_OrigenEstadoOrdenCompraENUM">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Project::RutaArchivosEnum] + "EnumPurchStatus_DimEstadoOrdenCompra.xls"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=F:\Nalsani EDW\2. Archivos\Enum\EnumPurchStatus_DimEstadoOrdenCompra.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{898780AE-22F6-46AC-9CEF-8E980F92053B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscArchivos_ExtrEstadoOrdenCompraENUM">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CE1C8CAD-4E0F-4F17-B43E-BCAB4DB4F001}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscArchivos_ExtrEstadoOrdenCompraENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Data Conversion Input].Columns[IdEstadoOrdenCompra]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="IdEstadoOrdenCompra"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].Columns[IdEstadoOrdenCompra]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Data Conversion Input].Columns[DsEstadoOrdenCompra]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DsEstadoOrdenCompra"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].Columns[DsEstadoOrdenCompra]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Output].Columns[DCIdEstadoOrdenCompra]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Output].Columns[DCIdEstadoOrdenCompra]"
+                          name="DCIdEstadoOrdenCompra"
+                          precision="18"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].Columns[IdEstadoOrdenCompra]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Output].Columns[DCDsEstadoOrdenCompra]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Output].Columns[DCDsEstadoOrdenCompra]"
+                          name="DCDsEstadoOrdenCompra"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].Columns[DsEstadoOrdenCompra]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel_Origen_MaestroEnum_EstadoOrdenCompra"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Hoja1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel_OrigenEstadoOrdenCompraENUM]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel_OrigenEstadoOrdenCompraENUM]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].Columns[IdEstadoOrdenCompra]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].ExternalColumns[IdEstadoOrdenCompra]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].Columns[IdEstadoOrdenCompra]"
+                          name="IdEstadoOrdenCompra"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].Columns[DsEstadoOrdenCompra]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].ExternalColumns[DsEstadoOrdenCompra]"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].Columns[DsEstadoOrdenCompra]"
+                          name="DsEstadoOrdenCompra"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].ExternalColumns[IdEstadoOrdenCompra]"
+                          dataType="wstr"
+                          length="255"
+                          name="IdEstadoOrdenCompra" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output].ExternalColumns[DsEstadoOrdenCompra]"
+                          dataType="wstr"
+                          length="255"
+                          name="DsEstadoOrdenCompra" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Error Output].Columns[IdEstadoOrdenCompra]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Error Output].Columns[IdEstadoOrdenCompra]"
+                          name="IdEstadoOrdenCompra" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Error Output].Columns[DsEstadoOrdenCompra]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Error Output].Columns[DsEstadoOrdenCompra]"
+                          name="DsEstadoOrdenCompra" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscArchivos].[ExtrEstadoOrdenCompraENUM]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input].Columns[DCIdEstadoOrdenCompra]"
+                          cachedDataType="numeric"
+                          cachedName="DCIdEstadoOrdenCompra"
+                          cachedPrecision="18"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOORDENCOMPRA]"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Output].Columns[DCIdEstadoOrdenCompra]" />
+                        <inputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input].Columns[DCDsEstadoOrdenCompra]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCDsEstadoOrdenCompra"
+                          externalMetadataColumnId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input].ExternalColumns[DSESTADOORDENCOMPRA]"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Output].Columns[DCDsEstadoOrdenCompra]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOORDENCOMPRA]"
+                          dataType="i4"
+                          name="IDESTADOORDENCOMPRA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input].ExternalColumns[DSESTADOORDENCOMPRA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DSESTADOORDENCOMPRA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM.Paths[Derived Column Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM.Paths[Excel Source Output]"
+                  endId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM.Inputs[Derived Column Input]"
+                  name="Excel Source Output"
+                  startId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\EST_Truncate_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D31D89F8-EA94-4061-85FC-364BC95A1217}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="Truncate Table UscArchivos.ExtrEstadoOrdenCompraENUM;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F7165542-AA35-439F-A94C-7E9ED9A8D401}"
+          DTS:From="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\EST_Truncate_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{34358D0A-9494-45EA-8ADB-5AB40C29AB10}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A8F4B00D-8C26-4F34-A0EA-F69A9B029B17}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[Data Conversion Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrPurchTable_ExtrDimEstadoOrdenCompra]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[OLE DB Destination Input].Columns[PURCHSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="PURCHSTATUS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[PURCHSTATUS]"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Output].Columns[PURCHSTATUS]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[PURCHSTATUS]"
+                          dataType="i4"
+                          name="PURCHSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_PURCHTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+  PURCHSTATUS 
+FROM PURCHTABLE WITH (NOLOCK) WHERE PURCHTABLE.DATAAREAID = ?;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Output].Columns[PURCHSTATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Output].ExternalColumns[PURCHSTATUS]"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Output].Columns[PURCHSTATUS]"
+                          name="PURCHSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Output].ExternalColumns[PURCHSTATUS]"
+                          dataType="i4"
+                          name="PURCHSTATUS" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Error Output].Columns[PURCHSTATUS]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Error Output].Columns[PURCHSTATUS]"
+                          name="PURCHSTATUS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\EST_Truncate_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{555C6D03-ACF8-4E97-B99A-C3F7C4BDD641}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrPurchTable_ExtrDimEstadoOrdenCompra;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9F87EC2F-094D-476B-8D69-B10A2F73063C}"
+          DTS:From="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\EST_Truncate_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="362,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          TopLeft="17.5000000000001,128.5" />
+        <NodeLayout
+          Size="356,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\EST_Truncate_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          TopLeft="17.5,26.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM.PrecedenceConstraints[Constraint]"
+          TopLeft="197,68.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="384,223"
+          Size="384,266"
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          TopLeft="511.5,14.4999999999999" />
+        <NodeLayout
+          Size="418,42"
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          TopLeft="28.5,127.5" />
+        <NodeLayout
+          Size="418,42"
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\EST_Truncate_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          TopLeft="28.5,25.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.PrecedenceConstraints[Constraint]"
+          TopLeft="237.5,67.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="472,224"
+          Size="472,267"
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          TopLeft="10.0000000000001,13.4999999999999" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="364,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="364,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Derivada_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="364,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="364,42"
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\DC_UscArchivos_ExtrEstadoOrdenCompraENUM"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM.Paths[Excel Source Output]"
+          TopLeft="187.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM.Paths[Derived Column Output]"
+          TopLeft="187.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM.Paths[Data Conversion Output]"
+          TopLeft="187.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\OLEDB_Destino_UscArchivos_ExtrEstadoOrdenCompraENUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscArchivos_ExtrEstadoOrdenCompraENUM\DFT_UscArchivos_ExtrEstadoOrdenCompraENUM\Excel_Origen_MaestroEnum_EstadoOrdenCompra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="426,42"
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="426,42"
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="426,42"
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\Derivada_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="426,42"
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Paths[OLE DB Source Output]"
+          TopLeft="218.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Paths[Derived Column Output]"
+          TopLeft="218.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra.Paths[Data Conversion Output]"
+          TopLeft="218.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Origen_PURCHTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\DFT_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra\OLEDB_Destino_UscNalsani_ExtrPurchTable_ExtrDimEstadoOrdenCompra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

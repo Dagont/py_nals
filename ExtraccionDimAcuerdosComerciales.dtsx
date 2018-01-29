@@ -1,0 +1,969 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2017 4:42:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi1"
+  DTS:DTSID="{93142C73-D6BA-46BD-972B-6D7C85ADED41}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimAcuerdosComerciales"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{4539B697-B38A-4E4A-823A-4DB487749CA9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9b8a7a0f-c8e3-4b6a-9d01-09279b25953a}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5ed0a875-dbf7-4dca-8e17-05a9b0fa9f6c}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Data Conversion Input].Columns[COD_PRODUCTO]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="COD_PRODUCTO"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[COD_PRODUCTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Data Conversion Input].Columns[MONEDA]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="MONEDA"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[MONEDA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Data Conversion Input].Columns[COD_ACUERDO_COMERCIAL]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="COD_ACUERDO_COMERCIAL"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[COD_ACUERDO_COMERCIAL]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Data Conversion Input].Columns[DESC_ACUERDO_COMERCIAL]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESC_ACUERDO_COMERCIAL"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[DESC_ACUERDO_COMERCIAL]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCCOD_PRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCCOD_PRODUCTO]"
+                          name="DCCOD_PRODUCTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[COD_PRODUCTO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCMONEDA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCMONEDA]"
+                          name="DCMONEDA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[MONEDA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCCOD_ACUERDO_COMERCIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCCOD_ACUERDO_COMERCIAL]"
+                          name="DCCOD_ACUERDO_COMERCIAL"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[COD_ACUERDO_COMERCIAL]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCDESC_ACUERDO_COMERCIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="70"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCDESC_ACUERDO_COMERCIAL]"
+                          name="DCDESC_ACUERDO_COMERCIAL"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[DESC_ACUERDO_COMERCIAL]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrPriceDiscTable_ExtrDimAcuerdosComerciales]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].Columns[AMOUNT]"
+                          cachedDataType="numeric"
+                          cachedName="AMOUNT"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNT]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[AMOUNT]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].Columns[DCCOD_PRODUCTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCCOD_PRODUCTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[CODPRODUCTO]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCCOD_PRODUCTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].Columns[FECHA_INICIAL]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_INICIAL"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[FROMDATE]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[FECHA_INICIAL]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].Columns[FECHA_FINAL]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_FINAL"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[TODATE]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[FECHA_FINAL]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].Columns[DCMONEDA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="DCMONEDA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[CURRENCY]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCMONEDA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].Columns[DCCOD_ACUERDO_COMERCIAL]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCCOD_ACUERDO_COMERCIAL"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[ACCOUNTRELATION]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCCOD_ACUERDO_COMERCIAL]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].Columns[DCDESC_ACUERDO_COMERCIAL]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="70"
+                          cachedName="DCDESC_ACUERDO_COMERCIAL"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output].Columns[DCDESC_ACUERDO_COMERCIAL]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="70"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[ACCOUNTRELATION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ACCOUNTRELATION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[CODPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CODPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[FROMDATE]"
+                          dataType="dbTimeStamp"
+                          name="FROMDATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[TODATE]"
+                          dataType="dbTimeStamp"
+                          name="TODATE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[CURRENCY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="CURRENCY" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNT]"
+                          dataType="numeric"
+                          name="AMOUNT"
+                          precision="32"
+                          scale="16" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_PRICEDISCTABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+	DISTINCT 
+		PT.ACCOUNTRELATION COD_ACUERDO_COMERCIAL, 
+        PG.NAME DESC_ACUERDO_COMERCIAL,
+        PT.ITEMRELATION + ID.INVENTCOLORID + ID.INVENTSIZEID As COD_PRODUCTO,
+        PT.FROMDATE FECHA_INICIAL,
+        PT.TODATE FECHA_FINAL,
+        CURRENCY MONEDA,
+        PT.AMOUNT
+FROM PRICEDISCTABLE PT WITH (NOLOCK)
+INNER JOIN PRICEDISCGROUP PG WITH (NOLOCK)
+	ON  PT.ACCOUNTRELATION=PG.GROUPID 
+	AND PT.DATAAREAID = PG.DATAAREAID 
+	AND PT.PARTITION = PG.PARTITION
+INNER JOIN INVENTDIM ID WITH (NOLOCK)
+	ON ID.INVENTDIMID = PT.INVENTDIMID
+	AND ID.DATAAREAID = PT.DATAAREAID
+	AND ID.PARTITION = PT.PARTITION
+WHERE  PT.RELATION = 0 AND PT.DATAAREAID = ?;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[COD_ACUERDO_COMERCIAL]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[COD_ACUERDO_COMERCIAL]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[COD_ACUERDO_COMERCIAL]"
+                          name="COD_ACUERDO_COMERCIAL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[DESC_ACUERDO_COMERCIAL]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[DESC_ACUERDO_COMERCIAL]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[DESC_ACUERDO_COMERCIAL]"
+                          name="DESC_ACUERDO_COMERCIAL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[COD_PRODUCTO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRODUCTO]"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[COD_PRODUCTO]"
+                          name="COD_PRODUCTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[FECHA_INICIAL]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[FECHA_INICIAL]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[FECHA_INICIAL]"
+                          name="FECHA_INICIAL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[FECHA_FINAL]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[FECHA_FINAL]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[FECHA_FINAL]"
+                          name="FECHA_FINAL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[MONEDA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[MONEDA]"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[MONEDA]"
+                          name="MONEDA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[AMOUNT]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[AMOUNT]"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].Columns[AMOUNT]"
+                          name="AMOUNT"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[COD_ACUERDO_COMERCIAL]"
+                          dataType="wstr"
+                          length="20"
+                          name="COD_ACUERDO_COMERCIAL" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[DESC_ACUERDO_COMERCIAL]"
+                          dataType="wstr"
+                          length="60"
+                          name="DESC_ACUERDO_COMERCIAL" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRODUCTO]"
+                          dataType="wstr"
+                          length="40"
+                          name="COD_PRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[FECHA_INICIAL]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_INICIAL" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[FECHA_FINAL]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_FINAL" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[MONEDA]"
+                          dataType="wstr"
+                          length="3"
+                          name="MONEDA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output].ExternalColumns[AMOUNT]"
+                          dataType="numeric"
+                          name="AMOUNT"
+                          precision="32"
+                          scale="16" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[COD_ACUERDO_COMERCIAL]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[COD_ACUERDO_COMERCIAL]"
+                          name="COD_ACUERDO_COMERCIAL" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[DESC_ACUERDO_COMERCIAL]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[DESC_ACUERDO_COMERCIAL]"
+                          name="DESC_ACUERDO_COMERCIAL" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[COD_PRODUCTO]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[COD_PRODUCTO]"
+                          name="COD_PRODUCTO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[FECHA_INICIAL]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[FECHA_INICIAL]"
+                          name="FECHA_INICIAL" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[FECHA_FINAL]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[FECHA_FINAL]"
+                          name="FECHA_FINAL" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[MONEDA]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[MONEDA]"
+                          name="MONEDA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[AMOUNT]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[AMOUNT]"
+                          name="AMOUNT"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\EST_Actualiza_CODPRODUCTO_ExtrDimAcuerdosComerciales"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7F3FC92F-E19B-4940-A374-6609C4E254E4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Actualiza_CODPRODUCTO_ExtrDimAcuerdosComerciales"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="Update UscNalsani.ExtrPriceDiscTable_ExtrDimAcuerdosComerciales&#xA;Set &#xA;&#x9;CODPRODUCTO =&#x9;CASE &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN CODPRODUCTO LIKE '%+%' THEN SUBSTRING(CODPRODUCTO,CHARINDEX('+',CODPRODUCTO,1)-20,20) &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE CODPRODUCTO&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\EST_Truncate_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c8e635d1-6576-4c63-bb29-3cc8cb333c4a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="Truncate table UscNalsani.ExtrPriceDiscTable_ExtrDimAcuerdosComerciales;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{a2d371ad-2480-44bc-89cf-39b26f882326}"
+          DTS:From="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\EST_Truncate_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{9CB50A9C-8AFD-42A0-95A5-E1754EAE9A28}"
+          DTS:From="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\EST_Actualiza_CODPRODUCTO_ExtrDimAcuerdosComerciales" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="427,42"
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="427,42"
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\EST_Actualiza_CODPRODUCTO_ExtrDimAcuerdosComerciales"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="427,42"
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\EST_Truncate_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.PrecedenceConstraints[Constraint]"
+          TopLeft="219,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.PrecedenceConstraints[Constraint 1]"
+          TopLeft="219,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="438,307"
+          Size="438,350"
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          TopLeft="5.50000000000006,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="425,42"
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="425,42"
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="425,42"
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\Derivada_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="425,42"
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Paths[OLE DB Source Output]"
+          TopLeft="218,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Paths[Derived Column Output]"
+          TopLeft="218,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales.Paths[Data Conversion Output]"
+          TopLeft="218,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Origen_PRICEDISCTABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\DFT_UscNalsani_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales\OLEDB_Destino_UscNalsani_PriceDiscTable_ExtrDimAcuerdosComerciales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

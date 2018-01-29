@@ -1,0 +1,715 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/10/2017 2:15:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{BE75BA5E-5B8E-42C1-973D-648548265B86}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimVendedor"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{7AAA72C1-CE1F-4E88-915A-B59932210F2D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E4B06783-F86C-45B1-9972-1E9CF3A3CF3B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CB1D3869-774E-44C5-BC44-9646EB6C5379}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_HCMWorker_ExtrDimVendedor"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Data Conversion Input].Columns[PERSONNELNUMBER]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="PERSONNELNUMBER"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].Columns[PERSONNELNUMBER]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Output].Columns[DCPERSONNELNUMBER]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Output].Columns[DCPERSONNELNUMBER]"
+                          name="DCPERSONNELNUMBER"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].Columns[PERSONNELNUMBER]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Derived Column Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="NAME"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].Columns[NAME]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Output].Columns[DCTNAME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="120"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Output].Columns[DCTNAME]"
+                          name="DCTNAME"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,120,1252)([UPPER]([TRIM](#{Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].Columns[NAME]})))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,120,1252)(UPPER(TRIM(NAME)))</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrHCMWorker_ExtrDimVendedor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input].Columns[DCPERSONNELNUMBER]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCPERSONNELNUMBER"
+                          externalMetadataColumnId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[PERSONNELNUMBER]"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Output].Columns[DCPERSONNELNUMBER]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input].Columns[DCTNAME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="120"
+                          cachedName="DCTNAME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Output].Columns[DCTNAME]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[PERSONNELNUMBER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="PERSONNELNUMBER" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="120"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_HCMWORKER"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+  T1.PERSONNELNUMBER,
+  T2.NAME,
+  CASE WHEN T2.GENDER=0 THEN 'NINGUNO'
+       WHEN T2.GENDER=1 THEN 'MASCULINO'
+	   WHEN T2.GENDER=2 THEN 'FEMENINO'
+	   WHEN T2.GENDER=3 THEN 'NO ESPECIFICO'
+  END AS GENERO,
+  CASE WHEN T3.COS_ESTADOEMPLEADO=0 THEN 'NINGUNO'
+       WHEN T3.COS_ESTADOEMPLEADO=1 THEN 'ACTIVO'
+	   WHEN T3.COS_ESTADOEMPLEADO=2 THEN 'INACTIVO'
+  END AS ESTADOEMPLEADO
+FROM HCMWORKER AS T1 WITH (NOLOCK) 
+INNER JOIN DIRPARTYTABLE AS T2  WITH (NOLOCK) 
+  ON T1.PERSON = T2.RECID
+  AND T1.PARTITION=T2.PARTITION
+INNER JOIN COS_HCMWORKER AS T3 WITH (NOLOCK) 
+ON T1.RECID=T3.HCMWORKER AND T1.PARTITION=T3.PARTITION</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].Columns[PERSONNELNUMBER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].ExternalColumns[PERSONNELNUMBER]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].Columns[PERSONNELNUMBER]"
+                          name="PERSONNELNUMBER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].ExternalColumns[PERSONNELNUMBER]"
+                          dataType="wstr"
+                          length="25"
+                          name="PERSONNELNUMBER" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].ExternalColumns[GENERO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="GENERO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output].ExternalColumns[ESTADOEMPLEADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="ESTADOEMPLEADO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Error Output].Columns[PERSONNELNUMBER]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Error Output].Columns[PERSONNELNUMBER]"
+                          name="PERSONNELNUMBER" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\EST_Truncate_UscNalsani_HCMWorker_ExtrDimVendedor"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{EF4D078A-9F73-4D2A-94A8-E1395070183A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_HCMWorker_ExtrDimVendedor"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrHCMWorker_ExtrDimVendedor;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DBE540A7-3626-4BC1-BD67-D584F20E7FD6}"
+          DTS:From="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\EST_Truncate_UscNalsani_HCMWorker_ExtrDimVendedor"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="351,42"
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="351,42"
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\EST_Truncate_UscNalsani_HCMWorker_ExtrDimVendedor"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor.PrecedenceConstraints[Constraint]"
+          TopLeft="181,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="362,205"
+          Size="362,248"
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor"
+          TopLeft="5.50000000000003,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="377,42"
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\Derivada_UscNalsani_ExtrHCMWorker_ExtrDimVendedor"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="377,42"
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\DC_UscNalsani_ExtrHCMWorker_ExtrDimVendedor"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="377,42"
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="377,42"
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor.Paths[OLE DB Source Output]"
+          TopLeft="194,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor.Paths[Derived Column Output]"
+          TopLeft="194,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor.Paths[Data Conversion Output]"
+          TopLeft="194,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Destino_UscNalsani_ExtrHCMWorker_ExtrDimVendedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_UscNalsani_HCMWorker_ExtrDimVendedor\DFT_UscNalsani_HCMWorker_ExtrDimVendedor\OLEDB_Origen_HCMWORKER">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

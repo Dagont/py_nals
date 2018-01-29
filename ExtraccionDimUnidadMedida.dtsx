@@ -1,0 +1,693 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/10/2017 2:15:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{594AC2CB-8342-4A24-B30D-ACF7774692F3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimUnidadMedida"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{851183F3-A51B-4116-AE92-F8ACF8FA5358}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{AF7FC864-C585-4273-8029-3C385CEBC476}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C6808D34-FD00-44F6-B5ED-FD554D035380}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Data Conversion Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Derived Column Input].Columns[SYMBOL]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="SYMBOL"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].Columns[SYMBOL]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Derived Column Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESCRIPTION"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Output].Columns[DCTDESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Output].Columns[DCTDESCRIPTION]"
+                          name="DCTDESCRIPTION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)([UPPER]([TRIM](#{Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]})))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)(UPPER(TRIM(DESCRIPTION)))</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Output].Columns[DCTSYMBOL]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Output].Columns[DCTSYMBOL]"
+                          name="DCTSYMBOL"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,50,1252)([UPPER]([TRIM](#{Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].Columns[SYMBOL]})))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,50,1252)(UPPER(TRIM(SYMBOL)))</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrUnitOfMeasure_ExtrDimUnidadMedida]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input].Columns[DCTSYMBOL]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCTSYMBOL"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input].ExternalColumns[SYMBOL]"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Output].Columns[DCTSYMBOL]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input].Columns[DCTDESCRIPTION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCTDESCRIPTION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Output].Columns[DCTDESCRIPTION]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input].ExternalColumns[SYMBOL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SYMBOL" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_UNITOFMEASURE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+  T1.SYMBOL,
+  T3.DESCRIPTION
+FROM UNITOFMEASURE AS T1 
+LEFT JOIN (SELECT A.UNITOFMEASURE, MAX(A.RECID) RECID, PARTITION FROM UNITOFMEASURETRANSLATION AS A WITH (NOLOCK) GROUP BY A.UNITOFMEASURE,PARTITION) AS T2
+  ON T1.RECID = T2.UNITOFMEASURE
+  AND T1.PARTITION=T2.PARTITION
+LEFT JOIN UNITOFMEASURETRANSLATION AS T3 WITH (NOLOCK) 
+  ON T2.RECID = T3.RECID
+  AND T2.PARTITION=T3.PARTITION</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].Columns[SYMBOL]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].ExternalColumns[SYMBOL]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].Columns[SYMBOL]"
+                          name="SYMBOL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].ExternalColumns[SYMBOL]"
+                          dataType="wstr"
+                          length="10"
+                          name="SYMBOL" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          name="DESCRIPTION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Error Output].Columns[SYMBOL]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Error Output].Columns[SYMBOL]"
+                          name="SYMBOL" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\EST_Truncate_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C0A88D8C-9F95-47F1-B93B-1C15EB6835CF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrUnitOfMeasure_ExtrDimUnidadMedida;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{1EC2D441-519D-49AC-AA4F-C023634E845B}"
+          DTS:From="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\EST_Truncate_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="405,42"
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          TopLeft="25.5,120.5" />
+        <NodeLayout
+          Size="405,42"
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\EST_Truncate_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          TopLeft="25.5,18.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.PrecedenceConstraints[Constraint]"
+          TopLeft="228,60.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="452,218"
+          Size="452,260"
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          TopLeft="5.50000000000003,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="412,42"
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="412,42"
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="412,42"
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\Derivada_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="412,42"
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Paths[OLE DB Source Output]"
+          TopLeft="211.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Paths[Derived Column Output]"
+          TopLeft="211.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida.Paths[Data Conversion Output]"
+          TopLeft="211.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Destino_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\DFT_UscNalsani_ExtrUnitOfMeasure_ExtrDimUnidadMedida\OLEDB_Origen_UNITOFMEASURE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

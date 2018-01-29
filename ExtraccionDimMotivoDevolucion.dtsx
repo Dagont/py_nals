@@ -1,0 +1,1566 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/18/2017 9:53:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\Adminbi"
+  DTS:DTSID="{0E0989CB-C095-460A-B035-B087A2CAEB35}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimMotivoDevolucion"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{EBF08679-E28A-44BE-B625-A6CDF2E4D9FE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{18E0D481-D731-4BEB-90FD-BF28516B561B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E835CB06-1954-4F79-8177-4F2E4FE63E76}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Data Conversion Input].Columns[REASONCODEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="REASONCODEID"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[REASONCODEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Data Conversion Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESCRIPTION"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[DESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Data Conversion Input].Columns[REASONCODEGROUPID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="REASONCODEGROUPID"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[REASONCODEGROUPID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Data Conversion Input].Columns[DESCRIPTIONGROUP]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESCRIPTIONGROUP"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[DESCRIPTIONGROUP]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCREASONCODEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCREASONCODEID]"
+                          name="DCREASONCODEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[REASONCODEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCDESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCDESCRIPTION]"
+                          name="DCDESCRIPTION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[DESCRIPTION]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCREASONCODEGROUPID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCREASONCODEGROUPID]"
+                          name="DCREASONCODEGROUPID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[REASONCODEGROUPID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCDESCRIPTIONGROUP]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCDESCRIPTIONGROUP]"
+                          name="DCDESCRIPTIONGROUP"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[DESCRIPTIONGROUP]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion"
+                  componentClassID="Microsoft.MergeJoin"
+                  contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+                  name="MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of join to perform."
+                      name="JoinType"
+                      typeConverter="JoinType">2</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of columns in the ordering key."
+                      name="NumKeyColumns">2</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the null values are treated as equal values."
+                      name="TreatNullsAsEqual">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates the requested maximum buffers per input before blocking."
+                      name="MaxBuffersPerInput">5</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Left Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Left Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Left Input].Columns[REASONCODEGROUPID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="REASONCODEGROUPID"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[REASONCODEGROUPID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Left Input].Columns[PARTITION]"
+                          cachedDataType="i8"
+                          cachedName="PARTITION"
+                          cachedSortKeyPosition="2"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[PARTITION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Left Input].Columns[REASONCODEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="REASONCODEID"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[REASONCODEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Left Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESCRIPTION"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[DESCRIPTION]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Right Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Right Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Right Input].Columns[REASONCODEGROUPID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="REASONCODEGROUPID"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output].Columns[REASONCODEGROUPID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Right Input].Columns[PARTITION]"
+                          cachedDataType="i8"
+                          cachedName="PARTITION"
+                          cachedSortKeyPosition="2"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output].Columns[PARTITION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Right Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESCRIPTION"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output].Columns[DESCRIPTION]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output]"
+                      isSorted="true"
+                      name="Merge Join Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[REASONCODEID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[REASONCODEID]"
+                          name="REASONCODEID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Left Input].Columns[REASONCODEID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Left Input].Columns[DESCRIPTION]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[REASONCODEGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[REASONCODEGROUPID]"
+                          name="REASONCODEGROUPID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Right Input].Columns[REASONCODEGROUPID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[DESCRIPTIONGROUP]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output].Columns[DESCRIPTIONGROUP]"
+                          name="DESCRIPTIONGROUP">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Right Input].Columns[DESCRIPTION]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrReturnReasonCode_ExtrDimMotivoDevolucion]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].Columns[DCDESCRIPTIONGROUP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DCDESCRIPTIONGROUP"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].ExternalColumns[DescriptionGroup]"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCDESCRIPTIONGROUP]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].Columns[DCREASONCODEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DCREASONCODEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].ExternalColumns[REASONCODEID]"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCREASONCODEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].Columns[DCDESCRIPTION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DCDESCRIPTION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCDESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].Columns[DCREASONCODEGROUPID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="DCREASONCODEGROUPID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].ExternalColumns[REASONCODEGROUPID]"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output].Columns[DCREASONCODEGROUPID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].ExternalColumns[DescriptionGroup]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DescriptionGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].ExternalColumns[REASONCODEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="REASONCODEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].ExternalColumns[REASONCODEGROUPID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="REASONCODEGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_RETURNREASONCODE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[VENDTABLE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+  REASONCODEID,
+  REASONCODEGROUPID,
+  DESCRIPTION,
+  PARTITION
+FROM RETURNREASONCODE WITH (NOLOCK) WHERE DATAAREAID=?;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[REASONCODEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].ExternalColumns[REASONCODEID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[REASONCODEID]"
+                          name="REASONCODEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[REASONCODEGROUPID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].ExternalColumns[REASONCODEGROUPID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[REASONCODEGROUPID]"
+                          name="REASONCODEGROUPID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[PARTITION]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].ExternalColumns[PARTITION]"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[PARTITION]"
+                          name="PARTITION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].ExternalColumns[REASONCODEID]"
+                          dataType="wstr"
+                          length="10"
+                          name="REASONCODEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].ExternalColumns[REASONCODEGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          name="REASONCODEGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].ExternalColumns[PARTITION]"
+                          dataType="i8"
+                          name="PARTITION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[REASONCODEID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[REASONCODEID]"
+                          name="REASONCODEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[REASONCODEGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[REASONCODEGROUPID]"
+                          name="REASONCODEGROUPID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[PARTITION]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[PARTITION]"
+                          name="PARTITION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_RETURNREASONCODEGROUP"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+  REASONCODEGROUPID,
+  DESCRIPTION,
+  PARTITION
+FROM RETURNREASONCODEGROUP WITH (NOLOCK) WHERE DATAAREAID=?;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[REASONCODEGROUPID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].ExternalColumns[REASONCODEGROUPID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[REASONCODEGROUPID]"
+                          name="REASONCODEGROUPID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[PARTITION]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].ExternalColumns[PARTITION]"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[PARTITION]"
+                          name="PARTITION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].ExternalColumns[REASONCODEGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          name="REASONCODEGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].ExternalColumns[PARTITION]"
+                          dataType="i8"
+                          name="PARTITION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[REASONCODEGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[REASONCODEGROUPID]"
+                          name="REASONCODEGROUPID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[PARTITION]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[PARTITION]"
+                          name="PARTITION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Inputs[Sort Input].Columns[REASONCODEGROUPID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="REASONCODEGROUPID"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[REASONCODEGROUPID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Inputs[Sort Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESCRIPTION"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[DESCRIPTION]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Inputs[Sort Input].Columns[PARTITION]"
+                          cachedDataType="i8"
+                          cachedName="PARTITION"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[PARTITION]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">2</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output].Columns[REASONCODEGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output].Columns[REASONCODEGROUPID]"
+                          name="REASONCODEGROUPID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[REASONCODEGROUPID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[DESCRIPTION]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output].Columns[PARTITION]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output].Columns[PARTITION]"
+                          name="PARTITION"
+                          sortKeyPosition="2">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output].Columns[PARTITION]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Orden_RETURNREASONCODE_REASONCODEGROUPID"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Inputs[Sort Input].Columns[REASONCODEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="REASONCODEID"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[REASONCODEID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Inputs[Sort Input].Columns[REASONCODEGROUPID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="REASONCODEGROUPID"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[REASONCODEGROUPID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Inputs[Sort Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESCRIPTION"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Inputs[Sort Input].Columns[PARTITION]"
+                          cachedDataType="i8"
+                          cachedName="PARTITION"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[PARTITION]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">2</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[REASONCODEID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[REASONCODEID]"
+                          name="REASONCODEID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[REASONCODEID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[REASONCODEGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[REASONCODEGROUPID]"
+                          name="REASONCODEGROUPID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[REASONCODEGROUPID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[DESCRIPTION]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[PARTITION]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output].Columns[PARTITION]"
+                          name="PARTITION"
+                          sortKeyPosition="2">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output].Columns[PARTITION]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Merge Join Output]"
+                  endId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Inputs[Derived Column Input]"
+                  name="Merge Join Output"
+                  startId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Outputs[Merge Join Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[OLE DB Source Output1]"
+                  endId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Sort Output]"
+                  endId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Left Input]"
+                  name="Sort Output"
+                  startId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID.Outputs[Sort Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Sort Output1]"
+                  endId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion.Inputs[Merge Join Right Input]"
+                  name="Sort Output"
+                  startId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID.Outputs[Sort Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\EST_Truncate_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F0E5F602-181B-48A4-8FBB-EE2F5E0805AA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrReturnReasonCode_ExtrDimMotivoDevolucion;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{7BC94D5C-EF10-4DEF-BAE5-829175315B95}"
+          DTS:From="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\EST_Truncate_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="441,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          TopLeft="6.50000000000003,125.5" />
+        <NodeLayout
+          Size="441,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\EST_Truncate_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          TopLeft="6.5,23.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.PrecedenceConstraints[Constraint]"
+          TopLeft="227,65.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="452,223"
+          Size="452,266"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          TopLeft="14.5,10.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="449,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODE_REASONCODEGROUPID"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="449,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\MJ_RETURNREASONCODE_RETURNREASONCODEGROUP_MotivoDevolucion"
+          TopLeft="515.5,209.5" />
+        <NodeLayout
+          Size="449,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          TopLeft="515.5,515.5" />
+        <NodeLayout
+          Size="449,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="449,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Derivada_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          TopLeft="515.5,311.5" />
+        <NodeLayout
+          Size="449,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\Orden_RETURNREASONCODEGROUP_REASONCODEGROUPID"
+          TopLeft="515.5,107.5" />
+        <NodeLayout
+          Size="449,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP"
+          TopLeft="515.5,5.5" />
+        <NodeLayout
+          Size="449,42"
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion"
+          TopLeft="515.5,413.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Sort Output1]"
+          TopLeft="740,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.5,60"
+              Start="0,0"
+              End="73.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8721704394141" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8721704394141"
+                    Point2="0,35.8721704394141"
+                    Point3="4,35.8721704394141" />
+                  <mssgle:LineSegment
+                    End="69.5,35.8721704394141" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.5,35.8721704394141"
+                    Point2="73.5,35.8721704394141"
+                    Point3="73.5,39.8721704394141" />
+                  <mssgle:LineSegment
+                    End="73.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Sort Output]"
+          TopLeft="230,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="436.5,59.9999999999999"
+              Start="0,0"
+              End="436.5,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.872170439414" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.872170439414"
+                    Point2="0,35.872170439414"
+                    Point3="4,35.872170439414" />
+                  <mssgle:LineSegment
+                    End="432.5,35.872170439414" />
+                  <mssgle:CubicBezierSegment
+                    Point1="432.5,35.872170439414"
+                    Point2="436.5,35.872170439414"
+                    Point3="436.5,39.872170439414" />
+                  <mssgle:LineSegment
+                    End="436.5,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[OLE DB Source Output1]"
+          TopLeft="740,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[OLE DB Source Output]"
+          TopLeft="230,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Merge Join Output]"
+          TopLeft="740,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Derived Column Output]"
+          TopLeft="740,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion.Paths[Data Conversion Output]"
+          TopLeft="740,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Destino_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\DFT_UscNalsani_ExtrReturnReasonCode_ExtrDimMotivoDevolucion\OLEDB_Origen_RETURNREASONCODEGROUP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

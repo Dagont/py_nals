@@ -1,0 +1,1989 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{2B658E58-5FF1-4FAC-80E4-58EBC8DB4105}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactNoConformidades"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="182"
+  DTS:VersionGUID="{5526CDC0-9DFB-4662-AAA9-5598F289E3E6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{CBE9A411-44FE-4962-8FAC-9DA9853475F8}"
+      DTS:ObjectName="Prm_AutoFactNoConformidad">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{0689A9C1-6E1B-4DA5-BD86-52931D450B4A}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactNoConformidad">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{85718280-564F-4055-B094-2C33B1BBB2F6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AAD70187-4F74-42A6-AAF6-BED5734440E1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EDF124A3-21C7-4F57-955E-82359A598A59}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1E4FA8D0-E57D-4E88-9E09-6EAA51B41636}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactNoConformidades"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{F59252A0-F14B-495B-AEB6-7C2B8FF4E566}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactNoConformidades"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactNoConformidad]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactNoConformidades"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4E2DABED-4A18-4D1C-989E-D1D5F515BA8F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactNoConformidades">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{866159F3-6555-47EC-B182-1ACCD707532C}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactNoConformidades"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[NUMERO_NO_CONFORMIDAD]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="NUMERO_NO_CONFORMIDAD"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NUMERO_NO_CONFORMIDAD]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[TIPO_PROBLEMA]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="TIPO_PROBLEMA"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_PROBLEMA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[DESCRIPCION_TIPO_PROBLEMA]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="DESCRIPCION_TIPO_PROBLEMA"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[DESCRIPCION_TIPO_PROBLEMA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[FECHA_CREACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_CREACION"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[NOTIFICADO_POR]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="NOTIFICADO_POR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NOTIFICADO_POR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[NOTIFICADO_POR_DS]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="NOTIFICADO_POR_DS"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NOTIFICADO_POR_DS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[TRABAJADOR_RESPONSABLE]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="TRABAJADOR_RESPONSABLE"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRABAJADOR_RESPONSABLE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[TRABAJADOR_RESPONSABLE_DS]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="TRABAJADOR_RESPONSABLE_DS"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRABAJADOR_RESPONSABLE_DS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[COD_PRODUCTO_LARGO]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="COD_PRODUCTO_LARGO"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[COD_PRODUCTO_LARGO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[PROVEEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PROVEEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[PROVEEDOR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[NUMERO_REFERENCIA]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="NUMERO_REFERENCIA"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NUMERO_REFERENCIA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[UNIDAD_MEDIDA]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="UNIDAD_MEDIDA"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[UNIDAD_MEDIDA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[ESTADO_INVENTARIO]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ESTADO_INVENTARIO"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[ESTADO_INVENTARIO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input].Columns[ALMACEN]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="ALMACEN"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[ALMACEN]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNUMERO_NO_CONFORMIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNUMERO_NO_CONFORMIDAD]"
+                          name="DctNUMERO_NO_CONFORMIDAD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NUMERO_NO_CONFORMIDAD]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctTIPO_PROBLEMA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctTIPO_PROBLEMA]"
+                          name="DctTIPO_PROBLEMA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_PROBLEMA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctDESCRIPCION_TIPO_PROBLEMA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctDESCRIPCION_TIPO_PROBLEMA]"
+                          name="DctDESCRIPCION_TIPO_PROBLEMA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[DESCRIPCION_TIPO_PROBLEMA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctFECHA_CREACION]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctFECHA_CREACION]"
+                          name="DctFECHA_CREACION"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNOTIFICADO_POR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNOTIFICADO_POR]"
+                          name="DctNOTIFICADO_POR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NOTIFICADO_POR]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNOTIFICADO_POR_DS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNOTIFICADO_POR_DS]"
+                          name="DctNOTIFICADO_POR_DS"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NOTIFICADO_POR_DS]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctTRABAJADOR_RESPONSABLE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctTRABAJADOR_RESPONSABLE]"
+                          name="DctTRABAJADOR_RESPONSABLE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRABAJADOR_RESPONSABLE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctTRABAJADOR_RESPONSABLE_DS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctTRABAJADOR_RESPONSABLE_DS]"
+                          name="DctTRABAJADOR_RESPONSABLE_DS"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRABAJADOR_RESPONSABLE_DS]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctCOD_PRODUCTO_LARGO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctCOD_PRODUCTO_LARGO]"
+                          name="DctCOD_PRODUCTO_LARGO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[COD_PRODUCTO_LARGO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctPROVEEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctPROVEEDOR]"
+                          name="DctPROVEEDOR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[PROVEEDOR]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNUMERO_REFERENCIA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNUMERO_REFERENCIA]"
+                          name="DctNUMERO_REFERENCIA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NUMERO_REFERENCIA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctUNIDAD_MEDIDA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctUNIDAD_MEDIDA]"
+                          name="DctUNIDAD_MEDIDA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[UNIDAD_MEDIDA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctESTADO_INVENTARIO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctESTADO_INVENTARIO]"
+                          name="DctESTADO_INVENTARIO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[ESTADO_INVENTARIO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctALMACEN]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctALMACEN]"
+                          name="DctALMACEN"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[ALMACEN]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactFacturasProveedor"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactNoConformidad]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[APROBACION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="APROBACION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[APROBACION]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[APROBACION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[CANTIDAD_DEFECTUOSA]"
+                          cachedDataType="numeric"
+                          cachedName="CANTIDAD_DEFECTUOSA"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[CANTIDAD]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[CANTIDAD_DEFECTUOSA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctUNIDAD_MEDIDA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DctUNIDAD_MEDIDA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[UNIDADMEDIDA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctUNIDAD_MEDIDA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctNUMERO_NO_CONFORMIDAD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DctNUMERO_NO_CONFORMIDAD"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[NUMERONOCONFORMIDAD]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNUMERO_NO_CONFORMIDAD]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctFECHA_CREACION]"
+                          cachedDataType="date"
+                          cachedName="DctFECHA_CREACION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[CREATEDDATETIME]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctFECHA_CREACION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctTIPO_PROBLEMA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DctTIPO_PROBLEMA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDTIPOPROBLEMA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctTIPO_PROBLEMA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctDESCRIPCION_TIPO_PROBLEMA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DctDESCRIPCION_TIPO_PROBLEMA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DSTIPOPROBLEMA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctDESCRIPCION_TIPO_PROBLEMA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctNOTIFICADO_POR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="DctNOTIFICADO_POR"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDNOTIFICADOPOR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNOTIFICADO_POR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctNOTIFICADO_POR_DS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DctNOTIFICADO_POR_DS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DSNOTIFICADOPOR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNOTIFICADO_POR_DS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctTRABAJADOR_RESPONSABLE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="DctTRABAJADOR_RESPONSABLE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDTRABAJADORRESPONSABLE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctTRABAJADOR_RESPONSABLE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctTRABAJADOR_RESPONSABLE_DS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DctTRABAJADOR_RESPONSABLE_DS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DSTRABAJADORRESPONSABLE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctTRABAJADOR_RESPONSABLE_DS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctCOD_PRODUCTO_LARGO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="DctCOD_PRODUCTO_LARGO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTOLARGO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctCOD_PRODUCTO_LARGO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctNUMERO_REFERENCIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DctNUMERO_REFERENCIA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[NUMEROREFERENCIA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctNUMERO_REFERENCIA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctESTADO_INVENTARIO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DctESTADO_INVENTARIO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOINVENTARIO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctESTADO_INVENTARIO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[TRATAMIENTO_NO_REQUERIDO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="TRATAMIENTO_NO_REQUERIDO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[TRATAMIENTO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRATAMIENTO_NO_REQUERIDO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[TIPO_NO_CONFORMIDAD_DS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="23"
+                          cachedName="TIPO_NO_CONFORMIDAD_DS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DSTIPONOCONFORMIDAD]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_NO_CONFORMIDAD_DS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[TIPO_NO_CONFORMIDAD]"
+                          cachedDataType="i4"
+                          cachedName="TIPO_NO_CONFORMIDAD"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDTIPONOCONFORMIDAD]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_NO_CONFORMIDAD]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctPROVEEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DctPROVEEDOR"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[PROVEEDOR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctPROVEEDOR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].Columns[DctALMACEN]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="DctALMACEN"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[BODEGA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output].Columns[DctALMACEN]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[CREATEDDATETIME]"
+                          dataType="dbDate"
+                          name="CREATEDDATETIME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[NUMERONOCONFORMIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="NUMERONOCONFORMIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDTIPONOCONFORMIDAD]"
+                          dataType="i4"
+                          name="IDTIPONOCONFORMIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DSTIPONOCONFORMIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DSTIPONOCONFORMIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDTIPOPROBLEMA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="IDTIPOPROBLEMA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DSTIPOPROBLEMA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DSTIPOPROBLEMA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDNOTIFICADOPOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="IDNOTIFICADOPOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DSNOTIFICADOPOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DSNOTIFICADOPOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDTRABAJADORRESPONSABLE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="IDTRABAJADORRESPONSABLE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[DSTRABAJADORRESPONSABLE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DSTRABAJADORRESPONSABLE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDPRODUCTOLARGO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="IDPRODUCTOLARGO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[TRATAMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="TRATAMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[APROBACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="APROBACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[PROVEEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="PROVEEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[NUMEROREFERENCIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="NUMEROREFERENCIA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[UNIDADMEDIDA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="UNIDADMEDIDA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[CANTIDAD]"
+                          dataType="numeric"
+                          name="CANTIDAD"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[IDESTADOINVENTARIO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="IDESTADOINVENTARIO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input].ExternalColumns[BODEGA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="BODEGA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_INVENTNONCONFORMANCETABLE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT		 I.INVENTNONCONFORMANCEID NUMERO_NO_CONFORMIDAD,
+             I.INVENTNONCONFORMANCETYPE TIPO_NO_CONFORMIDAD,
+			 CASE WHEN I.INVENTNONCONFORMANCETYPE = 5 THEN 'Interno' 
+			 WHEN I.INVENTNONCONFORMANCETYPE = 1 THEN 'Cliente'
+			 WHEN I.INVENTNONCONFORMANCETYPE = 2 THEN 'Proveedor'
+			 WHEN I.INVENTNONCONFORMANCETYPE = 3 THEN 'Solicitud de servicio'
+			 WHEN I.INVENTNONCONFORMANCETYPE = 4 THEN 'Producción'
+ 			 WHEN I.INVENTNONCONFORMANCETYPE = 100 THEN 'Producción de productos'
+			 ELSE 'NO DEFINIDO' END TIPO_NO_CONFORMIDAD_DS,
+             I.INVENTTESTPROBLEMTYPEID TIPO_PROBLEMA,
+             IPT.DESCRIPTION DESCRIPCION_TIPO_PROBLEMA, 
+             I.NONCONFORMANCEDATE FECHA_CREACION,
+             HCMH.PERSONNELNUMBER NOTIFICADO_POR,
+			 T2.NAME NOTIFICADO_POR_DS,
+             HCM.PERSONNELNUMBER TRABAJADOR_RESPONSABLE,
+			 T3.NAME TRABAJADOR_RESPONSABLE_DS,
+             I.ITEMID + ID.INVENTCOLORID + ID.INVENTSIZEID COD_PRODUCTO_LARGO,
+             CASE WHEN I.INVENTTESTINFOSTAT = 1 THEN 'SI' ELSE 'NO' END TRATAMIENTO_NO_REQUERIDO,
+             CASE WHEN I.INVENTNONCONFORMANCEAPPROVAL = 1 THEN 'SI' ELSE 'NO' END APROBACION,
+             I.VENDACCOUNT PROVEEDOR,
+             I.INVENTREFID NUMERO_REFERENCIA,
+             I.UNITID UNIDAD_MEDIDA,
+             I.TESTDEFECTQTY CANTIDAD_DEFECTUOSA,
+             ID.INVENTSTATUSID ESTADO_INVENTARIO,
+             ID.INVENTLOCATIONID ALMACEN              
+FROM   INVENTNONCONFORMANCETABLE I WITH (NOLOCK)
+             LEFT OUTER JOIN HCMWORKER HCM WITH (NOLOCK)
+             ON I.TESTRESPONSIBLEWORKER = HCM.RECID 
+			 AND I.PARTITION = HCM.PARTITION
+             INNER JOIN INVENTDIM ID WITH (NOLOCK)
+             ON ID.INVENTDIMID = I.INVENTDIMID
+			 AND ID.PARTITION = I.PARTITION
+			 AND ID.DATAAREAID = I.DATAAREAID
+             LEFT OUTER JOIN INVENTNONCONFORMANCEHISTORY INH WITH (NOLOCK)
+             ON INH.INVENTNONCONFORMANCEID = I.INVENTNONCONFORMANCEID
+			 AND INH.PARTITION = I.PARTITION
+			 AND INH.DATAAREAID = I.DATAAREAID
+             AND INH.INVENTNONCONFORMANCEHISTORYTYPE = 0
+             LEFT OUTER JOIN HCMWORKER HCMH WITH (NOLOCK)
+             ON HCMH.RECID = INH.WORKER
+			 AND HCMH.PARTITION = INH.PARTITION
+			 LEFT OUTER JOIN DIRPARTYTABLE AS T2 WITH (NOLOCK)
+			 ON HCMH.PERSON = T2.RECID
+			 AND HCMH.PARTITION=T2.PARTITION
+ 			 LEFT OUTER JOIN DIRPARTYTABLE AS T3 WITH (NOLOCK)
+			 ON HCM.PERSON = T3.RECID
+			 AND HCM.PARTITION=T3.PARTITION
+             INNER JOIN INVENTPROBLEMTYPE IPT WITH (NOLOCK)
+             ON IPT.PROBLEMTYPEID = I.INVENTTESTPROBLEMTYPEID
+			 AND IPT.PARTITION = I.PARTITION
+			 AND IPT.DATAAREAID = I.DATAAREAID
+WHERE I.DATAAREAID = ? AND I.NONCONFORMANCEDATE BETWEEN ? AND ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{AAD70187-4F74-42A6-AAF6-BED5734440E1};"Parameter2:Input",{85718280-564F-4055-B094-2C33B1BBB2F6};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NUMERO_NO_CONFORMIDAD]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_NO_CONFORMIDAD]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NUMERO_NO_CONFORMIDAD]"
+                          name="NUMERO_NO_CONFORMIDAD"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_NO_CONFORMIDAD]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TIPO_NO_CONFORMIDAD]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_NO_CONFORMIDAD]"
+                          name="TIPO_NO_CONFORMIDAD"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_NO_CONFORMIDAD_DS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TIPO_NO_CONFORMIDAD_DS]"
+                          length="23"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_NO_CONFORMIDAD_DS]"
+                          name="TIPO_NO_CONFORMIDAD_DS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_PROBLEMA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TIPO_PROBLEMA]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TIPO_PROBLEMA]"
+                          name="TIPO_PROBLEMA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[DESCRIPCION_TIPO_PROBLEMA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPCION_TIPO_PROBLEMA]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[DESCRIPCION_TIPO_PROBLEMA]"
+                          name="DESCRIPCION_TIPO_PROBLEMA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NOTIFICADO_POR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[NOTIFICADO_POR]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NOTIFICADO_POR]"
+                          name="NOTIFICADO_POR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NOTIFICADO_POR_DS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[NOTIFICADO_POR_DS]"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NOTIFICADO_POR_DS]"
+                          name="NOTIFICADO_POR_DS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRABAJADOR_RESPONSABLE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TRABAJADOR_RESPONSABLE]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRABAJADOR_RESPONSABLE]"
+                          name="TRABAJADOR_RESPONSABLE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRABAJADOR_RESPONSABLE_DS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TRABAJADOR_RESPONSABLE_DS]"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRABAJADOR_RESPONSABLE_DS]"
+                          name="TRABAJADOR_RESPONSABLE_DS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[COD_PRODUCTO_LARGO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRODUCTO_LARGO]"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[COD_PRODUCTO_LARGO]"
+                          name="COD_PRODUCTO_LARGO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRATAMIENTO_NO_REQUERIDO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TRATAMIENTO_NO_REQUERIDO]"
+                          length="2"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[TRATAMIENTO_NO_REQUERIDO]"
+                          name="TRATAMIENTO_NO_REQUERIDO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[APROBACION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[APROBACION]"
+                          length="2"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[APROBACION]"
+                          name="APROBACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[PROVEEDOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[PROVEEDOR]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[PROVEEDOR]"
+                          name="PROVEEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NUMERO_REFERENCIA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_REFERENCIA]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[NUMERO_REFERENCIA]"
+                          name="NUMERO_REFERENCIA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[UNIDAD_MEDIDA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[UNIDAD_MEDIDA]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[UNIDAD_MEDIDA]"
+                          name="UNIDAD_MEDIDA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[CANTIDAD_DEFECTUOSA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[CANTIDAD_DEFECTUOSA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[CANTIDAD_DEFECTUOSA]"
+                          name="CANTIDAD_DEFECTUOSA"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[ESTADO_INVENTARIO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[ESTADO_INVENTARIO]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[ESTADO_INVENTARIO]"
+                          name="ESTADO_INVENTARIO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[ALMACEN]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[ALMACEN]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].Columns[ALMACEN]"
+                          name="ALMACEN"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_NO_CONFORMIDAD]"
+                          dataType="wstr"
+                          length="10"
+                          name="NUMERO_NO_CONFORMIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TIPO_NO_CONFORMIDAD]"
+                          dataType="i4"
+                          name="TIPO_NO_CONFORMIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TIPO_NO_CONFORMIDAD_DS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="23"
+                          name="TIPO_NO_CONFORMIDAD_DS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TIPO_PROBLEMA]"
+                          dataType="wstr"
+                          length="20"
+                          name="TIPO_PROBLEMA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPCION_TIPO_PROBLEMA]"
+                          dataType="wstr"
+                          length="60"
+                          name="DESCRIPCION_TIPO_PROBLEMA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[NOTIFICADO_POR]"
+                          dataType="wstr"
+                          length="25"
+                          name="NOTIFICADO_POR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[NOTIFICADO_POR_DS]"
+                          dataType="wstr"
+                          length="100"
+                          name="NOTIFICADO_POR_DS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TRABAJADOR_RESPONSABLE]"
+                          dataType="wstr"
+                          length="25"
+                          name="TRABAJADOR_RESPONSABLE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TRABAJADOR_RESPONSABLE_DS]"
+                          dataType="wstr"
+                          length="100"
+                          name="TRABAJADOR_RESPONSABLE_DS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRODUCTO_LARGO]"
+                          dataType="wstr"
+                          length="40"
+                          name="COD_PRODUCTO_LARGO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[TRATAMIENTO_NO_REQUERIDO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="TRATAMIENTO_NO_REQUERIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[APROBACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="APROBACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[PROVEEDOR]"
+                          dataType="wstr"
+                          length="20"
+                          name="PROVEEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_REFERENCIA]"
+                          dataType="wstr"
+                          length="20"
+                          name="NUMERO_REFERENCIA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[UNIDAD_MEDIDA]"
+                          dataType="wstr"
+                          length="10"
+                          name="UNIDAD_MEDIDA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[CANTIDAD_DEFECTUOSA]"
+                          dataType="numeric"
+                          name="CANTIDAD_DEFECTUOSA"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[ESTADO_INVENTARIO]"
+                          dataType="wstr"
+                          length="10"
+                          name="ESTADO_INVENTARIO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output].ExternalColumns[ALMACEN]"
+                          dataType="wstr"
+                          length="25"
+                          name="ALMACEN" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[NUMERO_NO_CONFORMIDAD]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[NUMERO_NO_CONFORMIDAD]"
+                          name="NUMERO_NO_CONFORMIDAD" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TIPO_NO_CONFORMIDAD]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TIPO_NO_CONFORMIDAD]"
+                          name="TIPO_NO_CONFORMIDAD" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TIPO_NO_CONFORMIDAD_DS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="23"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TIPO_NO_CONFORMIDAD_DS]"
+                          name="TIPO_NO_CONFORMIDAD_DS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TIPO_PROBLEMA]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TIPO_PROBLEMA]"
+                          name="TIPO_PROBLEMA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[DESCRIPCION_TIPO_PROBLEMA]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[DESCRIPCION_TIPO_PROBLEMA]"
+                          name="DESCRIPCION_TIPO_PROBLEMA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[NOTIFICADO_POR]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[NOTIFICADO_POR]"
+                          name="NOTIFICADO_POR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[NOTIFICADO_POR_DS]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[NOTIFICADO_POR_DS]"
+                          name="NOTIFICADO_POR_DS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TRABAJADOR_RESPONSABLE]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TRABAJADOR_RESPONSABLE]"
+                          name="TRABAJADOR_RESPONSABLE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TRABAJADOR_RESPONSABLE_DS]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TRABAJADOR_RESPONSABLE_DS]"
+                          name="TRABAJADOR_RESPONSABLE_DS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[COD_PRODUCTO_LARGO]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[COD_PRODUCTO_LARGO]"
+                          name="COD_PRODUCTO_LARGO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TRATAMIENTO_NO_REQUERIDO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[TRATAMIENTO_NO_REQUERIDO]"
+                          name="TRATAMIENTO_NO_REQUERIDO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[APROBACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[APROBACION]"
+                          name="APROBACION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[PROVEEDOR]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[PROVEEDOR]"
+                          name="PROVEEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[NUMERO_REFERENCIA]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[NUMERO_REFERENCIA]"
+                          name="NUMERO_REFERENCIA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[UNIDAD_MEDIDA]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[UNIDAD_MEDIDA]"
+                          name="UNIDAD_MEDIDA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[CANTIDAD_DEFECTUOSA]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[CANTIDAD_DEFECTUOSA]"
+                          name="CANTIDAD_DEFECTUOSA"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[ESTADO_INVENTARIO]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[ESTADO_INVENTARIO]"
+                          name="ESTADO_INVENTARIO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[ALMACEN]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[ALMACEN]"
+                          name="ALMACEN" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactNoConformidades\EST_Truncate_UscNalsani_ExtrFactNoConformidades"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D8D9C509-F461-4CE4-988A-FBE978ABAC92}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactNoConformidades"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [UscNalsani].[ExtrFactNoConformidad]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactNoConformidades.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4F4AE536-143B-4CEE-A0A8-26E3214993B0}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactNoConformidades\EST_Truncate_UscNalsani_ExtrFactNoConformidades"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_FactNoConformidades"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DF1B7DD4-FBCF-4578-9175-931336B09177}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_FactNoConformidades"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactNoConformidad] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactNoConformidad] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_FactNoConformidades"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7B0ABFFD-BAF0-44AD-90D5-DE42FE5028D5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_FactNoConformidades"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"'))),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20170731'))) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(DATEADD(MM,-1,CONVERT(DATE,'20170731'))),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2747DC3A-D225-43C2-9B21-CF12C7E4CF89}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_FactNoConformidades"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactNoConformidades" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{210DB1F5-A290-4282-8281-70AE42D2922D}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactNoConformidad]  == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactNoConformidades"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_FactNoConformidades" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{B6765BBF-FFF2-44CE-83C3-BB94DF71B5F6}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_FactNoConformidades"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactNoConformidades" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{48364DE0-5126-4DDB-969B-CD10F437FF62}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactNoConformidad] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactNoConformidades"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_FactNoConformidades" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="283,42"
+          Id="Package\ET_¿Es Automatica?_FactNoConformidades"
+          TopLeft="486.5,5.49999999999989" />
+        <NodeLayout
+          Size="325,42"
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades"
+          TopLeft="7.00000000000003,107.5" />
+        <NodeLayout
+          Size="328,42"
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades\EST_Truncate_UscNalsani_ExtrFactNoConformidades"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades.PrecedenceConstraints[Constraint]"
+          TopLeft="169.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="339,205"
+          Size="339,248"
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades"
+          TopLeft="458.5,209.5" />
+        <NodeLayout
+          Size="381,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_FactNoConformidades"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="362,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_FactNoConformidades"
+          TopLeft="447,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="196,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="376.833333333333,60"
+              Start="0,0"
+              End="376.833333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8308866705813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8308866705813"
+                    Point2="0,35.8308866705813"
+                    Point3="4,35.8308866705813" />
+                  <mssgle:LineSegment
+                    End="372.833333333333,35.8308866705813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="372.833333333333,35.8308866705813"
+                    Point2="376.833333333333,35.8308866705813"
+                    Point3="376.833333333333,39.8308866705813" />
+                  <mssgle:LineSegment
+                    End="376.833333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="582.166666666667,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-386.166666666667,60"
+              Start="0,0"
+              End="-386.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2023893183415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2023893183415"
+                    Point2="0,24.2023893183415"
+                    Point3="-4,24.2023893183415" />
+                  <mssgle:LineSegment
+                    End="-382.166666666667,24.2023893183415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-382.166666666667,24.2023893183415"
+                    Point2="-386.166666666667,24.2023893183415"
+                    Point3="-386.166666666667,28.2023893183415" />
+                  <mssgle:LineSegment
+                    End="-386.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-201.083333333334,29.2023893183415,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="628,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.1666666666666,60"
+              Start="0,0"
+              End="55.1666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8308866705813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8308866705813"
+                    Point2="0,35.8308866705813"
+                    Point3="4,35.8308866705813" />
+                  <mssgle:LineSegment
+                    End="51.1666666666666,35.8308866705813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.1666666666666,35.8308866705813"
+                    Point2="55.1666666666666,35.8308866705813"
+                    Point3="55.1666666666666,39.8308866705813" />
+                  <mssgle:LineSegment
+                    End="55.1666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="673.833333333333,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.8333333333333,60"
+              Start="0,0"
+              End="-45.8333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2023893183415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2023893183415"
+                    Point2="0,24.2023893183415"
+                    Point3="-4,24.2023893183415" />
+                  <mssgle:LineSegment
+                    End="-41.8333333333333,24.2023893183415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.8333333333333,24.2023893183415"
+                    Point2="-45.8333333333333,24.2023893183415"
+                    Point3="-45.8333333333333,28.2023893183415" />
+                  <mssgle:LineSegment
+                    End="-45.8333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.9166666666667,29.2023893183415,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\Derivada_UscNalsani_ExtrFactFacturasProveedor"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\DC_UscNalsani_UscNalsani_ExtrFactFacturasProveedor"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="339,42"
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades.Paths[OLE DB Source Output]"
+          TopLeft="175.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades.Paths[Derived Column Output]"
+          TopLeft="175.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades.Paths[Data Conversion Output]"
+          TopLeft="175.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Destino_UscNalsani_ExtrFactFacturasProveedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactNoConformidades\DFT_UscNalsani_ExtrFactNoConformidades\OLEDB_Origen_INVENTNONCONFORMANCETABLE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

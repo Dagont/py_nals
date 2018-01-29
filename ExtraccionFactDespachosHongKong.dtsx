@@ -1,0 +1,1327 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{B6AABE8F-0E5C-423A-ABB1-4401701BB2FD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactDespachosHongKong"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="183"
+  DTS:VersionGUID="{E352A08F-5353-4E09-8422-6E17E0D1ADE6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.50.80.36.TOTTO_STA_WRK.consulta_ssrs]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5B2D5BF7-008C-410D-A2AC-8191A2B0F1D9}"
+      DTS:ObjectName="10.50.80.36.TOTTO_STA_WRK.consulta_ssrs">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.50.80.36;User ID=consulta_ssrs;Initial Catalog=TOTTO_STA_WRK;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="oE9CDO4vJw=="
+            IV="EuAkLNjCmlk=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>EuAkLNjCmllLmMH+h9sAZ6Hfbj/fWWFy9z7Ib4k1acg39nUg2QWH4DjnfUTrSJ/MeiUIYhg6sQt6mIPESFaASUaTmU7WW+eye1/pmvt1A6nnhGAsgWMAb9wWvkivpv+p3MjZ2wn/TgE2EtWkkLEkYFPnl3FkDjx8YnKFs12d1OE=</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{134DEEA9-106F-4EA9-BA7B-45633911E104}"
+      DTS:ObjectName="Prm_AutoFactDespachosHongKong">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{75226AB0-8696-4092-9580-7D908D547A9B}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactDespachosHongKong">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E028FB39-05FD-4E71-B3AF-DC3DD27F0DBB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6C881BE5-F57E-4FF7-AABF-836BBE19B9DC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7ED83B71-08F1-4623-903B-AA77C3DD01B2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE6B612F-647D-4060-B9AB-78E643FFA49A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactDespachosHongKong"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{E23AD3C5-D199-4857-BAF3-5C71924BE266}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactDespachosHongKong"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactDespachosHongKong]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactDespachos"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{066C7A4B-DF39-46FB-9363-ED1020BD3F3F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactDespachos">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{51A27547-91DF-43A9-A9F2-E750973B9720}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactDespachos"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactVentas"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input].Columns[cod_producto]"
+                          cachedDataType="wstr"
+                          cachedLength="56"
+                          cachedName="cod_producto"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[cod_producto]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input].Columns[CLIENTE]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="CLIENTE"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[CLIENTE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input].Columns[cod_proveedor]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="cod_proveedor"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[cod_proveedor]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCcod_producto]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="56"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCcod_producto]"
+                          name="DCcod_producto"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[cod_producto]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCCLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCCLIENTE]"
+                          name="DCCLIENTE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[CLIENTE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCcod_proveedor]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCcod_proveedor]"
+                          name="DCcod_proveedor"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[cod_proveedor]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactVentas"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactVentas"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactDespachosHongKong]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[FECHA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Fecha]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[FECHA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[ubicacion]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="6"
+                          cachedName="ubicacion"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Ubicacion]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[ubicacion]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[REGALIA]"
+                          cachedDataType="numeric"
+                          cachedName="REGALIA"
+                          cachedPrecision="28"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Regalia]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[REGALIA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[UNIDADES_DESPACHO]"
+                          cachedDataType="numeric"
+                          cachedName="UNIDADES_DESPACHO"
+                          cachedPrecision="12"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[UnidadesDespacho]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[UNIDADES_DESPACHO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[moneda]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="moneda"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Moneda]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[moneda]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[VALOR_DESPACHO]"
+                          cachedDataType="numeric"
+                          cachedName="VALOR_DESPACHO"
+                          cachedPrecision="28"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[ValorDespacho]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[VALOR_DESPACHO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[DCcod_producto]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="56"
+                          cachedName="DCcod_producto"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[IdProducto]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCcod_producto]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[DCCLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DCCLIENTE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Cliente]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCCLIENTE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].Columns[DCcod_proveedor]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DCcod_proveedor"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[IdProveedor]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output].Columns[DCcod_proveedor]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Fecha]"
+                          dataType="dbTimeStamp"
+                          name="Fecha" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Cliente]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Ubicacion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Ubicacion" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[IdProducto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="IdProducto" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[IdProveedor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="IdProveedor" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[UnidadesDespacho]"
+                          dataType="numeric"
+                          name="UnidadesDespacho"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[ValorDespacho]"
+                          dataType="numeric"
+                          name="ValorDespacho"
+                          precision="28"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Regalia]"
+                          dataType="numeric"
+                          name="Regalia"
+                          precision="28"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[DtCreacion]"
+                          dataType="dbTimeStamp"
+                          name="DtCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input].ExternalColumns[Moneda]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Moneda" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_DAT_DESPACHOS_INT"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select 
+FECHA
+,CLIENTE
+,PRODUCTO + COLOR + TALLA cod_producto
+,'ASHONG' ubicacion
+,'COP' moneda
+,PROVEEDOR cod_proveedor
+,UNIDADES_DESPACHO
+,VALOR_DESPACHO
+,REGALIA
+From DAT_DESPACHOS_INT
+Where FECHA Between ? And ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{6C881BE5-F57E-4FF7-AABF-836BBE19B9DC};"Parameter1:Input",{E028FB39-05FD-4E71-B3AF-DC3DD27F0DBB};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[10.50.80.36.TOTTO_STA_WRK.consulta_ssrs]"
+                      connectionManagerRefId="Package.ConnectionManagers[10.50.80.36.TOTTO_STA_WRK.consulta_ssrs]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[FECHA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[FECHA]"
+                          name="FECHA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[CLIENTE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[CLIENTE]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[CLIENTE]"
+                          name="CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[cod_producto]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[cod_producto]"
+                          length="56"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[cod_producto]"
+                          name="cod_producto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[ubicacion]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[ubicacion]"
+                          length="6"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[ubicacion]"
+                          name="ubicacion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[cod_proveedor]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[cod_proveedor]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[cod_proveedor]"
+                          name="cod_proveedor"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[UNIDADES_DESPACHO]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[UNIDADES_DESPACHO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[UNIDADES_DESPACHO]"
+                          name="UNIDADES_DESPACHO"
+                          precision="12"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[VALOR_DESPACHO]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[VALOR_DESPACHO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[VALOR_DESPACHO]"
+                          name="VALOR_DESPACHO"
+                          precision="28"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[REGALIA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[REGALIA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[REGALIA]"
+                          name="REGALIA"
+                          precision="28"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[moneda]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[moneda]"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].Columns[moneda]"
+                          name="moneda"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[FECHA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[CLIENTE]"
+                          dataType="wstr"
+                          length="20"
+                          name="CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[cod_producto]"
+                          dataType="wstr"
+                          length="56"
+                          name="cod_producto" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[ubicacion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          name="ubicacion" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[cod_proveedor]"
+                          dataType="wstr"
+                          length="20"
+                          name="cod_proveedor" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[UNIDADES_DESPACHO]"
+                          dataType="numeric"
+                          name="UNIDADES_DESPACHO"
+                          precision="12"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[VALOR_DESPACHO]"
+                          dataType="numeric"
+                          name="VALOR_DESPACHO"
+                          precision="28"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[REGALIA]"
+                          dataType="numeric"
+                          name="REGALIA"
+                          precision="28"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output].ExternalColumns[moneda]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="moneda" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[FECHA]"
+                          name="FECHA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[CLIENTE]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[CLIENTE]"
+                          name="CLIENTE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[cod_producto]"
+                          dataType="wstr"
+                          length="56"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[cod_producto]"
+                          name="cod_producto" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[ubicacion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[ubicacion]"
+                          name="ubicacion" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[cod_proveedor]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[cod_proveedor]"
+                          name="cod_proveedor" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[UNIDADES_DESPACHO]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[UNIDADES_DESPACHO]"
+                          name="UNIDADES_DESPACHO"
+                          precision="12"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[VALOR_DESPACHO]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[VALOR_DESPACHO]"
+                          name="VALOR_DESPACHO"
+                          precision="28"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[REGALIA]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[REGALIA]"
+                          name="REGALIA"
+                          precision="28"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[moneda]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Error Output].Columns[moneda]"
+                          name="moneda" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactDespachos\EST_Truncate_UscNalsani_ExtrFactDespachos"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{40137C4F-A0D1-4D4E-BFCD-B3CBA037B1CD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactDespachos"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="Truncate table [UscNalsani].[ExtrFactDespachosHongKong]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactDespachos.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C3E7EA80-9819-4CE7-A379-20EAAB0B16F0}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactDespachos\EST_Truncate_UscNalsani_ExtrFactDespachos"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_Despachos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0A4B2971-F761-42A9-A4C3-F21DD5891ED6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_Despachos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactDespachosHongKong] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactDespachosHongKong] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_Despachos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5D91F5D6-4C69-4634-9A4F-912083325417}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_Despachos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(CONVERT(DATE,'20180331')) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'20180331')),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3FFA97A4-1300-402D-8C43-62E7BEED4321}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_Despachos"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactDespachos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{752F6CA6-B0F2-4BA7-9DEB-30040B1D66CB}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactDespachosHongKong] == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactDespachosHongKong"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_Despachos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D93A540D-3D21-4189-8555-68A6F02363AB}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_Despachos"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactDespachos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{C9230583-39BF-40AC-BCD9-479D7CD0EAC9}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactDespachosHongKong] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactDespachosHongKong"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_Despachos" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="299,42"
+          Id="Package\ET_¿Es Automatica?_FactDespachosHongKong"
+          TopLeft="266.5,54.5" />
+        <NodeLayout
+          Size="295,42"
+          Id="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos"
+          TopLeft="27.5,133.5" />
+        <NodeLayout
+          Size="296,42"
+          Id="Package\SC_UscNalsani_ExtrFactDespachos\EST_Truncate_UscNalsani_ExtrFactDespachos"
+          TopLeft="27.5,32.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactDespachos.PrecedenceConstraints[Constraint]"
+          TopLeft="175.25,74.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="373,247"
+          Size="373,290"
+          Id="Package\SC_UscNalsani_ExtrFactDespachos"
+          TopLeft="226.5,251.5" />
+        <NodeLayout
+          Size="329,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_Despachos"
+          TopLeft="2.5,166.5" />
+        <NodeLayout
+          Size="310,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_Despachos"
+          TopLeft="466.5,166.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="167,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185.166666666667,43"
+              Start="0,0"
+              End="185.166666666667,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.689802455953" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.689802455953"
+                    Point2="0,25.689802455953"
+                    Point3="4,25.689802455953" />
+                  <mssgle:LineSegment
+                    End="181.166666666667,25.689802455953" />
+                  <mssgle:CubicBezierSegment
+                    Point1="181.166666666667,25.689802455953"
+                    Point2="185.166666666667,25.689802455953"
+                    Point3="185.166666666667,29.689802455953" />
+                  <mssgle:LineSegment
+                    End="185.166666666667,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="367.5,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-200.5,70"
+              Start="0,0"
+              End="-200.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2235528942116" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2235528942116"
+                    Point2="0,28.2235528942116"
+                    Point3="-4,28.2235528942116" />
+                  <mssgle:LineSegment
+                    End="-196.5,28.2235528942116" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-196.5,28.2235528942116"
+                    Point2="-200.5,28.2235528942116"
+                    Point3="-200.5,32.2235528942116" />
+                  <mssgle:LineSegment
+                    End="-200.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-108.25,33.2235528942116,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="621.5,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-147.666666666667,43"
+              Start="0,0"
+              End="-147.666666666667,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.689802455953" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.689802455953"
+                    Point2="0,25.689802455953"
+                    Point3="-4,25.689802455953" />
+                  <mssgle:LineSegment
+                    End="-143.666666666667,25.689802455953" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-143.666666666667,25.689802455953"
+                    Point2="-147.666666666667,25.689802455953"
+                    Point3="-147.666666666667,29.689802455953" />
+                  <mssgle:LineSegment
+                    End="-147.666666666667,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="464.5,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="157,70"
+              Start="0,0"
+              End="157,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2235528942116" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2235528942116"
+                    Point2="0,28.2235528942116"
+                    Point3="4,28.2235528942116" />
+                  <mssgle:LineSegment
+                    End="153,28.2235528942116" />
+                  <mssgle:CubicBezierSegment
+                    Point1="153,28.2235528942116"
+                    Point2="157,28.2235528942116"
+                    Point3="157,32.2235528942116" />
+                  <mssgle:LineSegment
+                    End="157,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="70.5,33.2235528942116,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="293,42"
+          Id="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\Derivada_UscNalsani_ExtrFactVentas"
+          TopLeft="7.50000000000003,107.5" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas"
+          TopLeft="7.50000000000006,311.5" />
+        <NodeLayout
+          Size="297,42"
+          Id="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="281,42"
+          Id="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\DC_UscNalsani_UscNalsani_ExtrFactVentas"
+          TopLeft="13.5,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos.Paths[Data Conversion Output]"
+          TopLeft="154,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos.Paths[OLE DB Source Output]"
+          TopLeft="154,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos.Paths[Derived Column Output]"
+          TopLeft="154,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Destino_UscNalsani_ExtrFactVentas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactDespachos\DFT_UscNalsani_ExtrFactDespachos\OLEDB_Origen_DAT_DESPACHOS_INT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

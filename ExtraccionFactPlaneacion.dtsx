@@ -1,0 +1,1874 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{21A8C8F2-0781-47D1-8BB8-9ECB454B0EFA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactPlaneacion"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="157"
+  DTS:VersionGUID="{FF17CB14-2A8F-4D08-9F92-1D1D89950460}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{0E55482C-F894-4CF3-9555-F5759963C655}"
+      DTS:ObjectName="Prm_AutoFactPlaneacion">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde el mes anterior a la Fecha actual"
+      DTS:DTSID="{E5B0EB64-E176-45A3-925C-9876C028F8E4}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactPlaneacion">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5E69E069-3529-483B-8F7F-711834D19185}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F6F10A1-D5EF-4BC9-B075-C51B22A93E60}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6E959C49-7617-41B1-B3B0-B069402D9F19}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{160A28C1-2C9E-417F-8B1D-CF629BE970C8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactPlaneacion"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{DFA9ED50-3B06-417B-99C4-593D0F2059B1}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactPlaneacion"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactPlaneacion]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactPlaneacion"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{291985FF-246F-4F7F-A54F-151224E0E02C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactPlaneacion">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8A394FCA-D48F-4A3F-9237-F6D0A310270B}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactPlaneacion"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactPlaneacion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[REFID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="REFID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REFID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[REQDATEORDER]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="REQDATEORDER"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQDATEORDER]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[REQDATEDLV]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="REQDATEDLV"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQDATEDLV]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[REQPLANID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="REQPLANID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQPLANID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[MODELID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="MODELID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[MODELID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[VENDID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="VENDID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[VENDID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[VENDGROUPID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="VENDGROUPID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[VENDGROUPID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[ITEMBUYERGROUPID]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="ITEMBUYERGROUPID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMBUYERGROUPID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[ITEMBOMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMBOMID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMBOMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input].Columns[ITEMROUTEID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMROUTEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMROUTEID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMID]"
+                          name="DCITEMID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]"
+                          name="DCINVENTCOLORID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="30"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]"
+                          name="DCINVENTSIZEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREFID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREFID]"
+                          name="DCREFID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REFID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREQDATEORDER]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREQDATEORDER]"
+                          name="DCREQDATEORDER"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQDATEORDER]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREQDATEDLV]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREQDATEDLV]"
+                          name="DCREQDATEDLV"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQDATEDLV]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREQPLANID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREQPLANID]"
+                          name="DCREQPLANID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQPLANID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCMODELID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCMODELID]"
+                          name="DCMODELID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[MODELID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCVENDID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCVENDID]"
+                          name="DCVENDID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[VENDID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCVENDGROUPID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCVENDGROUPID]"
+                          name="DCVENDGROUPID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[VENDGROUPID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMBUYERGROUPID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMBUYERGROUPID]"
+                          name="DCITEMBUYERGROUPID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMBUYERGROUPID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMBOMID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMBOMID]"
+                          name="DCITEMBOMID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMBOMID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMROUTEID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMROUTEID]"
+                          name="DCITEMROUTEID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMROUTEID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactPlaneacion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Inputs[Derived Column Input].Columns[ITEMID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ITEMID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Inputs[Derived Column Input].Columns[INVENTCOLORID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTCOLORID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Inputs[Derived Column Input].Columns[INVENTSIZEID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="INVENTSIZEID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]"
+                          name="DCTIDPRODUCTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,100,1252)([TRIM](#{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMID]} + #{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]} + #{Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,100,1252)(TRIM(ITEMID + INVENTCOLORID + INVENTSIZEID))</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactPlaneacion"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactPlaneacion]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCITEMID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCITEMID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCINVENTCOLORID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTCOLORID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCINVENTCOLORID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCINVENTSIZEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DCINVENTSIZEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCINVENTSIZEID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[QTY]"
+                          cachedDataType="numeric"
+                          cachedName="QTY"
+                          cachedPrecision="32"
+                          cachedScale="16"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[QTY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[QTY]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[REQPOSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="REQPOSTATUS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REQPOSTATUS]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQPOSTATUS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCTIDPRODUCTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="DCTIDPRODUCTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[DCTIDPRODUCTO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Output].Columns[DCTIDPRODUCTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[REFTYPE]"
+                          cachedDataType="i4"
+                          cachedName="REFTYPE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REFTYPE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REFTYPE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCREFID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DCREFID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REFID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREFID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCREQDATEORDER]"
+                          cachedDataType="date"
+                          cachedName="DCREQDATEORDER"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REQDATEORDER]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREQDATEORDER]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCREQDATEDLV]"
+                          cachedDataType="date"
+                          cachedName="DCREQDATEDLV"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REQDATEDLV]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREQDATEDLV]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCREQPLANID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="DCREQPLANID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REQPLANID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCREQPLANID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCMODELID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DCMODELID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[MODELID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCMODELID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCVENDID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DCVENDID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[VENDID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCVENDID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCVENDGROUPID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="DCVENDGROUPID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[VENDGROUPID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCVENDGROUPID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCITEMBUYERGROUPID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="DCITEMBUYERGROUPID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMBUYERGROUPID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMBUYERGROUPID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCITEMBOMID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DCITEMBOMID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMBOMID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMBOMID]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].Columns[DCITEMROUTEID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DCITEMROUTEID"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMROUTEID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output].Columns[DCITEMROUTEID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTCOLORID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[INVENTSIZEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[QTY]"
+                          dataType="numeric"
+                          name="QTY"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REFID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="REFID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REQDATEORDER]"
+                          dataType="dbDate"
+                          name="REQDATEORDER" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REQDATEDLV]"
+                          dataType="dbDate"
+                          name="REQDATEDLV" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REQPLANID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="REQPLANID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[MODELID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="MODELID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[VENDID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="VENDID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[VENDGROUPID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="VENDGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REQPOSTATUS]"
+                          dataType="i4"
+                          name="REQPOSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMBUYERGROUPID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="ITEMBUYERGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMBOMID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ITEMBOMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[ITEMROUTEID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ITEMROUTEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[DCTIDPRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="DCTIDPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input].ExternalColumns[REFTYPE]"
+                          dataType="i4"
+                          name="REFTYPE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_REQPO"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    PO.REFID,
+    PO.REFTYPE,
+    PO.ITEMID,
+    ID.INVENTCOLORID,
+    ID.INVENTSIZEID,
+    PO.REQDATEORDER, 
+    PO.REQDATEDLV,
+    PV.REQPLANID ,
+    FM.MODELID , 
+    PO.QTY ,
+    PO.VENDID ,
+    PO.VENDGROUPID ,
+    PO.REQPOSTATUS ,
+    PO.ITEMBUYERGROUPID ,
+    PO.ITEMBOMID  ,
+    PO.ITEMROUTEID 
+FROM   REQPO PO WITH (NOLOCK)
+             INNER JOIN INVENTDIM ID WITH (NOLOCK)
+             ON PO.COVINVENTDIMID = ID.INVENTDIMID
+			 AND PO.DATAAREAID = ID.DATAAREAID
+			 AND PO.PARTITION=ID.PARTITION
+             INNER JOIN REQPLANVERSION PV WITH (NOLOCK)
+             ON PO.PLANVERSION = PV.RECID 
+			 AND PO.PARTITION=PV.PARTITION
+             INNER JOIN REQPLAN RQ WITH (NOLOCK)
+             ON PV.REQPLANID = RQ.REQPLANID
+             AND PV.REQPLANDATAAREAID = RQ.DATAAREAID
+			 AND PV.PARTITION=RQ.PARTITION
+             LEFT OUTER JOIN FORECASTMODEL FM WITH (NOLOCK)
+             ON FM.MODELID = RQ.FORECASTMODELID
+			 AND FM.DATAAREAID=RQ.DATAAREAID
+			 AND FM.PARTITION=RQ.PARTITION
+             AND FM.TYPE = 0
+WHERE PO.DATAAREAID = ? AND PO.MODIFIEDDATETIME BETWEEN ? AND ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{8F6F10A1-D5EF-4BC9-B075-C51B22A93E60};"Parameter2:Input",{5E69E069-3529-483B-8F7F-711834D19185};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMID]"
+                          name="ITEMID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REFID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REFID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REFID]"
+                          name="REFID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQDATEORDER]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REQDATEORDER]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQDATEORDER]"
+                          name="REQDATEORDER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQDATEDLV]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REQDATEDLV]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQDATEDLV]"
+                          name="REQDATEDLV"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQPLANID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REQPLANID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQPLANID]"
+                          name="REQPLANID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[MODELID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[MODELID]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[MODELID]"
+                          name="MODELID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[QTY]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[QTY]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[QTY]"
+                          name="QTY"
+                          precision="32"
+                          scale="16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[VENDID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[VENDID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[VENDID]"
+                          name="VENDID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[VENDGROUPID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[VENDGROUPID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[VENDGROUPID]"
+                          name="VENDGROUPID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQPOSTATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REQPOSTATUS]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REQPOSTATUS]"
+                          name="REQPOSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMBUYERGROUPID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[ITEMBUYERGROUPID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMBUYERGROUPID]"
+                          name="ITEMBUYERGROUPID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMBOMID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[ITEMBOMID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMBOMID]"
+                          name="ITEMBOMID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMROUTEID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[ITEMROUTEID]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[ITEMROUTEID]"
+                          name="ITEMROUTEID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REFTYPE]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REFTYPE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].Columns[REFTYPE]"
+                          name="REFTYPE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          name="ITEMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTCOLORID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          name="INVENTSIZEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REFID]"
+                          dataType="wstr"
+                          length="20"
+                          name="REFID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REQDATEORDER]"
+                          dataType="dbTimeStamp"
+                          name="REQDATEORDER" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REQDATEDLV]"
+                          dataType="dbTimeStamp"
+                          name="REQDATEDLV" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REQPLANID]"
+                          dataType="wstr"
+                          length="25"
+                          name="REQPLANID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[MODELID]"
+                          dataType="wstr"
+                          length="10"
+                          name="MODELID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[QTY]"
+                          dataType="numeric"
+                          name="QTY"
+                          precision="32"
+                          scale="16" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[VENDID]"
+                          dataType="wstr"
+                          length="20"
+                          name="VENDID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[VENDGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          name="VENDGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REQPOSTATUS]"
+                          dataType="i4"
+                          name="REQPOSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[ITEMBUYERGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          name="ITEMBUYERGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[ITEMBOMID]"
+                          dataType="wstr"
+                          length="20"
+                          name="ITEMBOMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[ITEMROUTEID]"
+                          dataType="wstr"
+                          length="20"
+                          name="ITEMROUTEID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output].ExternalColumns[REFTYPE]"
+                          dataType="i4"
+                          name="REFTYPE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REFID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REFID]"
+                          name="REFID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REFTYPE]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REFTYPE]"
+                          name="REFTYPE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ITEMID]"
+                          name="ITEMID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[INVENTCOLORID]"
+                          name="INVENTCOLORID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[INVENTSIZEID]"
+                          name="INVENTSIZEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REQDATEORDER]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REQDATEORDER]"
+                          name="REQDATEORDER" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REQDATEDLV]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REQDATEDLV]"
+                          name="REQDATEDLV" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REQPLANID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REQPLANID]"
+                          name="REQPLANID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[MODELID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[MODELID]"
+                          name="MODELID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[QTY]"
+                          dataType="numeric"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[QTY]"
+                          name="QTY"
+                          precision="32"
+                          scale="16" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[VENDID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[VENDID]"
+                          name="VENDID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[VENDGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[VENDGROUPID]"
+                          name="VENDGROUPID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REQPOSTATUS]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[REQPOSTATUS]"
+                          name="REQPOSTATUS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ITEMBUYERGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ITEMBUYERGROUPID]"
+                          name="ITEMBUYERGROUPID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ITEMBOMID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ITEMBOMID]"
+                          name="ITEMBOMID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ITEMROUTEID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ITEMROUTEID]"
+                          name="ITEMROUTEID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactPlaneacion\EST_Truncate_UscNalsani_ExtrFactPlaneacion"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{760BD8A3-D08B-4A9E-849B-86BE31EE4F23}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactPlaneacion"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrFactPlaneacion;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactPlaneacion.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{BBB01721-E864-4F8D-A4E3-4459BE51BDF0}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactPlaneacion\EST_Truncate_UscNalsani_ExtrFactPlaneacion"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_Planeacion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C308FCB0-D7C3-4318-A188-308059573C04}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_Planeacion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactPlaneacion] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactPlaneacion] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_Planeacion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C697FD77-ADB5-42E9-A284-CAA1F9E2F1FF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_Planeacion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(CONVERT(DATE,'20180331')) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'20180331')),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{52634AD9-0CC7-4A0A-AC51-DC7950EC3171}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_Planeacion"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactPlaneacion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{E74A73A5-30C8-400C-A9C1-82E9955BEC39}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactPlaneacion] == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactPlaneacion"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_Planeacion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{41253C65-6FDB-4971-B168-AEE4A74B0D92}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_Planeacion"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactPlaneacion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{457DEC0F-59F5-4FFD-998C-0F615F98849F}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactPlaneacion] == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactPlaneacion"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_Planeacion" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="250,42"
+          Id="Package\ET_¿Es Automatica?_FactPlaneacion"
+          TopLeft="266.5,54.5" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion"
+          TopLeft="28.5,107.5" />
+        <NodeLayout
+          Size="295,42"
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion\EST_Truncate_UscNalsani_ExtrFactPlaneacion"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion.PrecedenceConstraints[Constraint]"
+          TopLeft="153,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="306,205"
+          Size="306,248"
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion"
+          TopLeft="223.5,287.5" />
+        <NodeLayout
+          Size="329,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_Planeacion"
+          TopLeft="2.5,166.5" />
+        <NodeLayout
+          Size="309,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_Planeacion"
+          TopLeft="466.5,166.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="167,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="159.833333333333,79"
+              Start="0,0"
+              End="159.833333333333,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.1534460338101" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.1534460338101"
+                    Point2="0,47.1534460338101"
+                    Point3="4,47.1534460338101" />
+                  <mssgle:LineSegment
+                    End="155.833333333333,47.1534460338101" />
+                  <mssgle:CubicBezierSegment
+                    Point1="155.833333333333,47.1534460338101"
+                    Point2="159.833333333333,47.1534460338101"
+                    Point3="159.833333333333,51.1534460338101" />
+                  <mssgle:LineSegment
+                    End="159.833333333333,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="351.166666666667,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-184.166666666667,70"
+              Start="0,0"
+              End="-184.166666666667,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2670906200318" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2670906200318"
+                    Point2="0,28.2670906200318"
+                    Point3="-4,28.2670906200318" />
+                  <mssgle:LineSegment
+                    End="-180.166666666667,28.2670906200318" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-180.166666666667,28.2670906200318"
+                    Point2="-184.166666666667,28.2670906200318"
+                    Point3="-184.166666666667,32.2670906200318" />
+                  <mssgle:LineSegment
+                    End="-184.166666666667,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.083333333333,33.2670906200318,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="621,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-194.833333333333,79"
+              Start="0,0"
+              End="-194.833333333333,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.1534460338101" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.1534460338101"
+                    Point2="0,47.1534460338101"
+                    Point3="-4,47.1534460338101" />
+                  <mssgle:LineSegment
+                    End="-190.833333333333,47.1534460338101" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-190.833333333333,47.1534460338101"
+                    Point2="-194.833333333333,47.1534460338101"
+                    Point3="-194.833333333333,51.1534460338101" />
+                  <mssgle:LineSegment
+                    End="-194.833333333333,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="431.833333333333,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.166666666667,70"
+              Start="0,0"
+              End="189.166666666667,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2670906200318" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2670906200318"
+                    Point2="0,28.2670906200318"
+                    Point3="4,28.2670906200318" />
+                  <mssgle:LineSegment
+                    End="185.166666666667,28.2670906200318" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.166666666667,28.2670906200318"
+                    Point2="189.166666666667,28.2670906200318"
+                    Point3="189.166666666667,32.2670906200318" />
+                  <mssgle:LineSegment
+                    End="189.166666666667,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="86.5833333333335,33.2670906200318,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="303,42"
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="303,42"
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\Derivada_UscNalsani_ExtrFactPlaneacion"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="303,42"
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="303,42"
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\DC_UscNalsani_UscNalsani_ExtrFactPlaneacion"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion.Paths[Derived Column Output]"
+          TopLeft="157,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion.Paths[Data Conversion Output]"
+          TopLeft="157,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion.Paths[OLE DB Source Output]"
+          TopLeft="157,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Origen_REQPO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactPlaneacion\DFT_UscNalsani_ExtrFactPlaneacion\OLEDB_Destino_UscNalsani_ExtrFactPlaneacion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

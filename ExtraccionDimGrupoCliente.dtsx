@@ -1,0 +1,893 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/31/2017 10:30:14 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12DBDIPD01"
+  DTS:CreatorName="NALSANICORP\Adminbi"
+  DTS:DTSID="{FC898F06-0DE4-480B-A065-DFDEB1672CD2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionDimGrupoCliente"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{D0DDFD62-46D2-4AEA-942A-D085BCDD4B52}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrDimGrupoClientes"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{69772963-87A9-48AA-85C7-1657E7541C46}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrDimGrupoClientes">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{FEA71EDB-4D0F-47FE-87E6-324D54D5ECFE}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrDimGrupoClientes"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_ExtrDimGrupoCliente"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Inputs[Data Conversion Input].Columns[CUSTGROUP]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="CUSTGROUP"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[CUSTGROUP]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Inputs[Data Conversion Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="NAME"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[NAME]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Output].Columns[DCCCUSTGROUP]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Output].Columns[DCCCUSTGROUP]"
+                          name="DCCCUSTGROUP"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[CUSTGROUP]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Output].Columns[DCCNAME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="120"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Output].Columns[DCCNAME]"
+                          name="DCCNAME"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[NAME]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrDimGrupoClientes"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrDimGrupoClientes_CustGroup]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input].Columns[DCCCUSTGROUP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCCCUSTGROUP"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input].ExternalColumns[CUSTGROUP]"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Output].Columns[DCCCUSTGROUP]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input].Columns[DCCNAME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="120"
+                          cachedName="DCCNAME"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Output].Columns[DCCNAME]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input].ExternalColumns[CUSTGROUP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CUSTGROUP" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="120"
+                          name="NAME" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_CustGroup"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIMATTRIBUTEOMCOSTCENTER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * from CustGroup WITH (NOLOCK) WHERE DATAAREAID= ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[CUSTGROUP]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[CUSTGROUP]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[CUSTGROUP]"
+                          name="CUSTGROUP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[CLEARINGPERIOD]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[CLEARINGPERIOD]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[CLEARINGPERIOD]"
+                          name="CLEARINGPERIOD"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[PAYMTERMID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[PAYMTERMID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[PAYMTERMID]"
+                          name="PAYMTERMID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[TAXGROUPID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[TAXGROUPID]"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[TAXGROUPID]"
+                          name="TAXGROUPID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[BANKCUSTPAYMIDTABLE]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[BANKCUSTPAYMIDTABLE]"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[BANKCUSTPAYMIDTABLE]"
+                          name="BANKCUSTPAYMIDTABLE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[PRICEINCLUDESALESTAX]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[PRICEINCLUDESALESTAX]"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[PRICEINCLUDESALESTAX]"
+                          name="PRICEINCLUDESALESTAX"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[DEFAULTDIMENSION]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[DEFAULTDIMENSION]"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[DEFAULTDIMENSION]"
+                          name="DEFAULTDIMENSION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[TAXPERIODPAYMENTCODE_PL]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[TAXPERIODPAYMENTCODE_PL]"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[TAXPERIODPAYMENTCODE_PL]"
+                          name="TAXPERIODPAYMENTCODE_PL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[DATAAREAID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[DATAAREAID]"
+                          length="4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[DATAAREAID]"
+                          name="DATAAREAID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[RECVERSION]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[RECVERSION]"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[RECVERSION]"
+                          name="RECVERSION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[PARTITION]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[PARTITION]"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[PARTITION]"
+                          name="PARTITION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[RECID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[RECID]"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].Columns[RECID]"
+                          name="RECID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[CUSTGROUP]"
+                          dataType="wstr"
+                          length="25"
+                          name="CUSTGROUP" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="60"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[CLEARINGPERIOD]"
+                          dataType="wstr"
+                          length="25"
+                          name="CLEARINGPERIOD" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[PAYMTERMID]"
+                          dataType="wstr"
+                          length="25"
+                          name="PAYMTERMID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[TAXGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          name="TAXGROUPID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[BANKCUSTPAYMIDTABLE]"
+                          dataType="i8"
+                          name="BANKCUSTPAYMIDTABLE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[PRICEINCLUDESALESTAX]"
+                          dataType="i4"
+                          name="PRICEINCLUDESALESTAX" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[DEFAULTDIMENSION]"
+                          dataType="i8"
+                          name="DEFAULTDIMENSION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[TAXPERIODPAYMENTCODE_PL]"
+                          dataType="wstr"
+                          length="10"
+                          name="TAXPERIODPAYMENTCODE_PL" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[DATAAREAID]"
+                          dataType="wstr"
+                          length="4"
+                          name="DATAAREAID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[RECVERSION]"
+                          dataType="i4"
+                          name="RECVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[PARTITION]"
+                          dataType="i8"
+                          name="PARTITION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output].ExternalColumns[RECID]"
+                          dataType="i8"
+                          name="RECID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[CUSTGROUP]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[CUSTGROUP]"
+                          name="CUSTGROUP" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[CLEARINGPERIOD]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[CLEARINGPERIOD]"
+                          name="CLEARINGPERIOD" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[PAYMTERMID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[PAYMTERMID]"
+                          name="PAYMTERMID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[TAXGROUPID]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[TAXGROUPID]"
+                          name="TAXGROUPID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[BANKCUSTPAYMIDTABLE]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[BANKCUSTPAYMIDTABLE]"
+                          name="BANKCUSTPAYMIDTABLE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[PRICEINCLUDESALESTAX]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[PRICEINCLUDESALESTAX]"
+                          name="PRICEINCLUDESALESTAX" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[DEFAULTDIMENSION]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[DEFAULTDIMENSION]"
+                          name="DEFAULTDIMENSION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[TAXPERIODPAYMENTCODE_PL]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[TAXPERIODPAYMENTCODE_PL]"
+                          name="TAXPERIODPAYMENTCODE_PL" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[DATAAREAID]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[DATAAREAID]"
+                          name="DATAAREAID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[RECVERSION]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[RECVERSION]"
+                          name="RECVERSION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[PARTITION]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[PARTITION]"
+                          name="PARTITION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[RECID]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[RECID]"
+                          name="RECID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrDimGrupoClientes\EST_Truncate_UscNalsani_ExtrDimGrupoClientes"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E6353B63-8BF6-46BD-8FBD-7E98D4890D4A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrDimGrupoClientes"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [UscNalsani].[ExtrDimGrupoClientes_CustGroup];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrDimGrupoClientes.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{D0E11A74-6E31-47C3-8C02-8C9A98C1A28A}"
+          DTS:From="Package\SC_UscNalsani_ExtrDimGrupoClientes\EST_Truncate_UscNalsani_ExtrDimGrupoClientes"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="310,42"
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="310,42"
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes\EST_Truncate_UscNalsani_ExtrDimGrupoClientes"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes.PrecedenceConstraints[Constraint]"
+          TopLeft="160.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="321,204"
+          Size="321,247"
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes"
+          TopLeft="5.50000000000003,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="317,42"
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="317,42"
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\Derivada_UscNalsani_ExtrDimGrupoClientes"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="317,42"
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="317,42"
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\DC_UscNalsani_ExtrDimGrupoCliente"
+          TopLeft="5.50000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes.Paths[OLE DB Source Output]"
+          TopLeft="164,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes.Paths[Derived Column Output]"
+          TopLeft="164,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes.Paths[Data Conversion Output]"
+          TopLeft="164,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Origen_CustGroup">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrDimGrupoClientes\DFT_UscNalsani_ExtrDimGrupoClientes\OLEDB_Destino_UscNalsani_ExtrDimGrupoClientes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

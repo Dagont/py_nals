@@ -1,0 +1,2239 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{7113170D-9668-4928-955C-EFDB9CBFBC77}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactContenedor"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="194"
+  DTS:VersionGUID="{681E6B11-81D6-464C-BEB5-F99C179F2964}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{FB856EFA-6492-4B81-BBED-DC7B8AB777A7}"
+      DTS:ObjectName="Prm_AutoFactContenedor">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde los ultimos tres meses"
+      DTS:DTSID="{CAB4E583-6AC9-4493-B497-0B7BABB09304}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactContenedor">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8BAF518F-CE15-4225-AA90-435567B76B37}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9D721D5A-B2E0-4F35-A7BA-31DF7229132B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{13760856-99BE-4C29-9B3A-7B0BD240F44B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D2741BD3-72B5-43C5-B993-E007A4E9B876}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactContenedor"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{9FD1AC81-A4E5-4C2B-9338-6AC7A7949DA1}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactContenedor"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactContenedor]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactContenedor"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{CF848911-D7C6-4CB4-9063-3387EACC59F9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactContenedor">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6733D6C6-9DD1-4EA6-8B1E-DC1190821115}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactContenedor"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactContenedor"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input].Columns[NUM_PEDIDO]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="NUM_PEDIDO"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUM_PEDIDO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input].Columns[NUMERO_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="NUMERO_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUMERO_CONTENEDOR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input].Columns[TIPO_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="TIPO_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_CONTENEDOR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input].Columns[BULTOS_X_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="BULTOS_X_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[BULTOS_X_CONTENEDOR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input].Columns[PESO_BRUTO]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="PESO_BRUTO"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[PESO_BRUTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input].Columns[METROS_CUBICOS]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="METROS_CUBICOS"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[METROS_CUBICOS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input].Columns[VALOR_POR_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="VALOR_POR_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[VALOR_POR_CONTENEDOR]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTNUM_PEDIDO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTNUM_PEDIDO]"
+                          name="DCTNUM_PEDIDO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUM_PEDIDO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTNUMERO_CONTENEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTNUMERO_CONTENEDOR]"
+                          name="DCTNUMERO_CONTENEDOR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUMERO_CONTENEDOR]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTTIPO_CONTENEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTTIPO_CONTENEDOR]"
+                          name="DCTTIPO_CONTENEDOR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_CONTENEDOR]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTBULTOS_X_CONTENEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTBULTOS_X_CONTENEDOR]"
+                          name="DCTBULTOS_X_CONTENEDOR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[BULTOS_X_CONTENEDOR]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTPESO_BRUTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTPESO_BRUTO]"
+                          name="DCTPESO_BRUTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[PESO_BRUTO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTMETROS_CUBICOS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTMETROS_CUBICOS]"
+                          name="DCTMETROS_CUBICOS"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[METROS_CUBICOS]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTVALOR_POR_CONTENEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTVALOR_POR_CONTENEDOR]"
+                          name="DCTVALOR_POR_CONTENEDOR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[VALOR_POR_CONTENEDOR]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactContenedor"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactContenedor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].Columns[TIPO_OPERACION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="11"
+                          cachedName="TIPO_OPERACION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_OPERACION]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_OPERACION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].Columns[FECHACREACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHACREACION"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION_PEDIDO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[FECHACREACION]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].Columns[DCTNUM_PEDIDO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DCTNUM_PEDIDO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[NUM_PEDIDO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTNUM_PEDIDO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].Columns[DCTNUMERO_CONTENEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DCTNUMERO_CONTENEDOR"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_CONTENEDOR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTNUMERO_CONTENEDOR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].Columns[DCTTIPO_CONTENEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DCTTIPO_CONTENEDOR"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_CONTENEDOR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTTIPO_CONTENEDOR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].Columns[DCTBULTOS_X_CONTENEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCTBULTOS_X_CONTENEDOR"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[BULTOS_X_CONTENEDOR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTBULTOS_X_CONTENEDOR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].Columns[DCTPESO_BRUTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCTPESO_BRUTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[PESO_BRUTO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTPESO_BRUTO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].Columns[DCTMETROS_CUBICOS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCTMETROS_CUBICOS"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[METROS_CUBICOS]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTMETROS_CUBICOS]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].Columns[DCTVALOR_POR_CONTENEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DCTVALOR_POR_CONTENEDOR"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[VALOR_POR_CONTENEDOR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output].Columns[DCTVALOR_POR_CONTENEDOR]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[NUM_PEDIDO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="NUM_PEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION_PEDIDO]"
+                          dataType="dbDate"
+                          name="FECHA_CREACION_PEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_OPERACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="TIPO_OPERACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_CONTENEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="NUMERO_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_CONTENEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="TIPO_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[BULTOS_X_CONTENEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="BULTOS_X_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[PESO_BRUTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PESO_BRUTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[METROS_CUBICOS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="METROS_CUBICOS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input].ExternalColumns[VALOR_POR_CONTENEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="VALOR_POR_CONTENEDOR" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM
+	(
+	SELECT
+	BDTT.DATAAREAID,
+	 ST.SALESID AS NUM_PEDIDO
+	 ,BDTT.RECID
+	 ,ST.CREATEDDATETIME AS FECHACREACION
+	 ,'EXPORTACION' AS TIPO_OPERACION
+	,CASE WHEN (BBIP.PROPERTYID) IN ('Contenedor 6') THEN CAST(BBIP.REALDATA AS NVARCHAR) ELSE  BBIP.STRDATA END STRDATA
+	,CASE     
+		  WHEN(BBIP.PROPERTYID)='Contenedor 1' THEN 'NUMERO_CONTENEDOR'
+		  WHEN(BBIP.PROPERTYID)='Contenedor 2' THEN 'TIPO_CONTENEDOR' 
+		  WHEN(BBIP.PROPERTYID)='Contenedor 3' THEN 'BULTOS_X_CONTENEDOR'
+		  WHEN(BBIP.PROPERTYID)='Contenedor 4' THEN 'PESO_BRUTO'
+		  WHEN(BBIP.PROPERTYID)='Contenedor 5' THEN 'METROS_CUBICOS'
+		  WHEN(BBIP.PROPERTYID)='Contenedor 6' THEN 'VALOR_POR_CONTENEDOR'
+		   END  AS DESC_CAMPO
+	FROM BFPBASITEM_PROPERTY BBIP WITH (NOLOCK) 
+	LEFT JOIN BFPDOCTRACKTRANS BDTT WITH (NOLOCK) 
+		ON BBIP.REFRECID=  BDTT.RECID
+		AND BBIP.PARTITION=BDTT.PARTITION
+		and BDTT.REFTABLEID=366
+	LEFT JOIN SALESTABLE ST WITH (NOLOCK) 
+		ON BDTT.REFRECID=ST.RECID
+		AND BDTT.PARTITION=ST.PARTITION
+		AND BDTT.DATAAREAID=ST.DATAAREAID
+	 WHERE BBIP.REFTABLEID=20259 AND BBIP.CATEGORYID IN ('Contenedor') and ST.SALESID is not null
+	) AS SOURCETABLE
+	PIVOT (MIN(STRDATA)
+	FOR DESC_CAMPO IN ([NUMERO_CONTENEDOR],[TIPO_CONTENEDOR],[BULTOS_X_CONTENEDOR],[PESO_BRUTO],[METROS_CUBICOS],[VALOR_POR_CONTENEDOR])) AS PIVOTTABLE
+	WHERE DATAAREAID=? AND FECHACREACION BETWEEN ? AND ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{8BAF518F-CE15-4225-AA90-435567B76B37};"Parameter2:Input",{9D721D5A-B2E0-4F35-A7BA-31DF7229132B};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NUM_PEDIDO]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]"
+                          name="NUM_PEDIDO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHACREACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FECHACREACION]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHACREACION]"
+                          name="FECHACREACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIPO_OPERACION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TIPO_OPERACION]"
+                          length="11"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIPO_OPERACION]"
+                          name="TIPO_OPERACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUMERO_CONTENEDOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_CONTENEDOR]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUMERO_CONTENEDOR]"
+                          name="NUMERO_CONTENEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIPO_CONTENEDOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TIPO_CONTENEDOR]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIPO_CONTENEDOR]"
+                          name="TIPO_CONTENEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[BULTOS_X_CONTENEDOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[BULTOS_X_CONTENEDOR]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[BULTOS_X_CONTENEDOR]"
+                          name="BULTOS_X_CONTENEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[PESO_BRUTO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PESO_BRUTO]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[PESO_BRUTO]"
+                          name="PESO_BRUTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[METROS_CUBICOS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[METROS_CUBICOS]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[METROS_CUBICOS]"
+                          name="METROS_CUBICOS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[VALOR_POR_CONTENEDOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[VALOR_POR_CONTENEDOR]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[VALOR_POR_CONTENEDOR]"
+                          name="VALOR_POR_CONTENEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[RECID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[RECID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[RECID]"
+                          name="RECID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[DATAAREAID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[DATAAREAID]"
+                          length="4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[DATAAREAID]"
+                          name="DATAAREAID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          length="20"
+                          name="NUM_PEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FECHACREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHACREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TIPO_OPERACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="11"
+                          name="TIPO_OPERACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          name="NUMERO_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TIPO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          name="TIPO_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[BULTOS_X_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          name="BULTOS_X_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PESO_BRUTO]"
+                          dataType="wstr"
+                          length="60"
+                          name="PESO_BRUTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[METROS_CUBICOS]"
+                          dataType="wstr"
+                          length="60"
+                          name="METROS_CUBICOS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[VALOR_POR_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          name="VALOR_POR_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[RECID]"
+                          dataType="i8"
+                          name="RECID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[DATAAREAID]"
+                          dataType="wstr"
+                          length="4"
+                          name="DATAAREAID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[DATAAREAID]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[DATAAREAID]"
+                          name="DATAAREAID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NUM_PEDIDO]"
+                          name="NUM_PEDIDO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[RECID]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[RECID]"
+                          name="RECID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FECHACREACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FECHACREACION]"
+                          name="FECHACREACION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TIPO_OPERACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="11"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TIPO_OPERACION]"
+                          name="TIPO_OPERACION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NUMERO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NUMERO_CONTENEDOR]"
+                          name="NUMERO_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TIPO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TIPO_CONTENEDOR]"
+                          name="TIPO_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[BULTOS_X_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[BULTOS_X_CONTENEDOR]"
+                          name="BULTOS_X_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PESO_BRUTO]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PESO_BRUTO]"
+                          name="PESO_BRUTO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[METROS_CUBICOS]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[METROS_CUBICOS]"
+                          name="METROS_CUBICOS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[VALOR_POR_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[VALOR_POR_CONTENEDOR]"
+                          name="VALOR_POR_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_PURCHTABLE - importaciones"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+	CIP.DATAAREAID,
+	PT.PURCHID AS NUM_PEDIDO
+	,PT.RECID
+	,PT.CREATEDDATETIME AS FECHACREACION
+	,'IMPORTACION' AS TIPO_OPERACION
+	,CIP.FIELD1 AS NUMERO_CONTENEDOR
+	,CIP.FIELD2 AS TIPO_CONTENEDOR
+	,CIP.FIELD3 AS BULTOS_X_CONTENEDOR
+	,CIP.Field4 AS PESO_BRUTO
+	,CIP.Field5 AS METROS_CUBICOS
+	,CIP.Field6 AS VALOR_POR_CONTENEDOR	
+FROM PURCHTABLE PT WITH (NOLOCK)
+LEFT OUTER JOIN   COS_bfpBasItem_Property CIP  WITH (NOLOCK)
+    ON  CIP.PURCHTABLEREFRECID = PT.RECID
+	 AND CIP.DATAAREAID = PT.DATAAREAID
+     AND CIP.PARTITION = PT.PARTITION
+WHERE CIP.DATAAREAID=? AND PT.CREATEDDATETIME BETWEEN ? AND ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{9D721D5A-B2E0-4F35-A7BA-31DF7229132B};"Parameter2:Input",{8BAF518F-CE15-4225-AA90-435567B76B37};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[NUM_PEDIDO]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]"
+                          name="NUM_PEDIDO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[FECHACREACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[FECHACREACION]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[FECHACREACION]"
+                          name="FECHACREACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[TIPO_OPERACION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[TIPO_OPERACION]"
+                          length="11"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[TIPO_OPERACION]"
+                          name="TIPO_OPERACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[NUMERO_CONTENEDOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_CONTENEDOR]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[NUMERO_CONTENEDOR]"
+                          name="NUMERO_CONTENEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[TIPO_CONTENEDOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[TIPO_CONTENEDOR]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[TIPO_CONTENEDOR]"
+                          name="TIPO_CONTENEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[BULTOS_X_CONTENEDOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[BULTOS_X_CONTENEDOR]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[BULTOS_X_CONTENEDOR]"
+                          name="BULTOS_X_CONTENEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[PESO_BRUTO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[PESO_BRUTO]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[PESO_BRUTO]"
+                          name="PESO_BRUTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[METROS_CUBICOS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[METROS_CUBICOS]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[METROS_CUBICOS]"
+                          name="METROS_CUBICOS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[VALOR_POR_CONTENEDOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[VALOR_POR_CONTENEDOR]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[VALOR_POR_CONTENEDOR]"
+                          name="VALOR_POR_CONTENEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[RECID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[RECID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[RECID]"
+                          name="RECID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[DATAAREAID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[DATAAREAID]"
+                          length="4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[DATAAREAID]"
+                          name="DATAAREAID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          length="20"
+                          name="NUM_PEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[FECHACREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHACREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[TIPO_OPERACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="11"
+                          name="TIPO_OPERACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="40"
+                          name="NUMERO_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[TIPO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="40"
+                          name="TIPO_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[BULTOS_X_CONTENEDOR]"
+                          dataType="wstr"
+                          length="40"
+                          name="BULTOS_X_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[PESO_BRUTO]"
+                          dataType="wstr"
+                          length="40"
+                          name="PESO_BRUTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[METROS_CUBICOS]"
+                          dataType="wstr"
+                          length="40"
+                          name="METROS_CUBICOS" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[VALOR_POR_CONTENEDOR]"
+                          dataType="wstr"
+                          length="40"
+                          name="VALOR_POR_CONTENEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[RECID]"
+                          dataType="i8"
+                          name="RECID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].ExternalColumns[DATAAREAID]"
+                          dataType="wstr"
+                          length="4"
+                          name="DATAAREAID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[DATAAREAID]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[DATAAREAID]"
+                          name="DATAAREAID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[NUM_PEDIDO]"
+                          name="NUM_PEDIDO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[RECID]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[RECID]"
+                          name="RECID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[FECHACREACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[FECHACREACION]"
+                          name="FECHACREACION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[TIPO_OPERACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="11"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[TIPO_OPERACION]"
+                          name="TIPO_OPERACION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[NUMERO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[NUMERO_CONTENEDOR]"
+                          name="NUMERO_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[TIPO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[TIPO_CONTENEDOR]"
+                          name="TIPO_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[BULTOS_X_CONTENEDOR]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[BULTOS_X_CONTENEDOR]"
+                          name="BULTOS_X_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[PESO_BRUTO]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[PESO_BRUTO]"
+                          name="PESO_BRUTO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[METROS_CUBICOS]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[METROS_CUBICOS]"
+                          name="METROS_CUBICOS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[VALOR_POR_CONTENEDOR]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[VALOR_POR_CONTENEDOR]"
+                          name="VALOR_POR_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[NUM_PEDIDO]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="NUM_PEDIDO"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUM_PEDIDO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[FECHACREACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHACREACION"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHACREACION]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[FECHACREACION]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[TIPO_OPERACION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="11"
+                          cachedName="TIPO_OPERACION"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIPO_OPERACION]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_OPERACION]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[NUMERO_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="NUMERO_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUMERO_CONTENEDOR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUMERO_CONTENEDOR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[TIPO_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="TIPO_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIPO_CONTENEDOR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_CONTENEDOR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[BULTOS_X_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="BULTOS_X_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[BULTOS_X_CONTENEDOR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[BULTOS_X_CONTENEDOR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[PESO_BRUTO]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="PESO_BRUTO"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[PESO_BRUTO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[PESO_BRUTO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[METROS_CUBICOS]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="METROS_CUBICOS"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[METROS_CUBICOS]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[METROS_CUBICOS]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[VALOR_POR_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="VALOR_POR_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[VALOR_POR_CONTENEDOR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[VALOR_POR_CONTENEDOR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1].Columns[RECID]"
+                          cachedDataType="i8"
+                          cachedName="RECID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[RECID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[RECID]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[NUM_PEDIDO]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="NUM_PEDIDO"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUM_PEDIDO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[FECHACREACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHACREACION"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[FECHACREACION]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[FECHACREACION]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[TIPO_OPERACION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="11"
+                          cachedName="TIPO_OPERACION"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[TIPO_OPERACION]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_OPERACION]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[NUMERO_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="NUMERO_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[NUMERO_CONTENEDOR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUMERO_CONTENEDOR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[TIPO_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="TIPO_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[TIPO_CONTENEDOR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_CONTENEDOR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[BULTOS_X_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="BULTOS_X_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[BULTOS_X_CONTENEDOR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[BULTOS_X_CONTENEDOR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[PESO_BRUTO]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="PESO_BRUTO"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[PESO_BRUTO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[PESO_BRUTO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[METROS_CUBICOS]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="METROS_CUBICOS"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[METROS_CUBICOS]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[METROS_CUBICOS]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[VALOR_POR_CONTENEDOR]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="VALOR_POR_CONTENEDOR"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[VALOR_POR_CONTENEDOR]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[VALOR_POR_CONTENEDOR]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2].Columns[RECID]"
+                          cachedDataType="i8"
+                          cachedName="RECID"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output].Columns[RECID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[RECID]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUM_PEDIDO]"
+                          name="NUM_PEDIDO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[FECHACREACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[FECHACREACION]"
+                          name="FECHACREACION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_OPERACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="11"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_OPERACION]"
+                          name="TIPO_OPERACION" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUMERO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[NUMERO_CONTENEDOR]"
+                          name="NUMERO_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[TIPO_CONTENEDOR]"
+                          name="TIPO_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[BULTOS_X_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[BULTOS_X_CONTENEDOR]"
+                          name="BULTOS_X_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[PESO_BRUTO]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[PESO_BRUTO]"
+                          name="PESO_BRUTO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[METROS_CUBICOS]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[METROS_CUBICOS]"
+                          name="METROS_CUBICOS" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[VALOR_POR_CONTENEDOR]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[VALOR_POR_CONTENEDOR]"
+                          name="VALOR_POR_CONTENEDOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[RECID]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1].Columns[RECID]"
+                          name="RECID" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor.Paths[OLE DB Source Output1]"
+                  endId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor.Paths[Union All Output 1]"
+                  endId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor.Inputs[Data Conversion Input]"
+                  name="Union All Output 1"
+                  startId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor Actuaiza_Valores_No_Numericos"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{05A237B2-F204-4556-8B18-59B0F915127B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactContenedor Actuaiza_Valores_No_Numericos"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="UPDATE UscNalsani.ExtrFactContenedor&#xA;SET BULTOS_X_CONTENEDOR=0&#xA;WHERE ISNUMERIC(BULTOS_X_CONTENEDOR)&lt;&gt;1 AND BULTOS_X_CONTENEDOR is not null&#xA;GO&#xA;UPDATE UscNalsani.ExtrFactContenedor&#xA;SET METROS_CUBICOS=0&#xA;WHERE ISNUMERIC(METROS_CUBICOS)&lt;&gt;1 AND METROS_CUBICOS is not null&#xA;GO&#xA;UPDATE UscNalsani.ExtrFactContenedor&#xA;SET PESO_BRUTO=0&#xA;WHERE ISNUMERIC(PESO_BRUTO)&lt;&gt;1 AND PESO_BRUTO is not null&#xA;GO&#xA;update UscNalsani.ExtrFactContenedor&#xA;SET VALOR_POR_CONTENEDOR=0&#xA;WHERE ISNUMERIC(VALOR_POR_CONTENEDOR)&lt;&gt;1 AND VALOR_POR_CONTENEDOR is not null&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactContenedor\EST_Truncate_UscNalsani_ExtrFactContenedor"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2CCA2938-A2BE-4724-BF1E-D76E878044E4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactContenedor"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrFactContenedor;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactContenedor.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{BE7B8E97-7A85-4F5C-B082-65A83C4E930C}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactContenedor\EST_Truncate_UscNalsani_ExtrFactContenedor"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactContenedor.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A923AD05-E3CE-4715-BC1E-174AC8FCBB8A}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor Actuaiza_Valores_No_Numericos" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_Contenedor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2647AF51-D0A9-44CB-B170-432C8DA29903}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_Contenedor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactContenedor] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactContenedor] + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_Contenedor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{32BE681C-AA5C-45DE-963F-6D2837E6FD7F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_Contenedor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(CONVERT(DATE,'20180331')) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'20180331')),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B04936C3-0EC2-4865-B9DF-5AA9FA7CD1B8}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_Contenedor"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactContenedor" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C6F3BBBB-97D2-4BA7-B231-AB7E44EC6C0A}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactContenedor] == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactContenedor"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_Contenedor" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1A6C7359-6D2C-4E14-87EB-BBC054EBCCE6}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_Contenedor"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactContenedor" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{1A09BA2C-B842-4E24-B2E3-DF6CE9A0ADC9}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactContenedor]  == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactContenedor"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_Contenedor" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="254,42"
+          Id="Package\ET_¿Es Automatica?_FactContenedor"
+          TopLeft="429,5.5" />
+        <NodeLayout
+          Size="413,42"
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="410,42"
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor Actuaiza_Valores_No_Numericos"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="410,42"
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\EST_Truncate_UscNalsani_ExtrFactContenedor"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactContenedor.PrecedenceConstraints[Constraint]"
+          TopLeft="211.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactContenedor.PrecedenceConstraints[Constraint 1]"
+          TopLeft="211.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="421,307"
+          Size="421,350"
+          Id="Package\SC_UscNalsani_ExtrFactContenedor"
+          TopLeft="345.5,209.5" />
+        <NodeLayout
+          Size="333,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_Contenedor"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="314,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_Contenedor"
+          TopLeft="399,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="172,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="315.166666666667,60"
+              Start="0,0"
+              End="315.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8637008991955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8637008991955"
+                    Point2="0,35.8637008991955"
+                    Point3="4,35.8637008991955" />
+                  <mssgle:LineSegment
+                    End="311.166666666667,35.8637008991955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="311.166666666667,35.8637008991955"
+                    Point2="315.166666666667,35.8637008991955"
+                    Point3="315.166666666667,39.8637008991955" />
+                  <mssgle:LineSegment
+                    End="315.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="515,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-343,60"
+              Start="0,0"
+              End="-343,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2253521126761" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2253521126761"
+                    Point2="0,24.2253521126761"
+                    Point3="-4,24.2253521126761" />
+                  <mssgle:LineSegment
+                    End="-339,24.2253521126761" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-339,24.2253521126761"
+                    Point2="-343,24.2253521126761"
+                    Point3="-343,28.2253521126761" />
+                  <mssgle:LineSegment
+                    End="-343,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-179.5,29.2253521126761,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="556,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.8333333333333,60"
+              Start="0,0"
+              End="68.8333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8637008991955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8637008991955"
+                    Point2="0,35.8637008991955"
+                    Point3="4,35.8637008991955" />
+                  <mssgle:LineSegment
+                    End="64.8333333333333,35.8637008991955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.8333333333333,35.8637008991955"
+                    Point2="68.8333333333333,35.8637008991955"
+                    Point3="68.8333333333333,39.8637008991955" />
+                  <mssgle:LineSegment
+                    End="68.8333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="597,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-41,60"
+              Start="0,0"
+              End="-41,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2253521126761" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2253521126761"
+                    Point2="0,24.2253521126761"
+                    Point3="-4,24.2253521126761" />
+                  <mssgle:LineSegment
+                    End="-37,24.2253521126761" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-37,24.2253521126761"
+                    Point2="-41,24.2253521126761"
+                    Point3="-41,28.2253521126761" />
+                  <mssgle:LineSegment
+                    End="-41,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.5,29.2253521126761,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="346,42"
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\Union All"
+          TopLeft="412.5,107.5" />
+        <NodeLayout
+          Size="346,42"
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\DC_UscNalsani_UscNalsani_ExtrFactContenedor"
+          TopLeft="412.5,209.5" />
+        <NodeLayout
+          Size="346,42"
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY"
+          TopLeft="5.5,5.49999999999989" />
+        <NodeLayout
+          Size="346,42"
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor"
+          TopLeft="412.5,311.5" />
+        <NodeLayout
+          Size="346,42"
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones"
+          TopLeft="412.5,5.49999999999989" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor.Paths[Data Conversion Output]"
+          TopLeft="585.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor.Paths[Union All Output 1]"
+          TopLeft="585.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor.Paths[OLE DB Source Output1]"
+          TopLeft="585.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.3333333333333,60"
+              Start="0,0"
+              End="56.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8342922899885" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8342922899885"
+                    Point2="0,35.8342922899885"
+                    Point3="4,35.8342922899885" />
+                  <mssgle:LineSegment
+                    End="52.3333333333333,35.8342922899885" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.3333333333333,35.8342922899885"
+                    Point2="56.3333333333333,35.8342922899885"
+                    Point3="56.3333333333333,39.8342922899885" />
+                  <mssgle:LineSegment
+                    End="56.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor.Paths[OLE DB Source Output]"
+          TopLeft="178.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="350.666666666667,60"
+              Start="0,0"
+              End="350.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8342922899885" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8342922899885"
+                    Point2="0,35.8342922899885"
+                    Point3="4,35.8342922899885" />
+                  <mssgle:LineSegment
+                    End="346.666666666667,35.8342922899885" />
+                  <mssgle:CubicBezierSegment
+                    Point1="346.666666666667,35.8342922899885"
+                    Point2="350.666666666667,35.8342922899885"
+                    Point3="350.666666666667,39.8342922899885" />
+                  <mssgle:LineSegment
+                    End="350.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - importaciones">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Origen_PURCHTABLE - BFPBASITEM_PROPERTY">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactContenedor\DFT_UscNalsani_ExtrFactContenedor\OLEDB_Destino_UscNalsani_ExtrFactContenedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

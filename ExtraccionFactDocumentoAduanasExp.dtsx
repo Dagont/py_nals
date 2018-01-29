@@ -1,0 +1,1345 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2017 11:00:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\latinobi2"
+  DTS:DTSID="{9E03790F-905B-47FA-892B-D79D694F26B7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactDocumentoAduanasExp"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="207"
+  DTS:VersionGUID="{5746E529-DEA3-4876-96B1-3C31E6BD567B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="1 Para Fecha Automatica y 0 para Fecha Manual"
+      DTS:DTSID="{24570BCC-B6EA-455F-9320-4688786A7522}"
+      DTS:ObjectName="Prm_AutoFactDocAduanasExp">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="Numero de Meses A proccesar desde los ultimos tres meses"
+      DTS:DTSID="{21C0FCE8-9D3C-4881-B355-708A72C74817}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactDocAduanasExp">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6598C745-2DCD-4597-BA87-28D40EC35820}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F490797A-BECF-4657-AC52-852069E7BA8E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{63DE2B55-4E43-49B8-91DF-1755EB108532}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D6E82EC9-8E3C-4886-8768-D5505639CC52}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ET_¿Es Automatica?_FactDocAduanasExp"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{4AF6AAE8-7085-4CC9-822B-B5C32A01C03C}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ET_¿Es Automatica?_FactDocAduanasExp"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[$Package::Prm_AutoFactDocAduanasExp]" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0179C387-6C23-43EF-8F04-57F0082F1E6B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactDocAduanasExp">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{4E6C942F-FDC1-4421-B885-F856692D0D40}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactDocAduanasExp"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Inputs[Data Conversion Input].Columns[FECHA_DOC_ADUANA]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="FECHA_DOC_ADUANA"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHA_DOC_ADUANA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Inputs[Data Conversion Input].Columns[NUM_DOC_ADUANA]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="NUM_DOC_ADUANA"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_DOC_ADUANA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Inputs[Data Conversion Input].Columns[TIP_DOC_ADUANA]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="TIP_DOC_ADUANA"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIP_DOC_ADUANA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Inputs[Data Conversion Input].Columns[VAL_TOTAL_DOC_ADUANA]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="VAL_TOTAL_DOC_ADUANA"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[VAL_TOTAL_DOC_ADUANA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Inputs[Data Conversion Input].Columns[NUM_PEDIDO]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="NUM_PEDIDO"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTFECHA_DOC_ADUANA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTFECHA_DOC_ADUANA]"
+                          name="DCTFECHA_DOC_ADUANA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHA_DOC_ADUANA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTNUM_DOC_ADUANA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTNUM_DOC_ADUANA]"
+                          name="DCTNUM_DOC_ADUANA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_DOC_ADUANA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTTIP_DOC_ADUANA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTTIP_DOC_ADUANA]"
+                          name="DCTTIP_DOC_ADUANA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIP_DOC_ADUANA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTVAL_TOTAL_DOC_ADUANA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTVAL_TOTAL_DOC_ADUANA]"
+                          name="DCTVAL_TOTAL_DOC_ADUANA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[VAL_TOTAL_DOC_ADUANA]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTNUM_PEDIDO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTNUM_PEDIDO]"
+                          name="DCTNUM_PEDIDO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_UscNalsani_ExtrFactDocAduanasExp"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Inputs[Derived Column Input].Columns[FECHA_DOC_ADUANA]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="FECHA_DOC_ADUANA"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHA_DOC_ADUANA]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBDATE)([FINDSTRING]([RTRIM]([LTRIM](#{Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHA_DOC_ADUANA]})),"/",1) &gt; 0 ? #{Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHA_DOC_ADUANA]} : "1900/01/01")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBDATE)(FINDSTRING(RTRIM(LTRIM(FECHA_DOC_ADUANA)),"/",1) &gt; 0 ? FECHA_DOC_ADUANA : "1900/01/01")</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscNalsani].[ExtrFactDocAduanasExp]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].Columns[FECHACREACIONPEDIDO]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHACREACIONPEDIDO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION_PEDIDO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHACREACIONPEDIDO]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].Columns[DCTVAL_TOTAL_DOC_ADUANA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DCTVAL_TOTAL_DOC_ADUANA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[VALOR_TOTAL_DOC_ADUANA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTVAL_TOTAL_DOC_ADUANA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].Columns[DCTTIP_DOC_ADUANA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DCTTIP_DOC_ADUANA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_DOC_ADUANA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTTIP_DOC_ADUANA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].Columns[DCTNUM_DOC_ADUANA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DCTNUM_DOC_ADUANA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[NUM_DOC_ADUANA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTNUM_DOC_ADUANA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].Columns[DCTFECHA_DOC_ADUANA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="DCTFECHA_DOC_ADUANA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_DOC_ADUANA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTFECHA_DOC_ADUANA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].Columns[DCTNUM_PEDIDO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DCTNUM_PEDIDO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[NUM_PEDIDO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output].Columns[DCTNUM_PEDIDO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[DTCREACION]"
+                          dataType="dbTimeStamp"
+                          name="DTCREACION" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[NUM_PEDIDO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="NUM_PEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION_PEDIDO]"
+                          dataType="dbDate"
+                          name="FECHA_CREACION_PEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[VALOR_TOTAL_DOC_ADUANA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="VALOR_TOTAL_DOC_ADUANA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_DOC_ADUANA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="TIPO_DOC_ADUANA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[NUM_DOC_ADUANA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="NUM_DOC_ADUANA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_DOC_ADUANA]"
+                          dataType="dbDate"
+                          name="FECHA_DOC_ADUANA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLEDB_Origen_BFPBASITEM_PROPERTY"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--FACT DOCUMENTOS ADUANAS EXPORTACION
+	
+	SELECT * FROM 
+	(
+	SELECT
+	ST.DATAAREAID,
+	ST.SALESID NUM_PEDIDO
+	,BBIP.REFRECID
+	,CASE WHEN (BBIP.PROPERTYID) IN ('Contenedor 6','DT-J') THEN CAST(BBIP.REALDATA AS NVARCHAR) ELSE  BBIP.STRDATA END STRDATA
+	,CASE  WHEN(BBIP.PROPERTYID)='DT-G' THEN 'TIP_DOC_ADUANA'
+		   WHEN(BBIP.PROPERTYID)='DT-H' THEN 'NUM_DOC_ADUANA' 
+		   WHEN(BBIP.PROPERTYID)='DT-I' THEN 'FECHA_DOC_ADUANA' 
+		   WHEN(BBIP.PROPERTYID)='DT-J' THEN 'VAL_TOTAL_DOC_ADUANA' END  AS DESC_CAMPO
+	 ,ST.CREATEDDATETIME AS FECHACREACIONPEDIDO
+	FROM SALESTABLE ST WITH (NOLOCK) 
+	LEFT OUTER JOIN BFPDOCTRACKTRANS BDTT WITH (NOLOCK) 
+		 ON ST.RECID = BDTT.REFRECID
+		AND ST.PARTITION = BDTT.PARTITION
+		AND ST.DATAAREAID=BDTT.DATAAREAID
+		and BDTT.REFTABLEID=366
+	LEFT OUTER JOIN BFPBASITEM_PROPERTY BBIP WITH (NOLOCK) 
+		ON BDTT.RECID = BBIP.REFRECID
+		AND BDTT.PARTITION = BBIP.PARTITION
+		 WHERE BBIP.REFTABLEID=20259 AND BBIP.CATEGORYID IN ('Doc_Aduana')
+		 ) AS SOURCETABLE
+		 PIVOT
+		 (mIN(STRDATA)
+		 FOR DESC_CAMPO IN (VAL_TOTAL_DOC_ADUANA,TIP_DOC_ADUANA,NUM_DOC_ADUANA,FECHA_DOC_ADUANA)) AS PIVOTETABLE
+		 WHERE DATAAREAID= ? AND FECHACREACIONPEDIDO Between ? And ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{90273B55-F4D4-4E5C-AA8D-FFCEC53B234F};"Parameter1:Input",{F490797A-BECF-4657-AC52-852069E7BA8E};"Parameter2:Input",{6598C745-2DCD-4597-BA87-28D40EC35820};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Connections[OleDbConnection]"
+                      connectionManagerID="{1182E79E-F7C2-493D-9123-5AF05C5C7D2F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_AX]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NUM_PEDIDO]"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_PEDIDO]"
+                          name="NUM_PEDIDO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[REFRECID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REFRECID]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[REFRECID]"
+                          name="REFRECID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHACREACIONPEDIDO]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FECHACREACIONPEDIDO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHACREACIONPEDIDO]"
+                          name="FECHACREACIONPEDIDO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[VAL_TOTAL_DOC_ADUANA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[VAL_TOTAL_DOC_ADUANA]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[VAL_TOTAL_DOC_ADUANA]"
+                          name="VAL_TOTAL_DOC_ADUANA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIP_DOC_ADUANA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TIP_DOC_ADUANA]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[TIP_DOC_ADUANA]"
+                          name="TIP_DOC_ADUANA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_DOC_ADUANA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NUM_DOC_ADUANA]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[NUM_DOC_ADUANA]"
+                          name="NUM_DOC_ADUANA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHA_DOC_ADUANA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FECHA_DOC_ADUANA]"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[FECHA_DOC_ADUANA]"
+                          name="FECHA_DOC_ADUANA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[DATAAREAID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[DATAAREAID]"
+                          length="4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].Columns[DATAAREAID]"
+                          name="DATAAREAID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          length="20"
+                          name="NUM_PEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REFRECID]"
+                          dataType="i8"
+                          name="REFRECID" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FECHACREACIONPEDIDO]"
+                          dataType="dbTimeStamp"
+                          name="FECHACREACIONPEDIDO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[VAL_TOTAL_DOC_ADUANA]"
+                          dataType="wstr"
+                          length="60"
+                          name="VAL_TOTAL_DOC_ADUANA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TIP_DOC_ADUANA]"
+                          dataType="wstr"
+                          length="60"
+                          name="TIP_DOC_ADUANA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NUM_DOC_ADUANA]"
+                          dataType="wstr"
+                          length="60"
+                          name="NUM_DOC_ADUANA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FECHA_DOC_ADUANA]"
+                          dataType="wstr"
+                          length="60"
+                          name="FECHA_DOC_ADUANA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[DATAAREAID]"
+                          dataType="wstr"
+                          length="4"
+                          name="DATAAREAID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[DATAAREAID]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[DATAAREAID]"
+                          name="DATAAREAID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NUM_PEDIDO]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NUM_PEDIDO]"
+                          name="NUM_PEDIDO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REFRECID]"
+                          dataType="i8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REFRECID]"
+                          name="REFRECID" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FECHACREACIONPEDIDO]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FECHACREACIONPEDIDO]"
+                          name="FECHACREACIONPEDIDO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[VAL_TOTAL_DOC_ADUANA]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[VAL_TOTAL_DOC_ADUANA]"
+                          name="VAL_TOTAL_DOC_ADUANA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TIP_DOC_ADUANA]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TIP_DOC_ADUANA]"
+                          name="TIP_DOC_ADUANA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NUM_DOC_ADUANA]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NUM_DOC_ADUANA]"
+                          name="NUM_DOC_ADUANA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FECHA_DOC_ADUANA]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FECHA_DOC_ADUANA]"
+                          name="FECHA_DOC_ADUANA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp.Paths[OLE DB Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp\EST_Truncate_UscNalsani_ExtrFactDocAduanasExp"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{223CEB0A-60EE-431A-B525-D3A21B5A348F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactDocAduanasExp"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UscNalsani.ExtrFactDocAduanasExp;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactDocAduanasExp.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E3E8A2D1-984F-490A-AF67-1AEEF772B5CE}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactDocAduanasExp\EST_Truncate_UscNalsani_ExtrFactDocAduanasExp"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Automatico_FactDocAduanasExp"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7E366116-C49E-4864-BB60-5476806A28FD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Automatico_FactDocAduanasExp"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select CONVERT(DATE,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactDocAduanasExp]  + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio
+,EOMONTH(GETDATE()) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-" + (DT_STR, 3, 1252) @[$Package::Prm_PeriodosProcesarAutomaticoFactDocAduanasExp]  + " ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select CONVERT(DATE,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE()))) DtInicio&#xA;,EOMONTH(GETDATE()) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1 ,DATEADD(DD,-DAY(GETDATE())+1,GETDATE())),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(GETDATE()),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQT_Carga_Variables_Fecha_Manual_FactDocAduanasExp"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DC147FC8-83B6-4631-9917-41A5BA760153}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQT_Carga_Variables_Fecha_Manual_FactDocAduanasExp"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))) DtInicio
+,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')) DtFinal
+,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))+1,CONVERT(DATE,'"+ @[$Project::FecInicioGlobal]+"'))),112) FecInicio
+,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'"+ @[$Project::FecFinalGlobal] +"')),112) FecFinal "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7EE5277E-6D3A-4797-A762-F1D47A30F84C}"
+          SQLTask:SqlStatementSource=" Select DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))) DtInicio&#xA;,EOMONTH(CONVERT(DATE,'20180331')) DtFinal&#xA;,CONVERT(VARCHAR,DATEADD(MM,-1,DATEADD(DD,-DAY(CONVERT(DATE,'20170401'))+1,CONVERT(DATE,'20170401'))),112) FecInicio&#xA;,CONVERT(VARCHAR,EOMONTH(CONVERT(DATE,'20180331')),112) FecFinal "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtInicio"
+            SQLTask:DtsVariableName="User::VarDtFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DtFinal"
+            SQLTask:DtsVariableName="User::VarDtFecFinal" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecInicio"
+            SQLTask:DtsVariableName="User::VarFecInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FecFinal"
+            SQLTask:DtsVariableName="User::VarFecFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{011B7379-59BF-4C13-91AA-E5266E15CE6A}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Automatico_FactDocAduanasExp"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SC_UscNalsani_ExtrFactDocAduanasExp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1B90B524-D096-410A-85D9-2DEEDF656A26}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactDocAduanasExp]  == 1"
+      DTS:From="Package\ET_¿Es Automatica?_FactDocAduanasExp"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Automatico_FactDocAduanasExp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D1810584-7145-43AF-A3C4-8C618E8BF7F9}"
+      DTS:From="Package\SQT_Carga_Variables_Fecha_Manual_FactDocAduanasExp"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SC_UscNalsani_ExtrFactDocAduanasExp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{B6BD79CF-2F8F-488E-AFE8-B2A660C1D556}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[$Package::Prm_AutoFactDocAduanasExp]   == 0"
+      DTS:From="Package\ET_¿Es Automatica?_FactDocAduanasExp"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQT_Carga_Variables_Fecha_Manual_FactDocAduanasExp" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="275,42"
+          Id="Package\ET_¿Es Automatica?_FactDocAduanasExp"
+          TopLeft="478.5,5.49999999999989" />
+        <NodeLayout
+          Size="320,42"
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp"
+          TopLeft="5.5,106.5" />
+        <NodeLayout
+          Size="320,42"
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp\EST_Truncate_UscNalsani_ExtrFactDocAduanasExp"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp.PrecedenceConstraints[Constraint]"
+          TopLeft="165.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="331,205"
+          Size="331,248"
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp"
+          TopLeft="450.5,209.5" />
+        <NodeLayout
+          Size="373,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Automatico_FactDocAduanasExp"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="354,42"
+          Id="Package\SQT_Carga_Variables_Fecha_Manual_FactDocAduanasExp"
+          TopLeft="439,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="192,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="370.166666666667,60"
+              Start="0,0"
+              End="370.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.826819001804" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.826819001804"
+                    Point2="0,35.826819001804"
+                    Point3="4,35.826819001804" />
+                  <mssgle:LineSegment
+                    End="366.166666666667,35.826819001804" />
+                  <mssgle:CubicBezierSegment
+                    Point1="366.166666666667,35.826819001804"
+                    Point2="370.166666666667,35.826819001804"
+                    Point3="370.166666666667,39.826819001804" />
+                  <mssgle:LineSegment
+                    End="370.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="571.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-379.5,60"
+              Start="0,0"
+              End="-379.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2082429501085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2082429501085"
+                    Point2="0,24.2082429501085"
+                    Point3="-4,24.2082429501085" />
+                  <mssgle:LineSegment
+                    End="-375.5,24.2082429501085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-375.5,24.2082429501085"
+                    Point2="-379.5,24.2082429501085"
+                    Point3="-379.5,28.2082429501085" />
+                  <mssgle:LineSegment
+                    End="-379.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-197.75,29.2082429501085,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="616,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.8333333333333,60"
+              Start="0,0"
+              End="53.8333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.826819001804" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.826819001804"
+                    Point2="0,35.826819001804"
+                    Point3="4,35.826819001804" />
+                  <mssgle:LineSegment
+                    End="49.8333333333333,35.826819001804" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.8333333333333,35.826819001804"
+                    Point2="53.8333333333333,35.826819001804"
+                    Point3="53.8333333333333,39.826819001804" />
+                  <mssgle:LineSegment
+                    End="53.8333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="660.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.5,60"
+              Start="0,0"
+              End="-44.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2082429501085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2082429501085"
+                    Point2="0,24.2082429501085"
+                    Point3="-4,24.2082429501085" />
+                  <mssgle:LineSegment
+                    End="-40.5,24.2082429501085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.5,24.2082429501085"
+                    Point2="-44.5,24.2082429501085"
+                    Point3="-44.5,28.2082429501085" />
+                  <mssgle:LineSegment
+                    End="-44.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.25,29.2082429501085,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="328,42"
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="328,42"
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\DC_UscNalsani_UscNalsani_ExtrFactDocAduanasExp"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="328,42"
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="296,42"
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\Derivada_UscNalsani_ExtrFactDocAduanasExp"
+          TopLeft="6.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp.Paths[OLE DB Source Output]"
+          TopLeft="169.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15,60"
+              Start="0,0"
+              End="-15,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-11,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11,30"
+                    Point2="-15,30"
+                    Point3="-15,34" />
+                  <mssgle:LineSegment
+                    End="-15,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp.Paths[Derived Column Output]"
+          TopLeft="154.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15,60"
+              Start="0,0"
+              End="15,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="11,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,30"
+                    Point2="15,30"
+                    Point3="15,34" />
+                  <mssgle:LineSegment
+                    End="15,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp.Paths[Data Conversion Output]"
+          TopLeft="169.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Origen_BFPBASITEM_PROPERTY">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactDocAduanasExp\DFT_UscNalsani_ExtrFactDocAduanasExp\OLEDB_Destino_UscNalsani_ExtrFactDocAduanasExp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

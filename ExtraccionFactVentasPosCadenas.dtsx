@@ -1,0 +1,799 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/1/2017 2:19:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D042K12BDBID01"
+  DTS:CreatorName="NALSANICORP\Adminbi"
+  DTS:DTSID="{D6556846-CB01-450F-B99D-135385CF8509}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExtraccionFactVentasPosCadenas"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{75DFD750-4756-440E-BB7A-DE79AF463167}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cnx_Excel_FactVentasPosCadenas]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0FFAC778-3B63-4EFF-A914-3B7D864B9B67}"
+      DTS:ObjectName="Cnx_Excel_FactVentasPosCadenas">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Project::RutaArchivosModelos] + "VentasPosCadenas.xls"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=F:\Nalsani EDW\2. Archivos\Modelos\VentasPosCadenas.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{CE4F40CD-10C4-49C5-A25A-803AD93957EB}"
+      DTS:ObjectName="Prm_AutoFactPPTO">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{52BCE3BF-2E2B-4540-A232-086E67E23579}"
+      DTS:ObjectName="Prm_PeriodosProcesarAutomaticoFactPPTO">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C295FC70-DF33-4FC4-A103-79E881FA76B6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="7">10/27/2017 8:59:05 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D989D822-536A-47CE-8B44-967B4DA63FE8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarDtFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="7">10/27/2017 8:59:59 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2A01E034-DC31-4B5D-9D62-C21C1917F3CA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecFinal">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B2FB9C19-FEF6-40CE-94B9-84A6807D548A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarFecInicial">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F9A53709-7AA4-4BF7-B742-56744F653444}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SC_UscNalsani_ExtrFactVentasPosCadenas">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{AAF0A148-E59C-4C8C-B395-6DB795DF537A}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_UscNalsani_ExtrFactVentasPosCadenas"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="DC_FactVentasPosCadenas"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Inputs[Data Conversion Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derivada_FactVentasPosCadenas"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel_Origen_FactVentasPosCadenas"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Hoja1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Cnx_Excel_FactVentasPosCadenas]"
+                      connectionManagerRefId="Package.ConnectionManagers[Cnx_Excel_FactVentasPosCadenas]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[FECHA]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[FECHA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[FECHA]"
+                          name="FECHA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[CLIENTE]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[CLIENTE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[CLIENTE]"
+                          name="CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[PRODUCTO]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[PRODUCTO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[PRODUCTO]"
+                          name="PRODUCTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[CANTIDAD]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[CANTIDAD]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[CANTIDAD]"
+                          name="CANTIDAD"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[VALOR]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[VALOR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[VALOR]"
+                          name="VALOR"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[FECHA]"
+                          dataType="date"
+                          name="FECHA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[CLIENTE]"
+                          dataType="r8"
+                          name="CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[PRODUCTO]"
+                          dataType="r8"
+                          name="PRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[CANTIDAD]"
+                          dataType="r8"
+                          name="CANTIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].ExternalColumns[VALOR]"
+                          dataType="r8"
+                          name="VALOR" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[FECHA]"
+                          dataType="date"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[FECHA]"
+                          name="FECHA" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[CLIENTE]"
+                          dataType="r8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[CLIENTE]"
+                          name="CLIENTE" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[PRODUCTO]"
+                          dataType="r8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[PRODUCTO]"
+                          name="PRODUCTO" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[CANTIDAD]"
+                          dataType="r8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[CANTIDAD]"
+                          name="CANTIDAD" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[VALOR]"
+                          dataType="r8"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[VALOR]"
+                          name="VALOR" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UscArchivos].[ExtrFactVentasPosCadenas]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Connections[OleDbConnection]"
+                      connectionManagerID="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cnx_BD_Nalsani_STA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].Columns[FECHA]"
+                          cachedDataType="date"
+                          cachedName="FECHA"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[FECHA]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[FECHA]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].Columns[CANTIDAD]"
+                          cachedDataType="r8"
+                          cachedName="CANTIDAD"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[CANTIDAD]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[CANTIDAD]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].Columns[VALOR]"
+                          cachedDataType="r8"
+                          cachedName="VALOR"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[VALOR]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[VALOR]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].Columns[CLIENTE]"
+                          cachedDataType="r8"
+                          cachedName="CLIENTE"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[CLIENTE]" />
+                        <inputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].Columns[PRODUCTO]"
+                          cachedDataType="r8"
+                          cachedName="PRODUCTO"
+                          externalMetadataColumnId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[EAN13_PRODUCTO]"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output].Columns[PRODUCTO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[FECHA]"
+                          dataType="dbDate"
+                          name="FECHA" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[EAN13_PRODUCTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EAN13_PRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[CANTIDAD]"
+                          dataType="numeric"
+                          name="CANTIDAD"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input].ExternalColumns[VALOR]"
+                          dataType="numeric"
+                          name="VALOR"
+                          precision="18"
+                          scale="4" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas.Paths[Data Conversion Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas.Paths[Derived Column Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas.Inputs[Data Conversion Input]"
+                  name="Derived Column Output"
+                  startId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas.Paths[Excel Source Output]"
+                  endId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas.Inputs[Derived Column Input]"
+                  name="Excel Source Output"
+                  startId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\EST_Truncate_UscNalsani_ExtrFactVentasPosCadenas"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5E40FA37-8F17-48CD-B5AD-F83D3581B595}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_Truncate_UscNalsani_ExtrFactVentasPosCadenas"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{894320ED-6A05-4A1B-9B58-F1DC72CF8055}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [UscArchivos].[ExtrFactVentasPosCadenas];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SC_UscNalsani_ExtrFactVentasPosCadenas.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{14EAA68B-0012-4DDF-BA0E-C78F27C32C0B}"
+          DTS:From="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\EST_Truncate_UscNalsani_ExtrFactVentasPosCadenas"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="287,42"
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="333,42"
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\EST_Truncate_UscNalsani_ExtrFactVentasPosCadenas"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas.PrecedenceConstraints[Constraint]"
+          TopLeft="172,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23,60"
+              Start="0,0"
+              End="-23,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-19,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19,30"
+                    Point2="-23,30"
+                    Point3="-23,34" />
+                  <mssgle:LineSegment
+                    End="-23,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="360,205"
+          Size="360,248"
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas"
+          TopLeft="149.5,137.166666666667" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="347,42"
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas"
+          TopLeft="448.5,382.5" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\DC_FactVentasPosCadenas"
+          TopLeft="526.5,264.5" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Derivada_FactVentasPosCadenas"
+          TopLeft="526.5,162.5" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas"
+          TopLeft="525.5,59.5" />
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas.Paths[Data Conversion Output]"
+          TopLeft="625.75,306.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas.Paths[Excel Source Output]"
+          TopLeft="652.5,101.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9,61"
+              Start="0,0"
+              End="-9,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="-4,30.5" />
+                  <mssgle:LineSegment
+                    End="-5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5,30.5"
+                    Point2="-9,30.5"
+                    Point3="-9,34.5" />
+                  <mssgle:LineSegment
+                    End="-9,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas.Paths[Derived Column Output]"
+          TopLeft="643.5,204.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14,60"
+              Start="0,0"
+              End="-14,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-10,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10,30"
+                    Point2="-14,30"
+                    Point3="-14,34" />
+                  <mssgle:LineSegment
+                    End="-14,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\OLEDB_Destino_UscArchivos_ExtrFactVentasPosCadenas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SC_UscNalsani_ExtrFactVentasPosCadenas\DFT_UscNalsani_ExtrFactVentasPosCadenas\Excel_Origen_FactVentasPosCadenas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
